@@ -32,4 +32,4 @@ jobs:
           sshpass -e rsync -avz --delete \
             -e "ssh -o StrictHostKeyChecking=no" \
             dist/ \
-            ${{ secrets.SSH_USER }}@${{ secrets.SERVER_IP }}:/home/clients/XXXXXX/sites/${{ secrets.DEST_DOMAIN }}/
+            ky6gz_adopteunmotard@128.65.195.221:sites/adopteunmotard.com/
