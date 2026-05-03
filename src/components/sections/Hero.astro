@@ -1,7 +1,7 @@
 ---
 import { Button } from '../ui/Button';
 import { FadeIn } from '../ui/FadeIn';
-import { CanvasText } from '../ui/canvas-text';
+import { ElectricText } from '../ui/electric-text';
 import { ArrowDown } from 'lucide-react';
 ---
 
@@ -16,14 +16,8 @@ import { ArrowDown } from 'lucide-react';
 
     <FadeIn client:visible delay={0.1}>
       <h1 class="text-4xl md:text-[60px] font-black leading-tight text-deep-charcoal mb-8 tracking-tight">
-        Passer à la moto électrique : <br />
-        <CanvasText 
-          text="Arrêtez de fantasmer" 
-          client:load 
-          colors={["#A8E6E2", "#3D4144", "#A8E6E2"]}
-          backgroundClassName="bg-electric-cyan/10"
-          className="text-deep-charcoal"
-        />, apprenez à la vivre.
+        <ElectricText client:load text="Passer à la moto électrique :" /> <br />
+        <span class="text-electric-cyan">Arrêtez de fantasmer</span>, apprenez à la vivre.
       </h1>
     </FadeIn>
 

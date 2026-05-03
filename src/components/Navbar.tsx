@@ -7,7 +7,7 @@ import {
   IconMessageHeart,
   IconReceipt2,
   IconTargetArrow,
-  IconBrandX,
+  IconShoppingCart,
   IconShieldCheck
 } from "@tabler/icons-react";
 
@@ -44,9 +44,9 @@ export const Navbar = () => {
       href: "#promesse",
     },
     {
-      title: "Twitter",
-      icon: <IconBrandX className="h-full w-full" />,
-      href: "https://x.com/djaps",
+      title: "Rejoindre",
+      icon: <IconShoppingCart className="h-full w-full" />,
+      href: "#",
     },
   ];
 
