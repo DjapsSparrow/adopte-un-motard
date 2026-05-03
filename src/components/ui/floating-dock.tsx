@@ -64,7 +64,7 @@ const FloatingDockMobile = ({
                 <a
                   href={item.href}
                   key={item.title}
-                  className="h-10 w-10 rounded-full bg-paper border border-carbon-grey/10 flex items-center justify-center"
+                  className="h-10 w-10 rounded-full bg-deep-charcoal/90 border border-white/10 flex items-center justify-center text-paper hover:bg-electric-cyan hover:text-deep-charcoal transition-colors"
                 >
                   <div className="h-4 w-4">{item.icon}</div>
                 </a>
@@ -75,9 +75,9 @@ const FloatingDockMobile = ({
       </AnimatePresence>
       <button
         onClick={() => setOpen(!open)}
-        className="h-10 w-10 rounded-full bg-paper border border-carbon-grey/10 flex items-center justify-center"
+        className="h-10 w-10 rounded-full bg-deep-charcoal border border-white/10 flex items-center justify-center text-paper"
       >
-        <IconLayoutNavbarCollapse className="h-5 w-5 text-carbon-grey" />
+        <IconLayoutNavbarCollapse className="h-5 w-5" />
       </button>
     </div>
   );
@@ -163,7 +163,7 @@ function IconContainer({
         style={{ width, height }}
         onMouseEnter={() => setHovered(true)}
         onMouseLeave={() => setHovered(false)}
-        className="aspect-square rounded-full bg-white border border-carbon-grey/5 flex items-center justify-center relative transition-colors hover:bg-electric-cyan/10"
+        className="aspect-square rounded-full bg-white/10 border border-white/5 flex items-center justify-center relative transition-colors hover:bg-electric-cyan hover:text-deep-charcoal group"
       >
         <AnimatePresence>
           {hovered && (
@@ -171,7 +171,7 @@ function IconContainer({
               initial={{ opacity: 0, y: 10, x: "-50%" }}
               animate={{ opacity: 1, y: 0, x: "-50%" }}
               exit={{ opacity: 0, y: 2, x: "-50%" }}
-              className="px-2 py-0.5 whitespace-pre rounded-md bg-deep-charcoal text-paper absolute left-1/2 -top-8 w-fit text-xs font-bold"
+              className="px-2 py-1 whitespace-pre rounded-md bg-electric-cyan text-deep-charcoal absolute left-1/2 -top-10 w-fit text-xs font-black shadow-lg border border-white/20"
             >
               {title}
             </motion.div>
@@ -179,7 +179,7 @@ function IconContainer({
         </AnimatePresence>
         <motion.div
           style={{ width: widthIcon, height: heightIcon }}
-          className="flex items-center justify-center text-carbon-grey"
+          className="flex items-center justify-center text-paper group-hover:text-deep-charcoal transition-colors"
         >
           {icon}
         </motion.div>

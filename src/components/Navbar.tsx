@@ -51,11 +51,11 @@ export const Navbar = () => {
   ];
 
   return (
-    <div className="fixed bottom-10 left-0 right-0 z-50 flex items-center justify-center pointer-events-none">
+    <div className="fixed bottom-4 left-0 right-0 z-50 flex items-center justify-center pointer-events-none">
       <div className="pointer-events-auto">
         <FloatingDock 
           items={links} 
-          desktopClassName="bg-paper/80 backdrop-blur-md"
+          desktopClassName="bg-deep-charcoal/90 backdrop-blur-lg border-white/10"
           mobileClassName="translate-y-0"
         />
       </div>
