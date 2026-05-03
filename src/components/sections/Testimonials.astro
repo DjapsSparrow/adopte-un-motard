@@ -1,0 +1,46 @@
+---
+import { AnimatedTestimonials } from "./ui/animated-testimonials";
+import { FadeIn } from "./ui/FadeIn";
+
+const testimonials = [
+  {
+    quote: "J'hésitais depuis 2 ans. Cette formation m'a donné les clés concrètes pour choisir ma Zero SR/F sans regretter mon investissement.",
+    name: "Marc D.",
+    designation: "Motard depuis 15 ans",
+    src: "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?q=80&w=3560&auto=format&fit=crop",
+  },
+  {
+    quote: "Le module sur la recharge a tout changé. Je ne vois plus les longs trajets comme une galère mais comme une nouvelle façon de voyager.",
+    name: "Sophie L.",
+    designation: "Propriétaire d'une LiveWire",
+    src: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=3540&auto=format&fit=crop",
+  },
+  {
+    quote: "Enfin un avis qui n'est pas celui d'un vendeur. On sent le vécu derrière chaque conseil. Indispensable avant de franchir le pas.",
+    name: "Thomas B.",
+    designation: "Nouveau converti à l'électrique",
+    src: "https://images.unsplash.com/photo-1623582854588-d60de57fa33f?q=80&w=3540&auto=format&fit=crop",
+  },
+  {
+    quote: "Économiser 15 000€ d'erreur potentielle pour le prix d'une formation, c'est le meilleur calcul que j'ai fait cette année.",
+    name: "Julien M.",
+    designation: "Entrepreneur",
+    src: "https://images.unsplash.com/photo-1636041293178-808a6762ab39?q=80&w=3464&auto=format&fit=crop",
+  },
+];
+---
+
+<section id="temoignages" class="py-24 md:py-32 bg-white overflow-hidden">
+  <div class="container mx-auto px-6">
+    <FadeIn client:visible>
+      <div class="text-center mb-16">
+        <h2 class="text-3xl md:text-[40px] font-bold text-deep-charcoal mb-4">Ils ont franchi le virage</h2>
+        <p class="text-[20px] text-carbon-grey max-w-2xl mx-auto">
+          Découvrez les retours de ceux qui roulent désormais en silence.
+        </p>
+      </div>
+    </FadeIn>
+
+    <AnimatedTestimonials client:visible testimonials={testimonials} autoplay={true} />
+  </div>
+</section>

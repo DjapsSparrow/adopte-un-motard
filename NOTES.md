@@ -1,24 +1,28 @@
 # PHASE 1: ÉTAT ACTUEL
-(2026-05-04) - **STABILITÉ: 100% BLEU (Landing Page v1)**
+(2026-05-04) - **STABILITÉ: 100% BLEU (UI Enhancements)**
 
 ## 🚀 Résumé de Session
-Intégration complète de la landing page "Adopte un motard" basée sur le design system "Signature Fusion" (Style Papier).
+Amélioration visuelle majeure avec l'intégration de composants Aceternity UI.
 
 ### Fichiers Modifiés :
-- `package.json` : Passage en v1.1.0.
-- `src/layouts/Layout.astro` : Adaptation au design "Papier" et ajout d'Inter.
-- `src/pages/index.astro` : Assemblage des sections (Hero, Problem, Authority, Program, Targeting, Investment, FinalCTA).
-- `src/components/` : Création de toute la structure UI et des sections.
-- `src/styles/global.css` : Configuration du thème Tailwind v4.
+- `package.json` : Passage en v1.2.0, ajout de `clsx`, `tailwind-merge`, `@tabler/icons-react`.
+- `tsconfig.json` : Ajout de l'alias `@/` pour les imports.
+- `src/lib/utils.ts` : Ajout de la fonction utilitaire `cn`.
+- `src/components/ui/` : Intégration de `CanvasText`, `FloatingDock` et `AnimatedTestimonials`.
+- `src/components/Navbar.astro` : Navigation flottante interactive.
+- `src/components/sections/Testimonials.astro` : Nouvelle section témoignages animés.
+- `src/components/sections/Hero.astro` : Effet CanvasText sur le mot-clé principal.
 
 ### Objectif Prochain :
-- Vérifier le rendu avec les images finales.
-- Préparer les quizz de validation et le contenu des vidéos.
-- Mettre en place le calculateur de ROI (V2).
+- Finaliser le contenu des témoignages (vrais avis).
+- Intégrer les liens vers les réseaux sociaux réels.
+- Préparer les quizz de validation.
 
 ## 📜 Journal des Versions (Changelog)
+- **v1.2.0** (2026-05-04) : UI Enhancements (Aceternity UI). FloatingDock, CanvasText, AnimatedTestimonials.
 - **v1.1.0** (2026-05-04) : Intégration de la Landing Page. Style Papier, Inter font, structure complète.
 - **v1.0.0** (2026-05-03) : Big Bang technique. Astro + React + Tailwind + Sécurité.
+
 
 ---
 
