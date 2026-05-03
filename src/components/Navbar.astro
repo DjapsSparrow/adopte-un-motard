@@ -1,4 +1,5 @@
 ---
+import React from "react";
 import { FloatingDock } from "./ui/floating-dock";
 import {
   IconHome,
@@ -13,37 +14,37 @@ import {
 const links = [
   {
     title: "Accueil",
-    icon: <IconHome className="h-full w-full" />,
+    icon: React.createElement(IconHome, { className: "h-full w-full" }),
     href: "#",
   },
   {
     title: "Programme",
-    icon: <IconListDetails className="h-full w-full" />,
+    icon: React.createElement(IconListDetails, { className: "h-full w-full" }),
     href: "#programme",
   },
   {
     title: "Pour qui ?",
-    icon: <IconTargetArrow className="h-full w-full" />,
+    icon: React.createElement(IconTargetArrow, { className: "h-full w-full" }),
     href: "#ciblage",
   },
   {
     title: "Témoignages",
-    icon: <IconMessageHeart className="h-full w-full" />,
+    icon: React.createElement(IconMessageHeart, { className: "h-full w-full" }),
     href: "#temoignages",
   },
   {
     title: "Tarifs",
-    icon: <IconReceipt2 className="h-full w-full" />,
+    icon: React.createElement(IconReceipt2, { className: "h-full w-full" }),
     href: "#tarifs",
   },
   {
     title: "Ma Promesse",
-    icon: <IconShieldCheck className="h-full w-full" />,
+    icon: React.createElement(IconShieldCheck, { className: "h-full w-full" }),
     href: "#promesse",
   },
   {
     title: "Twitter",
-    icon: <IconBrandX className="h-full w-full" />,
+    icon: React.createElement(IconBrandX, { className: "h-full w-full" }),
     href: "https://x.com/djaps", // Placeholder Twitter
   },
 ];
