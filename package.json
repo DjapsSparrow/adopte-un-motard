@@ -1,7 +1,7 @@
 {
   "name": "adopte-un-motard",
   "type": "module",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "engines": {
     "node": ">=22.12.0"
   },
@@ -13,11 +13,13 @@
   },
   "dependencies": {
     "@astrojs/react": "^5.0.4",
+    "@fontsource/inter": "^5.2.8",
     "@tailwindcss/vite": "^4.2.4",
     "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",
     "astro": "^6.2.1",
     "framer-motion": "^12.38.0",
+    "lucide-react": "^1.14.0",
     "react": "^19.2.5",
     "react-dom": "^19.2.5",
     "tailwindcss": "^4.2.4"

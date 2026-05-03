@@ -1,1 +1,19 @@
 @import "tailwindcss";
+
+@theme {
+  --color-paper: #F2EFE9;
+  --color-electric-cyan: #A8E6E2;
+  --color-carbon-grey: #3D4144;
+  --color-power-red: #E63946;
+  --color-deep-charcoal: #1A1A1B;
+  --color-pure-white: #FFFFFF;
+
+  --font-sans: "Inter", sans-serif;
+}
+
+@layer base {
+  body {
+    background-color: var(--color-paper);
+    color: var(--color-deep-charcoal);
+  }
+}

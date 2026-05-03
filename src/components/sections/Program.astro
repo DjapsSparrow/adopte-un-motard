@@ -1,0 +1,75 @@
+---
+import { FadeIn } from '../ui/FadeIn';
+
+const modules = [
+  {
+    title: "Le Choc des Réalités",
+    description: "Démystifier l'ADN de ces machines sans fantasmes ni peurs."
+  },
+  {
+    title: "L'Audit de vos Besoins",
+    description: "Analyser votre usage réel (pas votre fantasme) pour choisir la bonne bécane."
+  },
+  {
+    title: "L'Électricité sans jargon",
+    description: "Comprendre les kW, kWh et les prises sans être ingénieur."
+  },
+  {
+    title: "Pilotage & Sensations",
+    description: "Dompter la poussée linéaire et maîtriser la régénération."
+  },
+  {
+    title: "Efficience & Météo",
+    description: "Jouer avec les éléments (vent, froid) pour optimiser vos trajets."
+  },
+  {
+    title: "La Recharge de A à Z",
+    description: "Gérer sa batterie à la maison et maîtriser les infrastructures publiques."
+  },
+  {
+    title: "Road-trips & Logistique",
+    description: "Planifier sereinement vos itinéraires et optimiser vos longs trajets."
+  },
+  {
+    title: "Entretien & Fiabilité",
+    description: "Ce qui disparaît (vidanges) et ce qu'il faut surveiller (cellules, mises à jour)."
+  },
+  {
+    title: "Équipement Spécifique",
+    description: "Gérer le confort acoustique et thermique du motard électrique."
+  },
+  {
+    title: "Le Verdict",
+    description: "Est-ce fait pour vous (ou faut-il attendre) ?"
+  }
+];
+---
+
+<section id="programme" class="py-24 md:py-32 bg-white">
+  <div class="container mx-auto px-6 max-w-6xl">
+    <FadeIn>
+      <div class="text-center mb-16">
+        <h2 class="text-3xl md:text-[40px] font-bold text-deep-charcoal mb-4">Le Programme</h2>
+        <p class="text-[20px] text-carbon-grey max-w-2xl mx-auto">
+          Ce n'est pas un cours d'ingénierie, c'est un guide pratique pour la route.
+        </p>
+      </div>
+    </FadeIn>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {modules.map((mod, index) => (
+        <FadeIn delay={index * 0.05} className="bg-pure-white border border-electric-cyan/15 rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow">
+          <div class="flex items-center gap-4 mb-4">
+            <span class="flex items-center justify-center w-10 h-10 rounded-full bg-paper text-deep-charcoal font-bold font-mono">
+              {index + 1}
+            </span>
+            <h3 class="text-xl font-bold text-deep-charcoal leading-tight">{mod.title}</h3>
+          </div>
+          <p class="text-carbon-grey text-base">
+            {mod.description}
+          </p>
+        </FadeIn>
+      ))}
+    </div>
+  </div>
+</section>

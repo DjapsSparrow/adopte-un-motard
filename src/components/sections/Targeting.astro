@@ -1,0 +1,65 @@
+---
+import { FadeIn } from '../ui/FadeIn';
+import { CheckCircle2, XCircle } from 'lucide-react';
+---
+
+<section class="py-24 md:py-32 bg-paper">
+  <div class="container mx-auto px-6 max-w-5xl">
+    <FadeIn>
+      <h2 class="text-3xl md:text-[40px] font-bold text-deep-charcoal mb-16 text-center leading-tight">
+        Est-ce que cette formation est <br />
+        <span class="text-electric-cyan">votre prochain virage ?</span>
+      </h2>
+    </FadeIn>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
+      {/* OUI Column */}
+      <FadeIn delay={0.1}>
+        <div class="bg-white p-8 rounded-2xl border-t-8 border-electric-cyan shadow-sm h-full">
+          <div class="flex items-center gap-3 mb-6">
+            <CheckCircle2 class="w-8 h-8 text-electric-cyan" />
+            <h3 class="text-2xl font-bold text-deep-charcoal">C'est pour vous OUI si...</h3>
+          </div>
+          <ul class="space-y-4 text-carbon-grey text-lg">
+            <li class="flex items-start gap-3">
+              <span class="text-electric-cyan mt-1">•</span>
+              Vous voulez un avis impartial, basé sur le réel et non sur des fiches techniques.
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="text-electric-cyan mt-1">•</span>
+              Vous avez besoin d'organiser votre logistique (recharge, longs trajets) sans stress.
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="text-electric-cyan mt-1">•</span>
+              Vous souhaitez transformer l'absence d'embrayage et de bruit en pur plaisir de pilotage.
+            </li>
+          </ul>
+        </div>
+      </FadeIn>
+
+      {/* NON Column */}
+      <FadeIn delay={0.2}>
+        <div class="bg-white p-8 rounded-2xl border-t-8 border-power-red shadow-sm h-full">
+          <div class="flex items-center gap-3 mb-6">
+            <XCircle class="w-8 h-8 text-power-red" />
+            <h3 class="text-2xl font-bold text-deep-charcoal">C'est NON si...</h3>
+          </div>
+          <ul class="space-y-4 text-carbon-grey text-lg">
+            <li class="flex items-start gap-3">
+              <span class="text-power-red mt-1">•</span>
+              Vous cherchez un simple "guide d'achat" pour comparer des prix.
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="text-power-red mt-1">•</span>
+              Vous voulez un cours d'ingénierie pure sur la conception des moteurs électriques.
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="text-power-red mt-1">•</span>
+              Vous êtes persuadé que seule l'odeur de l'essence fait un "vrai" motard.
+            </li>
+          </ul>
+        </div>
+      </FadeIn>
+    </div>
+  </div>
+</section>

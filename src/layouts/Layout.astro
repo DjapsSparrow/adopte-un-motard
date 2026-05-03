@@ -1,9 +1,10 @@
 ---
+import '@fontsource/inter';
 import '../styles/global.css';
 import { version } from '../../package.json';
 ---
 <!doctype html>
-<html lang="fr">
+<html lang="fr" class="scroll-smooth">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
@@ -12,7 +13,7 @@ import { version } from '../../package.json';
 		<meta name="generator" content={Astro.generator} />
 		<title>Adopte un Motard</title>
 	</head>
-	<body class="bg-zinc-950 text-zinc-100 selection:bg-orange-500/30">
+	<body class="font-sans antialiased text-deep-charcoal bg-paper selection:bg-electric-cyan/50">
 		<slot />
 		
 		<!-- 🎖️ Version Badge -->
