@@ -5,7 +5,7 @@ import { CheckCircle2, XCircle } from 'lucide-react';
 
 <section class="py-24 md:py-32 bg-paper">
   <div class="container mx-auto px-6 max-w-5xl">
-    <FadeIn>
+    <FadeIn client:visible>
       <h2 class="text-3xl md:text-[40px] font-bold text-deep-charcoal mb-16 text-center leading-tight">
         Est-ce que cette formation est <br />
         <span class="text-electric-cyan">votre prochain virage ?</span>
@@ -14,7 +14,7 @@ import { CheckCircle2, XCircle } from 'lucide-react';
 
     <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
       {/* OUI Column */}
-      <FadeIn delay={0.1}>
+      <FadeIn client:visible delay={0.1}>
         <div class="bg-white p-8 rounded-2xl border-t-8 border-electric-cyan shadow-sm h-full">
           <div class="flex items-center gap-3 mb-6">
             <CheckCircle2 class="w-8 h-8 text-electric-cyan" />
@@ -38,7 +38,7 @@ import { CheckCircle2, XCircle } from 'lucide-react';
       </FadeIn>
 
       {/* NON Column */}
-      <FadeIn delay={0.2}>
+      <FadeIn client:visible delay={0.2}>
         <div class="bg-white p-8 rounded-2xl border-t-8 border-power-red shadow-sm h-full">
           <div class="flex items-center gap-3 mb-6">
             <XCircle class="w-8 h-8 text-power-red" />

@@ -5,35 +5,35 @@ import { HelpCircle, BatteryWarning, PlugZap, Gauge } from 'lucide-react';
 
 <section class="py-24 md:py-32 bg-white">
   <div class="container mx-auto px-6 max-w-3xl">
-    <FadeIn>
+    <FadeIn client:visible>
       <h2 class="text-3xl md:text-[40px] font-bold text-deep-charcoal mb-8 text-center leading-tight">
         On vous raconte tout... <br/>
         <span class="text-power-red">et surtout n'importe quoi.</span>
       </h2>
     </FadeIn>
 
-    <FadeIn delay={0.1}>
+    <FadeIn client:visible delay={0.1}>
       <p class="text-[20px] text-carbon-grey leading-relaxed mb-12 text-center">
         Vous lorgnez sur l’électrique, mais vous êtes noyé sous les avis contradictoires. Entre les fiches techniques marketing et les "experts" qui n’ont roulé que 20 minutes sur un parking, il est impossible de savoir :
       </p>
     </FadeIn>
 
     <div class="space-y-6 mb-12">
-      <FadeIn delay={0.2} className="flex items-start gap-4 p-6 bg-paper rounded-2xl border border-carbon-grey/10">
+      <FadeIn client:visible delay={0.2} className="flex items-start gap-4 p-6 bg-paper rounded-2xl border border-carbon-grey/10">
         <BatteryWarning className="w-8 h-8 text-electric-cyan flex-shrink-0 mt-1" />
         <p class="text-xl font-semibold text-deep-charcoal">
           L'autonomie est-elle une fiction ou une réalité ?
         </p>
       </FadeIn>
 
-      <FadeIn delay={0.3} className="flex items-start gap-4 p-6 bg-paper rounded-2xl border border-carbon-grey/10">
+      <FadeIn client:visible delay={0.3} className="flex items-start gap-4 p-6 bg-paper rounded-2xl border border-carbon-grey/10">
         <PlugZap className="w-8 h-8 text-electric-cyan flex-shrink-0 mt-1" />
         <p class="text-xl font-semibold text-deep-charcoal">
           Votre installation électrique va-t-elle tenir ?
         </p>
       </FadeIn>
 
-      <FadeIn delay={0.4} className="flex items-start gap-4 p-6 bg-paper rounded-2xl border border-carbon-grey/10">
+      <FadeIn client:visible delay={0.4} className="flex items-start gap-4 p-6 bg-paper rounded-2xl border border-carbon-grey/10">
         <Gauge className="w-8 h-8 text-electric-cyan flex-shrink-0 mt-1" />
         <p class="text-xl font-semibold text-deep-charcoal">
           Allez-vous vraiment retrouver le plaisir de piloter ?
@@ -41,7 +41,7 @@ import { HelpCircle, BatteryWarning, PlugZap, Gauge } from 'lucide-react';
       </FadeIn>
     </div>
 
-    <FadeIn delay={0.5} className="text-center p-8 bg-power-red/5 rounded-2xl border border-power-red/20">
+    <FadeIn client:visible delay={0.5} className="text-center p-8 bg-power-red/5 rounded-2xl border border-power-red/20">
       <p class="text-[22px] font-bold text-deep-charcoal">
         Résultat ? Vous hésitez, vous avez peur de faire une erreur à 15 000 € et <span class="text-power-red">vous restez sur le bord de la route.</span>
       </p>

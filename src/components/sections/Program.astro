@@ -47,7 +47,7 @@ const modules = [
 
 <section id="programme" class="py-24 md:py-32 bg-white">
   <div class="container mx-auto px-6 max-w-6xl">
-    <FadeIn>
+    <FadeIn client:visible>
       <div class="text-center mb-16">
         <h2 class="text-3xl md:text-[40px] font-bold text-deep-charcoal mb-4">Le Programme</h2>
         <p class="text-[20px] text-carbon-grey max-w-2xl mx-auto">
@@ -58,7 +58,7 @@ const modules = [
 
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
       {modules.map((mod, index) => (
-        <FadeIn delay={index * 0.05} className="bg-pure-white border border-electric-cyan/15 rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow">
+        <FadeIn client:visible delay={index * 0.05} className="bg-pure-white border border-electric-cyan/15 rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow">
           <div class="flex items-center gap-4 mb-4">
             <span class="flex items-center justify-center w-10 h-10 rounded-full bg-paper text-deep-charcoal font-bold font-mono">
               {index + 1}

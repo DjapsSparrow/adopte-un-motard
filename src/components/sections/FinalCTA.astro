@@ -8,19 +8,19 @@ import { ShieldCheck, Video, CheckSquare } from 'lucide-react';
   <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-carbon-grey/40 via-deep-charcoal to-deep-charcoal pointer-events-none"></div>
   
   <div class="container mx-auto px-6 max-w-4xl text-center relative z-10">
-    <FadeIn>
+    <FadeIn client:visible>
       <h2 class="text-3xl md:text-[50px] font-black text-white mb-8 leading-tight">
         Sautez le pas avec <span class="text-electric-cyan">certitude.</span>
       </h2>
     </FadeIn>
 
-    <FadeIn delay={0.1}>
+    <FadeIn client:visible delay={0.1}>
       <blockquote class="text-[20px] md:text-[24px] text-paper/80 font-medium italic max-w-3xl mx-auto mb-12">
         "La formation ne s'arrête pas au dernier slide, elle se poursuit à chaque virage que nous prendrons désormais en silence."
       </blockquote>
     </FadeIn>
 
-    <FadeIn delay={0.2} className="flex flex-col items-center justify-center">
+    <FadeIn client:visible delay={0.2} className="flex flex-col items-center justify-center">
       <Button href="#" client:load className="text-xl py-6 px-12 mb-6 w-full sm:w-auto hover:scale-105 transition-transform duration-300">
         J'ACCÈDE À LA FORMATION MAINTENANT
       </Button>

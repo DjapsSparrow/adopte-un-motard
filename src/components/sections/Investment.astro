@@ -5,7 +5,7 @@ import { BadgeCheck, Clock, PiggyBank } from 'lucide-react';
 
 <section class="py-24 md:py-32 bg-white">
   <div class="container mx-auto px-6 max-w-5xl">
-    <FadeIn>
+    <FadeIn client:visible>
       <div class="text-center mb-16">
         <h2 class="text-3xl md:text-[40px] font-bold text-deep-charcoal mb-4">Pourquoi cet investissement ?</h2>
         <p class="text-[20px] text-carbon-grey max-w-2xl mx-auto">
@@ -15,7 +15,7 @@ import { BadgeCheck, Clock, PiggyBank } from 'lucide-react';
     </FadeIn>
 
     <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-      <FadeIn delay={0.1} className="bg-paper p-8 rounded-2xl border border-carbon-grey/10 text-center">
+      <FadeIn client:visible delay={0.1} className="bg-paper p-8 rounded-2xl border border-carbon-grey/10 text-center">
         <div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-white mb-6 shadow-sm text-electric-cyan">
           <BadgeCheck size={32} />
         </div>
@@ -25,7 +25,7 @@ import { BadgeCheck, Clock, PiggyBank } from 'lucide-react';
         </p>
       </FadeIn>
 
-      <FadeIn delay={0.2} className="bg-paper p-8 rounded-2xl border border-carbon-grey/10 text-center">
+      <FadeIn client:visible delay={0.2} className="bg-paper p-8 rounded-2xl border border-carbon-grey/10 text-center">
         <div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-white mb-6 shadow-sm text-electric-cyan">
           <Clock size={32} />
         </div>
@@ -35,7 +35,7 @@ import { BadgeCheck, Clock, PiggyBank } from 'lucide-react';
         </p>
       </FadeIn>
 
-      <FadeIn delay={0.3} className="bg-paper p-8 rounded-2xl border border-carbon-grey/10 text-center relative overflow-hidden">
+      <FadeIn client:visible delay={0.3} className="bg-paper p-8 rounded-2xl border border-carbon-grey/10 text-center relative overflow-hidden">
         <div class="absolute inset-0 bg-gradient-to-br from-electric-cyan/10 to-transparent pointer-events-none"></div>
         <div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-white mb-6 shadow-sm text-power-red relative z-10">
           <PiggyBank size={32} />

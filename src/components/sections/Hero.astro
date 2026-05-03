@@ -9,25 +9,25 @@ import { ArrowDown, PlayCircle } from 'lucide-react';
   <div class="absolute top-1/4 left-1/2 -translate-x-1/2 w-3/4 h-3/4 bg-electric-cyan/10 blur-[120px] rounded-full pointer-events-none -z-10"></div>
 
   <div class="container mx-auto px-6 max-w-4xl text-center">
-    <FadeIn>
+    <FadeIn client:visible>
       <img src="/logo.png" alt="Adopte Un Motard Logo" class="h-48 md:h-64 mx-auto mb-10 object-contain drop-shadow-xl" />
     </FadeIn>
 
-    <FadeIn delay={0.1}>
+    <FadeIn client:visible delay={0.1}>
       <h1 class="text-4xl md:text-[60px] font-black leading-tight text-deep-charcoal mb-8 tracking-tight">
         Passer à la moto électrique : <br />
         <span class="text-electric-cyan">Arrêtez de fantasmer</span>, apprenez à la vivre.
       </h1>
     </FadeIn>
 
-    <FadeIn delay={0.2}>
+    <FadeIn client:visible delay={0.2}>
       <p class="text-lg md:text-[22px] text-carbon-grey leading-relaxed max-w-3xl mx-auto mb-12">
         <strong>5 ans d’expérience au quotidien</strong> condensés en une formation ultra-complète pour décider, choisir et rouler sereinement. 
         Sans discours de vendeur, <span class="underline decoration-electric-cyan decoration-4 underline-offset-4">juste la réalité du bitume</span>.
       </p>
     </FadeIn>
 
-    <FadeIn delay={0.3} className="flex flex-col sm:flex-row items-center justify-center gap-6">
+    <FadeIn client:visible delay={0.3} className="flex flex-col sm:flex-row items-center justify-center gap-6">
       <Button href="#programme" client:load className="w-full sm:w-auto text-lg py-5 px-10">
         Rejoindre la formation
       </Button>
