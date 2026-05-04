@@ -36,7 +36,7 @@ const FloatingDockMobile = ({
   className?: string;
 }) => {
   const [open, setOpen] = useState(false);
-  const radius = 110; // Augmenté pour laisser de la place aux labels
+  const radius = 130; // Rayon augmenté pour plus d'espace
 
   return (
     <div className={cn("relative block md:hidden", className)}>
@@ -48,6 +48,11 @@ const FloatingDockMobile = ({
               const angleRad = (angle * Math.PI) / 180;
               const x = radius * Math.cos(angleRad);
               const y = -radius * Math.sin(angleRad);
+
+              // Logique de positionnement du label pour éviter le chevauchement
+              const isLeft = x < -40;
+              const isRight = x > 40;
+              const isTop = !isLeft && !isRight;
 
               return (
                 <motion.div
@@ -74,19 +79,26 @@ const FloatingDockMobile = ({
                     damping: 15,
                     delay: (items.length - 1 - idx) * 0.05 
                   }}
-                  className="absolute top-0 left-0 flex flex-col items-center gap-1"
+                  className="absolute top-0 left-0"
                 >
                   <a
                     href={item.href}
-                    className="h-10 w-10 rounded-full bg-deep-charcoal/95 backdrop-blur-md border border-white/10 flex items-center justify-center text-paper shadow-2xl hover:bg-electric-cyan hover:text-deep-charcoal transition-colors"
+                    className="h-10 w-10 rounded-full bg-deep-charcoal/95 backdrop-blur-md border border-white/10 flex items-center justify-center text-paper shadow-2xl relative"
                   >
                     <div className="h-4 w-4">{item.icon}</div>
+                    
+                    {/* Label positionné dynamiquement */}
+                    <div className={cn(
+                      "absolute bg-deep-charcoal/90 backdrop-blur-sm px-2 py-1 rounded-lg border border-white/10 shadow-xl pointer-events-none",
+                      isLeft ? "right-full mr-3 top-1/2 -translate-y-1/2" : 
+                      isRight ? "left-full ml-3 top-1/2 -translate-y-1/2" : 
+                      "bottom-full mb-3 left-1/2 -translate-x-1/2"
+                    )}>
+                      <span className="text-[10px] text-white font-bold whitespace-nowrap uppercase tracking-wider">
+                        {item.title}
+                      </span>
+                    </div>
                   </a>
-                  <div className="bg-deep-charcoal/80 backdrop-blur-sm px-2 py-0.5 rounded-full border border-white/5">
-                    <span className="text-[9px] text-paper font-bold whitespace-nowrap uppercase tracking-wider">
-                      {item.title}
-                    </span>
-                  </div>
                 </motion.div>
               );
             })}

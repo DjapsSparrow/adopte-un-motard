@@ -1,12 +1,12 @@
 # PHASE 1: ÉTAT ACTUEL
-(2026-05-04) - **STABILITÉ: 100% BLEU (UX Enhancement)**
+(2026-05-04) - **STABILITÉ: 100% BLEU (UX Fix)**
 
 ## 🚀 Résumé de Session
-Ajout des labels textuels sous les icônes du Dock Mobile.
+Correction du chevauchement des labels du Dock Mobile via un positionnement dynamique.
 
 ### Fichiers Modifiés :
-- `package.json` : Passage en v1.4.1.
-- `src/components/ui/floating-dock.tsx` : Ajout de labels permanents en mode mobile et augmentation du rayon de l'arc.
+- `package.json` : Passage en v1.4.2.
+- `src/components/ui/floating-dock.tsx` : Positionnement intelligent des labels (Gauche/Droite/Haut) et augmentation du rayon à 130px.
 
 ### Objectif Prochain :
 - Intégrer les vrais avis clients.
@@ -14,6 +14,7 @@ Ajout des labels textuels sous les icônes du Dock Mobile.
 - Test de performance mobile final.
 
 ## 📜 Journal des Versions (Changelog)
+- **v1.4.2** (2026-05-04) : Dynamic Label Positioning. Les labels s'écartent vers l'extérieur pour éviter tout chevauchement.
 - **v1.4.1** (2026-05-04) : Mobile Dock Labels. Ajout de texte sous les pictos pour compenser l'absence de hover sur mobile.
 - **v1.4.0** (2026-05-04) : New Mobile Dock Arc. Déploiement semi-circulaire pour éviter l'obstruction centrale.
 - **v1.3.1** (2026-05-04) : Fix espacement blocs Problem (flex gap).
