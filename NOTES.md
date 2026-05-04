@@ -1,22 +1,18 @@
 # PHASE 1: ÉTAT ACTUEL
-(2026-05-04) - **STABILITÉ: 100% BLEU (Content Restoration)**
+(2026-05-04) - **STABILITÉ: 100% BLEU (Hotfix Build)**
 
 ## 🚀 Résumé de Session
-Restauration du contenu métier stratégique et ajout d'interactivité Hero (Swipe).
+Hotfix pour corriger une erreur de build liée à un import d'icône inexistant.
 
 ### Fichiers Modifiés :
-- `package.json` : Passage en v1.7.0.
-- `src/components/ui/SlideToJoin.tsx` : [NOUVEAU] Bouton interactif Swipe-to-Action.
-- `src/components/sections/Problem.astro` : [RESTAURÉ] Section "Le Constat" avec le contenu original.
-- `src/components/sections/BentoFeatures.astro` : Restructuration en 10 Modules thématiques.
-- `src/components/sections/Hero.astro` : Restauration du texte et intégration du Swipe.
-- Autres : Mise à jour du contenu sur toutes les sections (Authority, Targeting, Investment, FinalCTA).
+- `package.json` : Passage en v1.7.1.
+- `src/components/sections/BentoFeatures.astro` : Remplacement de l'icône `Tool` par `Wrench`.
 
 ### Objectif Prochain :
 - Test de performance mobile final.
-- Finalisation des icônes pour les 10 modules.
 
 ## 📜 Journal des Versions (Changelog)
+- **v1.7.1** (2026-05-04) : Hotfix Lucide Icons. Correction de l'import `Tool` -> `Wrench`.
 - **v1.7.0** (2026-05-04) : Content Restoration & Swipe Interaction. Réintégration de la copie métier et ajout du bouton interactif "Slide to Join".
 - **v1.6.0** (2026-05-04) : Major Design System Pivot. Transition vers l'esthétique "Antigravity Electric Mobility" (Full Dark, Electric Blue, Bento Grid).
 - **v1.5.4** (2026-05-04) : Hero Background Refresh. Nouvelle image "Signature" pour un impact visuel accru.
