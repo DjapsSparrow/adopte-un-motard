@@ -1,7 +1,7 @@
 {
   "name": "adopte-un-motard",
   "type": "module",
-  "version": "1.7.8",
+  "version": "1.7.9",
   "engines": {
     "node": ">=22.12.0"
   },
