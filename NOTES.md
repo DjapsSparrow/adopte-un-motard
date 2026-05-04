@@ -1,12 +1,13 @@
 # PHASE 1: ÉTAT ACTUEL
-(2026-05-04) - **STABILITÉ: 100% BLEU (Security Hardening)**
+(2026-05-04) - **STABILITÉ: 100% BLEU (Design Refresh)**
 
 ## 🚀 Résumé de Session
-Audit de sécurité complet et durcissement de la configuration serveur.
+Mise à jour visuelle du Hero : nouvelle image de fond "Horizon Électrique".
 
 ### Fichiers Modifiés :
-- `package.json` : Passage en v1.5.3.
-- `public/.htaccess` : Durcissement de la `Referrer-Policy` et extension de la protection des fichiers sensibles.
+- `package.json` : Passage en v1.5.4.
+- `src/components/sections/Hero.astro` : Remplacement de l'image de fond et ajustement de l'opacité.
+- `public/hero-bg-v2.jpg` : Ajout du nouvel asset visuel.
 
 ### Objectif Prochain :
 - Intégrer les vrais avis clients.
@@ -14,6 +15,7 @@ Audit de sécurité complet et durcissement de la configuration serveur.
 - Test de performance mobile final.
 
 ## 📜 Journal des Versions (Changelog)
+- **v1.5.4** (2026-05-04) : Hero Background Refresh. Nouvelle image "Signature" pour un impact visuel accru.
 - **v1.5.3** (2026-05-04) : Security Hardening. Audit complet, Referrer-Policy renforcée, blocage étendu des fichiers sensibles.
 - **v1.5.2** (2026-05-04) : Click-outside Mobile Menu. Fermeture automatique si on clique n'importe où ailleurs sur l'écran.
 - **v1.5.1** (2026-05-04) : Auto-close Mobile Menu. Le menu se replie automatiquement après la sélection d'une section.
