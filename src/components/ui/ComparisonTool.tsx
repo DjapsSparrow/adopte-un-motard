@@ -56,7 +56,7 @@ export const ComparisonTool: React.FC = () => {
 
           <div className="mb-12">
             <div className="flex justify-between items-end mb-6">
-              <label className="text-xs font-black uppercase tracking-widest text-carbon-grey opacity-60">Kilométrage annuel</label>
+              <label className="text-xs font-black uppercase tracking-widest text-deep-charcoal opacity-60">Kilométrage annuel</label>
               <div className="text-3xl font-black text-deep-charcoal italic">
                 {km.toLocaleString()} <span className="text-accent text-xl">km</span>
               </div>
@@ -70,7 +70,7 @@ export const ComparisonTool: React.FC = () => {
               onChange={(e) => setKm(parseInt(e.target.value))}
               className="w-full h-2 bg-gray-100 rounded-lg appearance-none cursor-pointer accent-accent"
             />
-            <div className="flex justify-between mt-4 text-[10px] font-bold text-carbon-grey/40 uppercase">
+            <div className="flex justify-between mt-4 text-[10px] font-bold text-deep-charcoal/40 uppercase">
               <span>0 km</span>
               <span>12 500 km</span>
               <span>25 000 km</span>
@@ -78,13 +78,13 @@ export const ComparisonTool: React.FC = () => {
           </div>
 
           <div className="bg-bg/5 rounded-2xl p-6 border border-black/5">
-            <p className="text-sm text-carbon-grey leading-relaxed">
-              En roulant <span className="font-bold text-deep-charcoal">{km.toLocaleString()} km/an</span>, votre formation est rentabilisée en seulement :
+            <p className="text-sm text-deep-charcoal leading-relaxed">
+              En roulant <span className="font-bold text-deep-charcoal">{km.toLocaleString()} km/an</span> votre formation est rentabilisée en seulement :
             </p>
             <div className="text-4xl font-black text-accent italic mt-2">
               <Odometer value={breakEvenDays} suffix=" jours" />
             </div>
-            <p className="text-[10px] font-bold uppercase tracking-widest text-carbon-grey/40 mt-4 italic">
+            <p className="text-[10px] font-bold uppercase tracking-widest text-deep-charcoal/40 mt-4 italic">
               Basé sur les économies réelles de carburant
             </p>
           </div>
@@ -97,7 +97,7 @@ export const ComparisonTool: React.FC = () => {
             <div className="flex items-center justify-between mb-6">
               <div className="flex items-center gap-2">
                 <PiggyBank size={18} className="text-accent" />
-                <span className="text-xs font-black uppercase tracking-widest text-carbon-grey">Économie annuelle</span>
+                <span className="text-xs font-black uppercase tracking-widest text-deep-charcoal">Économie annuelle</span>
               </div>
               <div className="text-2xl font-black text-deep-charcoal italic">
                 <Odometer value={annualSavings} suffix=" €" />
@@ -106,7 +106,7 @@ export const ComparisonTool: React.FC = () => {
             
             <div className="space-y-4">
               <div className="space-y-2">
-                <div className="flex justify-between text-[10px] font-black uppercase text-carbon-grey/60">
+                <div className="flex justify-between text-[10px] font-black uppercase text-deep-charcoal/60">
                   <span>Thermique</span>
                   <Odometer value={thermalFuelCost + (km/10000*350)} suffix=" €" />
                 </div>
@@ -139,7 +139,7 @@ export const ComparisonTool: React.FC = () => {
             <div className="flex items-center justify-between mb-6">
               <div className="flex items-center gap-2">
                 <Leaf size={18} className={isEcoNeutral ? "text-accent" : "text-power-red"} />
-                <span className="text-xs font-black uppercase tracking-widest text-carbon-grey">Empreinte Carbone</span>
+                <span className="text-xs font-black uppercase tracking-widest text-deep-charcoal">Empreinte Carbone</span>
               </div>
               <div className={`text-2xl font-black italic ${isEcoNeutral ? "text-accent" : "text-power-red"}`}>
                 {isEcoNeutral ? "Neutralisé !" : <Odometer value={co2Net} suffix=" kg CO2" />}
@@ -155,12 +155,12 @@ export const ComparisonTool: React.FC = () => {
                 className="h-full rounded-full transition-colors duration-500"
               />
               <div className="absolute inset-0 flex items-center justify-between px-4 pointer-events-none">
-                <span className="text-[8px] font-black uppercase text-white mix-blend-difference">Dette Carbone</span>
-                <span className="text-[8px] font-black uppercase text-white mix-blend-difference">Rentabilité Éco (9k km)</span>
+                <span className="text-[8px] font-black uppercase text-white">Dette Carbone</span>
+                <span className="text-[8px] font-black uppercase text-white">Rentabilité Éco (9k km)</span>
               </div>
             </div>
             
-            <p className="text-[10px] text-carbon-grey/60 leading-relaxed mt-4">
+            <p className="text-[10px] text-deep-charcoal/60 leading-relaxed mt-4">
               {isEcoNeutral 
                 ? "Bravo ! Vous avez compensé la dette carbone liée à la fabrication de votre batterie." 
                 : `Plus que ${Math.round(9091 - km)} km pour effacer totalement votre dette carbone initiale.`}

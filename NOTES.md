@@ -1,19 +1,18 @@
 # PHASE 2: ÉTAT ACTUEL
-(2026-05-04) - **STABILITÉ: 100% BLEU (Savings Calculator v2.0)**
+(2026-05-04) - **STABILITÉ: 100% BLEU (Calculator Contrast Hotfix)**
 
 ## 🚀 Résumé de Session
-Lancement du "Comparateur de Rentabilité & Impact CO2". Un outil interactif majeur qui permet aux utilisateurs de visualiser concrètement leurs économies annuelles et le point de rentabilité écologique de leur passage à l'électrique.
+Correction critique des contrastes sur le comparateur de rentabilité. Remplacement des textes clairs sur fond blanc/gris par des tons foncés (Deep Charcoal) et amélioration de la lisibilité des labels sur les jauges CO2.
 
 ### Fichiers Modifiés :
-- `package.json` : Passage en v2.0.0 (Mise à jour majeure).
-- `src/components/ui/ComparisonTool.tsx` : Logique de calcul TCO et CO2 (React).
-- `src/components/sections/SavingsCalculator.astro` : Section d'intégration.
-- `src/pages/index.astro` : Ajout de la section au funnel de vente.
+- `package.json` : Passage en v2.0.1.
+- `src/components/ui/ComparisonTool.tsx` : Harmonisation des couleurs de texte pour une accessibilité maximale.
 
 ### Objectif Prochain :
 - Test de performance mobile final.
 
 ## 📜 Journal des Versions (Changelog)
+- **v2.0.1** (2026-05-04) : Calculator Contrast Hotfix. Amélioration radicale de la visibilité des textes sur le comparateur.
 - **v2.0.0** (2026-05-04) : Savings Calculator. Déploiement de l'outil de simulation TCO & CO2 interactif.
 - **v1.9.1** (2026-05-04) : Testimonials Interactivity. Ajout de la pause au survol et du support swipe (framer-motion).
 - **v1.9.0** (2026-05-04) : Left Widgets Stack. Empilement de CoursePreview au-dessus de YouTubeWidget sur le bord gauche.
