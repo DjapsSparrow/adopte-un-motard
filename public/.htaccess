@@ -11,7 +11,7 @@ RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
     Header set Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
     Header set X-Frame-Options "DENY"
     Header set X-Content-Type-Options "nosniff"
-    Header set Referrer-Policy "no-referrer-when-downgrade"
+    Header set Referrer-Policy "strict-origin-when-cross-origin"
     Header set Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self';"
     Header set Permissions-Policy "geolocation=(), microphone=(), camera=()"
 </IfModule>
@@ -21,7 +21,7 @@ Options -Indexes
 ServerSignature Off
 
 # 4. Block Sensitive Files
-<FilesMatch "^\.|\.(json|md|env|yml|yaml|log)$">
+<FilesMatch "^\.|\.(json|md|env|yml|yaml|log|lock|bak|swp|git|dist|astro)$">
     Order allow,deny
     Deny from all
 </FilesMatch>
