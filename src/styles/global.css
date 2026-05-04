@@ -24,12 +24,12 @@
 }
 
 .light {
-  --bg: #F9FAFB;
+  --bg: #FDFDFD;
   --surface: #FFFFFF;
-  --text-primary: #111827;
-  --text-secondary: #4B5563;
-  --accent: #0284C7;
-  --deep-charcoal: #E5E7EB;
+  --text-primary: #050505;
+  --text-secondary: #333333;
+  --accent: #006BB3; /* Plus sombre pour la lisibilité */
+  --deep-charcoal: #0F0F10; /* Doit rester sombre */
 }
 
 @layer base {
@@ -47,15 +47,33 @@
     box-shadow: 0 0 20px rgba(0, 163, 255, 0.3);
   }
   .light .glow-blue {
-    box-shadow: 0 10px 30px rgba(0, 163, 255, 0.1);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
   }
   .text-glow {
     text-shadow: 0 0 10px rgba(0, 163, 255, 0.5);
   }
   .light .text-glow {
-    text-shadow: none;
-    @apply font-black;
+    text-shadow: none !important;
   }
+}
+
+/* Light Mode specific refinements */
+.light .text-accent {
+  @apply font-extrabold;
+  color: var(--accent);
+}
+
+.light h1, .light h2, .light h3 {
+  color: var(--text-primary);
+  @apply tracking-tight;
+}
+
+.light .logo-filter {
+  filter: invert(1) brightness(0.05); /* Logo presque noir */
+}
+
+.light .bg-surface {
+  @apply border border-black/5 shadow-sm;
 }
 
 ::view-transition-old(root),

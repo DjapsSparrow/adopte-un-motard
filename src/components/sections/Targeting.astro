@@ -42,22 +42,22 @@ import { CheckCircle2, XCircle } from 'lucide-react';
 
       {/* NON Column */}
       <FadeIn client:visible delay={0.2}>
-        <div class="bg-surface p-10 rounded-[24px] border border-white/5 h-full relative group hover:border-white/10 transition-colors">
+        <div class="bg-surface p-10 rounded-[24px] border border-white/5 h-full relative group hover:border-white/10 transition-colors light:border-black/5">
           <div class="flex items-center gap-4 mb-8">
-            <XCircle class="w-8 h-8 text-text-secondary/50" />
-            <h3 class="text-2xl font-black text-text-secondary italic uppercase">C'est NON si...</h3>
+            <XCircle class="w-8 h-8 text-text-secondary/50 light:text-text-secondary" />
+            <h3 class="text-2xl font-black text-text-secondary italic uppercase light:text-text-primary">C'est NON si...</h3>
           </div>
-          <ul class="space-y-6 text-text-secondary/60">
+          <ul class="space-y-6 text-text-secondary/60 light:text-text-secondary">
             <li class="flex items-start gap-4">
-              <div class="h-1.5 w-1.5 rounded-full bg-white/20 mt-2.5 flex-shrink-0"></div>
-              <p>Vous cherchez un simple <span class="italic text-text-primary/40">guide d'achat</span> de prix.</p>
+              <div class="h-1.5 w-1.5 rounded-full bg-white/20 light:bg-black/20 mt-2.5 flex-shrink-0"></div>
+              <p>Vous cherchez un simple <span class="italic text-text-primary/40 light:text-text-primary">guide d'achat</span> de prix.</p>
             </li>
             <li class="flex items-start gap-4">
-              <div class="h-1.5 w-1.5 rounded-full bg-white/20 mt-2.5 flex-shrink-0"></div>
+              <div class="h-1.5 w-1.5 rounded-full bg-white/20 light:bg-black/20 mt-2.5 flex-shrink-0"></div>
               <p>Vous voulez un cours d'ingénierie pure sur les moteurs.</p>
             </li>
             <li class="flex items-start gap-4">
-              <div class="h-1.5 w-1.5 rounded-full bg-white/20 mt-2.5 flex-shrink-0"></div>
+              <div class="h-1.5 w-1.5 rounded-full bg-white/20 light:bg-black/20 mt-2.5 flex-shrink-0"></div>
               <p>Vous pensez que seule l'odeur de l'essence fait un motard.</p>
             </li>
           </ul>
