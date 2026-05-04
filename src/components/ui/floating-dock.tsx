@@ -36,7 +36,7 @@ const FloatingDockMobile = ({
   className?: string;
 }) => {
   const [open, setOpen] = useState(false);
-  const radius = 90; // Rayon de l'arc
+  const radius = 110; // Augmenté pour laisser de la place aux labels
 
   return (
     <div className={cn("relative block md:hidden", className)}>
@@ -74,7 +74,7 @@ const FloatingDockMobile = ({
                     damping: 15,
                     delay: (items.length - 1 - idx) * 0.05 
                   }}
-                  className="absolute top-0 left-0"
+                  className="absolute top-0 left-0 flex flex-col items-center gap-1"
                 >
                   <a
                     href={item.href}
@@ -82,6 +82,11 @@ const FloatingDockMobile = ({
                   >
                     <div className="h-4 w-4">{item.icon}</div>
                   </a>
+                  <div className="bg-deep-charcoal/80 backdrop-blur-sm px-2 py-0.5 rounded-full border border-white/5">
+                    <span className="text-[9px] text-paper font-bold whitespace-nowrap uppercase tracking-wider">
+                      {item.title}
+                    </span>
+                  </div>
                 </motion.div>
               );
             })}

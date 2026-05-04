@@ -1,12 +1,12 @@
 # PHASE 1: ÉTAT ACTUEL
-(2026-05-04) - **STABILITÉ: 100% BLEU (New Feature)**
+(2026-05-04) - **STABILITÉ: 100% BLEU (UX Enhancement)**
 
 ## 🚀 Résumé de Session
-Implémentation du Dock Mobile en arc de cercle (Option 1).
+Ajout des labels textuels sous les icônes du Dock Mobile.
 
 ### Fichiers Modifiés :
-- `package.json` : Passage en v1.4.0.
-- `src/components/ui/floating-dock.tsx` : Refacto complète du mode mobile (déploiement semi-circulaire via Framer Motion).
+- `package.json` : Passage en v1.4.1.
+- `src/components/ui/floating-dock.tsx` : Ajout de labels permanents en mode mobile et augmentation du rayon de l'arc.
 
 ### Objectif Prochain :
 - Intégrer les vrais avis clients.
@@ -14,6 +14,7 @@ Implémentation du Dock Mobile en arc de cercle (Option 1).
 - Test de performance mobile final.
 
 ## 📜 Journal des Versions (Changelog)
+- **v1.4.1** (2026-05-04) : Mobile Dock Labels. Ajout de texte sous les pictos pour compenser l'absence de hover sur mobile.
 - **v1.4.0** (2026-05-04) : New Mobile Dock Arc. Déploiement semi-circulaire pour éviter l'obstruction centrale.
 - **v1.3.1** (2026-05-04) : Fix espacement blocs Problem (flex gap).
 - **v1.3.0** (2026-05-04) : UX Polish. Hero haute visibilité, ElectricText, Dock optimisé, Espacement sections.
