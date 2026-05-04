@@ -1,18 +1,19 @@
 # PHASE 1: ÉTAT ACTUEL
-(2026-05-04) - **STABILITÉ: 100% BLEU (Testimonials Expansion)**
+(2026-05-04) - **STABILITÉ: 100% BLEU (Marketing Polish)**
 
 ## 🚀 Résumé de Session
-Extension de la section témoignages à 9 profils authentiques. Couverture de nouveaux cas d'usage : montagne, voyages longue distance, expertise mécanique et revente.
+Ajustement du discours marketing pour mieux refléter la valeur de la formation : mise en avant des "3h de conseils stratégiques" pour éviter les pièges, remplaçant la notion plus générique de "2h de vidéo".
 
 ### Fichiers Modifiés :
-- `package.json` : Passage en v1.8.4.
-- `src/components/sections/Testimonials.astro` : Ajout de 4 nouveaux profils (Total: 9).
-- `public/images/testimonials/` : Ajout des portraits `t6` à `t9`.
+- `package.json` : Passage en v1.8.5.
+- `src/components/sections/Hero.astro` : Mise à jour du bloc offre.
+- `src/components/sections/Investment.astro` : Mise à jour du bénéfice "Gain de temps".
 
 ### Objectif Prochain :
 - Test de performance mobile final.
 
 ## 📜 Journal des Versions (Changelog)
+- **v1.8.5** (2026-05-04) : Marketing Polish. Optimisation du wording ("3h de conseils pour éviter les pièges") pour augmenter la valeur perçue.
 - **v1.8.4** (2026-05-04) : Testimonials Expansion. Ajout de 4 avis supplémentaires couvrant la montagne, le touring longue distance et la technique mécanique.
 - **v1.8.3** (2026-05-04) : Authentic Testimonials. Remplacement des placeholders par 5 avis stratégiques (peur de l'autonomie, choix du modèle, sécurité urbaine, etc.) avec portraits réels.
 - **v1.8.2** (2026-05-04) : YouTube Integration. Widget flottant bas-gauche menant à la chaîne officielle pour renforcer l'autorité métier.
