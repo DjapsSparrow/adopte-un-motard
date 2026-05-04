@@ -1,17 +1,20 @@
 # PHASE 1: ÉTAT ACTUEL
-(2026-05-04) - **STABILITÉ: 100% BLEU (Library Sync)**
+(2026-05-04) - **STABILITÉ: 100% BLEU (Funnel Optimization)**
 
 ## 🚀 Résumé de Session
-Synchronisation du composant SlideToJoin avec la bibliothèque globale de compétences.
+Refonte du tunnel de conversion : déplacement du SlideToJoin vers le bas de page et mise en avant de la valeur (29€ / 2h de formation) dans le Hero.
 
 ### Fichiers Modifiés :
-- `package.json` : Passage en v1.7.9.
-- `/Users/djaps/.gemini/antigravity/skills/library.md` : Ajout du module `SlideToJoin`.
+- `package.json` : Passage en v1.8.0.
+- `src/components/ui/SlideToJoin.tsx` : Flexibilité accrue via les props.
+- `src/components/sections/Hero.astro` : Nouveau bloc prix/valeur et lien de scroll.
+- `src/components/sections/FinalCTA.astro` : Intégration du SlideToJoin comme acte d'engagement final.
 
 ### Objectif Prochain :
 - Test de performance mobile final.
 
 ## 📜 Journal des Versions (Changelog)
+- **v1.8.0** (2026-05-04) : Funnel Optimization. Déplacement du `SlideToJoin` en clôture de page. Le Hero affiche désormais le prix (29€) et la durée de formation (+2h) pour maximiser la perception de valeur immédiate.
 - **v1.7.9** (2026-05-04) : Library Sync. Extraction et ajout du composant `SlideToJoin` à la bibliothèque Antigravity globale.
 - **v1.7.8** (2026-05-04) : Build Hotfix. Correction d'une variable non définie (`target`) empêchant le pré-rendu static du site.
 - **v1.7.7** (2026-05-04) : Navbar Reordering. Alignement des items du dock avec l'ordre réel des sections (Accueil > Programme > Ma Promesse > Pour qui > Tarifs > Témoignages > Rejoindre).

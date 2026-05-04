@@ -1,6 +1,7 @@
 ---
 import { Button } from '../ui/Button';
 import { FadeIn } from '../ui/FadeIn';
+import { SlideToJoin } from '../ui/SlideToJoin';
 import { ShieldCheck, Video, CheckSquare } from 'lucide-react';
 ---
 
@@ -21,16 +22,13 @@ import { ShieldCheck, Video, CheckSquare } from 'lucide-react';
     </FadeIn>
 
     <FadeIn client:visible delay={0.2} className="flex flex-col items-center justify-center">
-      <Button 
-        href="https://ecole.fudoshin.solutions/offers/aab1d65b-e96b-49a2-b054-de94398f7f7b" 
-        target="_blank" 
+      <SlideToJoin 
         client:load 
-        className="text-xl py-6 px-12 mb-10 w-full sm:w-auto"
-      >
-        J'ACCÈDE À LA FORMATION MAINTENANT
-      </Button>
+        text="Glisser pour adopter l'électrique"
+        onSuccess={() => window.open('https://ecole.fudoshin.solutions/offers/aab1d65b-e96b-49a2-b054-de94398f7f7b', '_blank')}
+      />
 
-      <div class="flex flex-wrap justify-center items-center gap-6 text-text-secondary text-[10px] font-black uppercase tracking-[0.2em] opacity-60">
+      <div class="flex flex-wrap justify-center items-center gap-6 text-text-secondary text-[10px] font-black uppercase tracking-[0.2em] opacity-60 mt-10">
         <div class="flex items-center gap-2">
           <div class="h-1 w-1 rounded-full bg-accent"></div>
           <span>Accès immédiat</span>

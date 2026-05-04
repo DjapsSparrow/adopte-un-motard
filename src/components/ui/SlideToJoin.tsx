@@ -2,7 +2,19 @@ import React, { useState, useRef } from 'react';
 import { motion, useMotionValue, useTransform } from 'framer-motion';
 import { ChevronRight } from 'lucide-react';
 
-export const SlideToJoin: React.FC = () => {
+interface SlideToJoinProps {
+  onSuccess?: () => void;
+  text?: string;
+  successText?: string;
+  className?: string;
+}
+
+export const SlideToJoin: React.FC<SlideToJoinProps> = ({ 
+  onSuccess, 
+  text = "Glisser pour rejoindre",
+  successText = "PRÉPARATION DU VIRAGE...",
+  className = ""
+}) => {
   const [isSuccess, setIsSuccess] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
   const x = useMotionValue(0);
@@ -14,7 +26,7 @@ export const SlideToJoin: React.FC = () => {
   const handleDragEnd = (event: any, info: any) => {
     if (info.offset.x > 180) {
       setIsSuccess(true);
-      window.open('https://ecole.fudoshin.solutions/offers/aab1d65b-e96b-49a2-b054-de94398f7f7b', '_blank');
+      if (onSuccess) onSuccess();
       // Reset after a delay
       setTimeout(() => {
         setIsSuccess(false);
@@ -24,7 +36,7 @@ export const SlideToJoin: React.FC = () => {
   };
 
   return (
-    <div className="w-full max-w-sm mx-auto">
+    <div className={`w-full max-w-sm mx-auto ${className}`}>
       <motion.div 
         ref={containerRef}
         style={{ backgroundColor: bgColor }}
@@ -35,7 +47,7 @@ export const SlideToJoin: React.FC = () => {
           className="absolute inset-0 flex items-center justify-center pointer-events-none"
         >
           <span className="text-[10px] font-black uppercase tracking-[0.4em] text-white ml-10 drop-shadow-sm">
-            Glisser pour rejoindre
+            {text}
           </span>
         </motion.div>
 
@@ -56,7 +68,9 @@ export const SlideToJoin: React.FC = () => {
             animate={{ opacity: 1 }}
             className="absolute inset-0 bg-accent flex items-center justify-center z-20"
           >
-            <span className="text-bg font-black uppercase tracking-widest text-sm">PRÉPARATION DU VIRAGE...</span>
+            <span className="text-bg font-black uppercase tracking-widest text-sm">
+              {successText}
+            </span>
           </motion.div>
         )}
       </motion.div>

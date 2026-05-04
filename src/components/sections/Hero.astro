@@ -1,7 +1,6 @@
 ---
 import { Button } from '../ui/Button';
 import { FadeIn } from '../ui/FadeIn';
-import { SlideToJoin } from '../ui/SlideToJoin';
 import { LuminousArc } from '../ui/LuminousArc';
 ---
 
@@ -38,7 +37,29 @@ import { LuminousArc } from '../ui/LuminousArc';
     </FadeIn>
 
     <FadeIn client:visible delay={0.4}>
-      <SlideToJoin client:load />
+      <div class="flex flex-col items-center gap-6">
+        <div class="bg-surface/40 backdrop-blur-sm border border-accent/20 rounded-2xl p-6 md:p-8 flex flex-col md:flex-row items-center gap-6 md:gap-10 shadow-2xl">
+          <div class="flex items-baseline gap-1">
+            <span class="text-5xl md:text-6xl font-black text-white italic tracking-tighter">29</span>
+            <span class="text-2xl font-black text-accent italic uppercase">€</span>
+          </div>
+          
+          <div class="h-px md:h-12 w-12 md:w-px bg-white/10"></div>
+          
+          <div class="text-left">
+            <div class="text-xs font-black text-accent uppercase tracking-widest mb-1">Offre Lancement</div>
+            <div class="text-sm md:text-base text-white font-bold leading-tight">
+              +2h de formation intensive <br />
+              <span class="text-text-secondary font-medium opacity-60">Accès immédiat et à vie</span>
+            </div>
+          </div>
+        </div>
+        
+        <a href="#programme" class="group flex flex-col items-center gap-2 text-[10px] font-black uppercase tracking-[0.3em] text-text-secondary hover:text-accent transition-colors">
+          <span>Découvrir le programme</span>
+          <div class="h-10 w-[1px] bg-gradient-to-b from-accent to-transparent group-hover:h-14 transition-all duration-500"></div>
+        </a>
+      </div>
     </FadeIn>
   </div>
 </section>
