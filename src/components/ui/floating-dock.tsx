@@ -41,11 +41,19 @@ const FloatingDockMobile = ({
     <div className={cn("relative block md:hidden", className)}>
       <AnimatePresence>
         {open && (
-          <motion.div
-            layoutId="nav"
-            className="absolute bottom-full right-0 mb-4 flex flex-col items-end gap-3"
-          >
-            {items.map((item, idx) => (
+          <>
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setOpen(false)}
+              className="fixed inset-0 bg-black/5 z-0"
+            />
+            <motion.div
+              layoutId="nav"
+              className="absolute bottom-full right-0 mb-4 flex flex-col items-end gap-3 z-10"
+            >
+              {items.map((item, idx) => (
               <motion.div
                 key={item.title}
                 initial={{ opacity: 0, x: 20 }}
@@ -77,6 +85,7 @@ const FloatingDockMobile = ({
               </motion.div>
             ))}
           </motion.div>
+          </>
         )}
       </AnimatePresence>
       <div className="flex justify-end w-full">

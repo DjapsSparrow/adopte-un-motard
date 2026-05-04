@@ -2,11 +2,11 @@
 (2026-05-04) - **STABILITÉ: 100% BLEU (UX Polish)**
 
 ## 🚀 Résumé de Session
-Auto-fermeture du menu mobile lors du clic sur une section.
+Ajout de la fermeture du menu mobile par clic extérieur.
 
 ### Fichiers Modifiés :
-- `package.json` : Passage en v1.5.1.
-- `src/components/ui/floating-dock.tsx` : Ajout d'un handler `onClick` sur les liens pour fermer le menu.
+- `package.json` : Passage en v1.5.2.
+- `src/components/ui/floating-dock.tsx` : Ajout d'un overlay transparent (`fixed inset-0`) pour capturer les clics extérieurs.
 
 ### Objectif Prochain :
 - Intégrer les vrais avis clients.
@@ -14,6 +14,7 @@ Auto-fermeture du menu mobile lors du clic sur une section.
 - Test de performance mobile final.
 
 ## 📜 Journal des Versions (Changelog)
+- **v1.5.2** (2026-05-04) : Click-outside Mobile Menu. Fermeture automatique si on clique n'importe où ailleurs sur l'écran.
 - **v1.5.1** (2026-05-04) : Auto-close Mobile Menu. Le menu se replie automatiquement après la sélection d'une section.
 - **v1.5.0** (2026-05-04) : Simplified Mobile Dock. Trigger à droite, menu vertical, texte à gauche.
 - **v1.4.3** (2026-05-04) : iPhone Viewport Fix. Resserrement de l'arc pour garantir que les labels restent dans l'écran sur les téléphones étroits.
