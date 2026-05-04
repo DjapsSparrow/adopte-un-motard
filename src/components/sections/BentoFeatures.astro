@@ -84,11 +84,11 @@ const modules = [
               <m.icon size={20} />
             </div>
             <h3 class="text-lg font-black text-text-primary mb-2 uppercase italic leading-tight">{m.title}</h3>
-            <p class="text-xs text-text-secondary leading-relaxed opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+            <p class="text-[10px] md:text-xs text-text-secondary leading-relaxed transition-opacity duration-300">
               {m.desc}
             </p>
           </div>
-          <div class="text-[40px] font-black text-text-primary/5 absolute -bottom-2 -right-2 italic select-none">
+          <div class="text-[40px] font-black text-text-primary/5 absolute bottom-1 right-2 italic select-none light:text-black/5">
             {String(i + 1).padStart(2, '0')}
           </div>
         </FadeIn>

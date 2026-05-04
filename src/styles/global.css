@@ -8,6 +8,8 @@
   --color-text-secondary: var(--text-secondary);
   --color-electric-cyan: var(--accent);
   --color-deep-charcoal: var(--deep-charcoal);
+  --color-cream: var(--cream);
+  --color-paper: var(--paper);
 
   --font-sans: "Inter", sans-serif;
 }
@@ -21,6 +23,8 @@
   --text-secondary: #8E8E93;
   --accent: #00A3FF;
   --deep-charcoal: #020203;
+  --cream: #FFFFFF;
+  --paper: #111114;
 }
 
 .light {
@@ -28,8 +32,10 @@
   --surface: #FFFFFF;
   --text-primary: #050505;
   --text-secondary: #333333;
-  --accent: #006BB3; /* Plus sombre pour la lisibilité */
-  --deep-charcoal: #0F0F10; /* Doit rester sombre */
+  --accent: #006BB3;
+  --deep-charcoal: #0F0F10;
+  --cream: #F5F5DC;
+  --paper: #F5F5DC;
 }
 
 @layer base {
@@ -66,10 +72,6 @@
 .light h1, .light h2, .light h3 {
   color: var(--text-primary);
   @apply tracking-tight;
-}
-
-.light .logo-filter {
-  filter: invert(1) brightness(0.05); /* Logo presque noir */
 }
 
 .light .bg-surface {

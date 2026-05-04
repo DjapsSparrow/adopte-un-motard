@@ -132,7 +132,7 @@ export const CoursePreview: React.FC = () => {
         className="fixed bottom-36 md:bottom-40 left-4 md:left-6 z-50 flex items-center gap-3 group pointer-events-auto"
       >
         <div className="flex items-center justify-center w-12 h-12 bg-accent rounded-full shadow-[0_0_20px_rgba(0,163,255,0.3)] group-hover:shadow-[0_0_30px_rgba(0,163,255,0.5)] transition-all duration-300">
-          <BookOpen size={24} className="text-text-primary" />
+          <BookOpen size={24} className="text-white" />
         </div>
         <div className="bg-white/5 backdrop-blur-md border border-white/10 px-3 py-1.5 rounded-lg opacity-0 -translate-x-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 pointer-events-none">
           <span className="text-[10px] font-black uppercase tracking-widest text-text-primary whitespace-nowrap">Aperçu du programme</span>
@@ -168,7 +168,7 @@ export const CoursePreview: React.FC = () => {
                   onClick={() => setIsOpen(false)}
                   className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-white/10 transition-colors border border-white/5"
                 >
-                  <X size={20} className="text-text-primary" />
+                  <X size={20} className="text-white" />
                 </button>
               </div>
 
