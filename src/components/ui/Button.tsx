@@ -23,7 +23,7 @@ export const Button: React.FC<ButtonProps> = ({
   
   const variants = {
     primary: "bg-accent text-bg shadow-[0_4px_14px_0_rgba(0,163,255,0.39)]",
-    secondary: "bg-surface text-white border border-white/10 hover:border-accent/30"
+    secondary: "bg-surface text-text-primary border border-white/10 hover:border-accent/30"
   };
 
   const Component = href ? motion.a : motion.button;

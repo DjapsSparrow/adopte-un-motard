@@ -8,7 +8,7 @@ import { HelpCircle, AlertTriangle, ZapOff } from 'lucide-react';
     <FadeIn client:visible>
       <div class="text-center mb-16">
         <h2 class="text-xs font-black uppercase tracking-[0.3em] text-accent mb-4">Le constat</h2>
-        <p class="text-3xl md:text-5xl font-black text-white italic uppercase tracking-tighter">
+        <p class="text-3xl md:text-5xl font-black text-text-primary italic uppercase tracking-tighter">
           On vous raconte tout... <br /> <span class="text-accent">et surtout n'importe quoi.</span>
         </p>
       </div>
@@ -17,26 +17,26 @@ import { HelpCircle, AlertTriangle, ZapOff } from 'lucide-react';
     <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
       <FadeIn client:visible delay={0.1} className="bg-surface p-8 rounded-[24px] border border-white/5 flex flex-col items-center text-center">
         <HelpCircle class="text-accent mb-6" size={40} />
-        <p class="text-white font-bold leading-tight uppercase italic">L'autonomie est-elle une fiction ou une réalité ?</p>
+        <p class="text-text-primary font-bold leading-tight uppercase italic">L'autonomie est-elle une fiction ou une réalité ?</p>
       </FadeIn>
 
       <FadeIn client:visible delay={0.2} className="bg-surface p-8 rounded-[24px] border border-white/5 flex flex-col items-center text-center">
         <ZapOff class="text-accent mb-6" size={40} />
-        <p class="text-white font-bold leading-tight uppercase italic">Votre installation électrique va-t-elle tenir ?</p>
+        <p class="text-text-primary font-bold leading-tight uppercase italic">Votre installation électrique va-t-elle tenir ?</p>
       </FadeIn>
 
       <FadeIn client:visible delay={0.3} className="bg-surface p-8 rounded-[24px] border border-white/5 flex flex-col items-center text-center">
         <AlertTriangle class="text-accent mb-6" size={40} />
-        <p class="text-white font-bold leading-tight uppercase italic">Allez-vous vraiment retrouver le plaisir de piloter ?</p>
+        <p class="text-text-primary font-bold leading-tight uppercase italic">Allez-vous vraiment retrouver le plaisir de piloter ?</p>
       </FadeIn>
     </div>
 
     <FadeIn client:visible delay={0.4} className="max-w-3xl mx-auto text-center">
       <p class="text-xl md:text-2xl text-text-secondary leading-relaxed mb-8">
-        Entre les fiches techniques marketing et les "experts" qui n’ont roulé que 20 minutes sur un parking, <span class="text-white">il est impossible de savoir.</span>
+        Entre les fiches techniques marketing et les "experts" qui n’ont roulé que 20 minutes sur un parking, <span class="text-text-primary">il est impossible de savoir.</span>
       </p>
       <div class="p-8 rounded-[24px] bg-accent/5 border border-accent/20">
-        <p class="text-white font-black italic uppercase text-lg">
+        <p class="text-text-primary font-black italic uppercase text-lg">
           Résultat ? Vous hésitez, vous avez peur de faire une erreur à <span class="text-accent text-glow">15 000 €</span> et vous restez sur le bord de la route.
         </p>
       </div>

@@ -16,8 +16,16 @@ import { version } from '../../package.json';
 		<link rel="icon" href="/favicon.ico" />
 		<meta name="generator" content={Astro.generator} />
 		<title>Adopte un Motard</title>
+		<script is:inline>
+			(function() {
+				const theme = localStorage.getItem('theme');
+				if (theme === 'light') {
+					document.documentElement.classList.add('light');
+				}
+			})();
+		</script>
 	</head>
-	<body class="font-sans antialiased text-white bg-bg selection:bg-accent/30 overflow-x-hidden">
+	<body class="font-sans antialiased text-text-primary bg-bg selection:bg-accent/30 overflow-x-hidden">
 		<Navbar client:load />
 		<slot />
 		<ScrollToTop client:load />
@@ -26,7 +34,7 @@ import { version } from '../../package.json';
 		
 		<!-- 🎖️ Version Badge -->
 		<div class="fixed bottom-4 left-4 z-50 pointer-events-none">
-			<span class="text-[10px] font-bold font-mono text-white/40 bg-white/5 backdrop-blur-sm px-2 py-1 rounded-full border border-white/10 shadow-sm">
+			<span class="text-[10px] font-bold font-mono text-text-primary/40 bg-white/5 backdrop-blur-sm px-2 py-1 rounded-full border border-white/10 shadow-sm">
 				v{version}
 			</span>
 		</div>

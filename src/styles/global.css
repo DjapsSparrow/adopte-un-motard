@@ -1,23 +1,44 @@
 @import "tailwindcss";
 
 @theme {
-  --color-bg: #020203;
-  --color-accent: #00A3FF;
-  --color-surface: #111114;
-  --color-text-primary: #FFFFFF;
-  --color-text-secondary: #8E8E93;
-  --color-electric-cyan: #00A3FF; /* Mapping for backward compatibility if needed */
-  --color-deep-charcoal: #020203;
+  --color-bg: var(--bg);
+  --color-accent: var(--accent);
+  --color-surface: var(--surface);
+  --color-text-primary: var(--text-primary);
+  --color-text-secondary: var(--text-secondary);
+  --color-electric-cyan: var(--accent);
+  --color-deep-charcoal: var(--deep-charcoal);
 
   --font-sans: "Inter", sans-serif;
 }
 
+@custom-variant light (&:where(.light, .light *));
+
+:root {
+  --bg: #020203;
+  --surface: #111114;
+  --text-primary: #FFFFFF;
+  --text-secondary: #8E8E93;
+  --accent: #00A3FF;
+  --deep-charcoal: #020203;
+}
+
+.light {
+  --bg: #F8F9FA;
+  --surface: #FFFFFF;
+  --text-primary: #020203;
+  --text-secondary: #66666E;
+  --accent: #0082CC;
+  --deep-charcoal: #E5E5E5;
+}
+
 @layer base {
   body {
-    background-color: var(--color-bg);
-    color: var(--color-text-primary);
+    background-color: var(--bg);
+    color: var(--text-primary);
     font-feature-settings: "cv02", "cv03", "cv04", "ss01";
     letter-spacing: -0.01em;
+    transition: background-color 0.3s ease, color 0.3s ease;
   }
 }
 
@@ -28,4 +49,14 @@
   .text-glow {
     text-shadow: 0 0 10px rgba(0, 163, 255, 0.5);
   }
+}
+
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+
+html[data-theme-vt="active"]::view-transition-group(root) {
+  animation-duration: var(--theme-toggle-vt-duration);
 }

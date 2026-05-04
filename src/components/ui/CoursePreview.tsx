@@ -132,10 +132,10 @@ export const CoursePreview: React.FC = () => {
         className="fixed bottom-36 md:bottom-40 left-4 md:left-6 z-50 flex items-center gap-3 group pointer-events-auto"
       >
         <div className="flex items-center justify-center w-12 h-12 bg-accent rounded-full shadow-[0_0_20px_rgba(0,163,255,0.3)] group-hover:shadow-[0_0_30px_rgba(0,163,255,0.5)] transition-all duration-300">
-          <BookOpen size={24} className="text-white" />
+          <BookOpen size={24} className="text-text-primary" />
         </div>
         <div className="bg-white/5 backdrop-blur-md border border-white/10 px-3 py-1.5 rounded-lg opacity-0 -translate-x-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 pointer-events-none">
-          <span className="text-[10px] font-black uppercase tracking-widest text-white whitespace-nowrap">Aperçu du programme</span>
+          <span className="text-[10px] font-black uppercase tracking-widest text-text-primary whitespace-nowrap">Aperçu du programme</span>
         </div>
       </motion.button>
 
@@ -162,13 +162,13 @@ export const CoursePreview: React.FC = () => {
               <div className="p-8 border-b border-white/5 flex items-center justify-between">
                 <div>
                   <h2 className="text-xs font-black uppercase tracking-[0.3em] text-accent mb-1">Curriculum</h2>
-                  <p class="text-xl font-black text-white italic uppercase tracking-tighter">Aperçu du programme</p>
+                  <p class="text-xl font-black text-text-primary italic uppercase tracking-tighter">Aperçu du programme</p>
                 </div>
                 <button 
                   onClick={() => setIsOpen(false)}
                   className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-white/10 transition-colors border border-white/5"
                 >
-                  <X size={20} className="text-white" />
+                  <X size={20} className="text-text-primary" />
                 </button>
               </div>
 
@@ -181,7 +181,7 @@ export const CoursePreview: React.FC = () => {
                       <div className="absolute -left-[19px] top-1 w-2.5 h-2.5 rounded-full bg-accent border-4 border-bg"></div>
                       
                       <div className="pl-4">
-                        <h3 className="text-lg font-black text-white mb-4 uppercase italic leading-tight">
+                        <h3 className="text-lg font-black text-text-primary mb-4 uppercase italic leading-tight">
                           {idx + 1}. {module.title}
                         </h3>
                         <p className="text-sm text-text-secondary leading-relaxed mb-6 italic opacity-80">
@@ -192,7 +192,7 @@ export const CoursePreview: React.FC = () => {
                           {module.lessons.map((lesson, lIdx) => (
                             <div key={lIdx} className="flex items-center gap-3 p-3 rounded-xl bg-white/5 border border-white/5 group hover:border-accent/30 transition-all">
                               <PlayCircle size={14} className="text-accent opacity-50 group-hover:opacity-100 transition-opacity" />
-                              <span className="text-xs font-bold text-white/90">{lesson}</span>
+                              <span className="text-xs font-bold text-text-primary/90">{lesson}</span>
                             </div>
                           ))}
                         </div>
@@ -207,7 +207,7 @@ export const CoursePreview: React.FC = () => {
                 <a 
                   href="https://ecole.fudoshin.solutions/offers/aab1d65b-e96b-49a2-b054-de94398f7f7b"
                   target="_blank"
-                  className="flex items-center justify-center gap-3 w-full py-4 bg-accent text-white font-black uppercase tracking-widest text-sm rounded-xl hover:scale-[1.02] transition-all shadow-[0_0_20px_rgba(0,163,255,0.3)]"
+                  className="flex items-center justify-center gap-3 w-full py-4 bg-accent text-text-primary font-black uppercase tracking-widest text-sm rounded-xl hover:scale-[1.02] transition-all shadow-[0_0_20px_rgba(0,163,255,0.3)]"
                 >
                   Rejoindre la formation
                   <ChevronRight size={18} />

@@ -1,18 +1,22 @@
-# PHASE 2: ÉTAT ACTUEL
-(2026-05-04) - **STABILITÉ: 100% BLEU (Asset Refresh)**
+# PHASE 3: ÉTAT ACTUEL
+(2026-05-04) - **STABILITÉ: 100% BLEU (Multi-Theme Support v2.2)**
 
 ## 🚀 Résumé de Session
-Mise à jour des assets visuels. Remplacement de l'image d'action (moto en mouvement) par un plan studio haute qualité de la Zero SR/F dans la section "Ma Promesse".
+Implémentation d'un système de thèmes (Dark/Light) haut de gamme. Récupération de la logique "View Transition" de Karate Shotokan pour une transition fluide et morphique. Le site reste sombre par défaut mais propose désormais une version claire accessible via un commutateur en haut à droite.
 
 ### Fichiers Modifiés :
-- `package.json` : Passage en v2.1.2.
-- `public/moto-1.jpg` : [REPLACÉ] Nouvelle image studio.
-- `src/components/sections/Authority.astro` : Mise à jour de l'alt text.
+- `package.json` : Passage en v2.2.0.
+- `src/styles/global.css` : Refonte vers un système de variables CSS (`:root` / `.light`).
+- `src/components/ui/AnimatedThemeToggler.tsx` : [NOUVEAU] Commutateur animé premium.
+- `src/components/Navbar.tsx` : Intégration du commutateur.
+- `src/layouts/Layout.astro` : Ajout du script d'initialisation (anti-flash).
+- Global : Remplacement de `text-white` par `text-text-primary` pour la compatibilité thème.
 
 ### Objectif Prochain :
 - Test de performance mobile final.
 
 ## 📜 Journal des Versions (Changelog)
+- **v2.2.0** (2026-05-04) : Multi-Theme Support. Ajout de la bascule Light/Dark avec animation View Transition.
 - **v2.1.2** (2026-05-04) : Asset Refresh. Remplacement de la photo d'action par une photo studio (Zero SR/F).
 - **v2.1.0** (2026-05-04) : Feature Rollback. Suppression du calculateur de rentabilité (section + nav).
 - **v2.0.3** (2026-05-04) : Navbar Sync. Ajout du calculateur de rentabilité dans le dock de navigation.

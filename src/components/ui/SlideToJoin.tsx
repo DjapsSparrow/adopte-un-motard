@@ -46,7 +46,7 @@ export const SlideToJoin: React.FC<SlideToJoinProps> = ({
           style={{ opacity }}
           className="absolute inset-0 flex items-center justify-center pointer-events-none"
         >
-          <span className="text-[10px] font-black uppercase tracking-[0.4em] text-white ml-10 drop-shadow-sm">
+          <span className="text-[10px] font-black uppercase tracking-[0.4em] text-text-primary ml-10 drop-shadow-sm">
             {text}
           </span>
         </motion.div>
