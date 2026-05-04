@@ -1,19 +1,19 @@
 # PHASE 1: ÉTAT ACTUEL
-(2026-05-04) - **STABILITÉ: 100% BLEU (Mobile UI Cleanup)**
+(2026-05-04) - **STABILITÉ: 100% BLEU (Widgets Swap)**
 
 ## 🚀 Résumé de Session
-Nettoyage des widgets flottants sur mobile. Suppression du bouton "Retour en haut" sur mobile (jugé redondant) et alignement horizontal des widgets YouTube et Aperçu pour une interface plus propre.
+Inversion des positions des widgets flottants pour éviter les chevauchements avec les menus. L'aperçu du programme est désormais à gauche (avec ouverture latérale gauche) et le widget YouTube est à droite.
 
 ### Fichiers Modifiés :
-- `package.json` : Passage en v1.8.7.
-- `src/components/ui/ScrollToTop.tsx` : Masquage sur mobile.
-- `src/components/ui/YouTubeWidget.tsx` : Alignement responsive.
-- `src/components/ui/CoursePreview.tsx` : Alignement responsive.
+- `package.json` : Passage en v1.8.8.
+- `src/components/ui/CoursePreview.tsx` : Bascule à gauche (bouton + sidebar).
+- `src/components/ui/YouTubeWidget.tsx` : Bascule à droite (bouton + label).
 
 ### Objectif Prochain :
 - Test de performance mobile final.
 
 ## 📜 Journal des Versions (Changelog)
+- **v1.8.8** (2026-05-04) : Widgets Swap. Inversion CoursePreview (gauche) et YouTubeWidget (droite). Sidebar Aperçu s'ouvre depuis la gauche.
 - **v1.8.7** (2026-05-04) : Mobile UI Cleanup. Masquage du ScrollToTop sur mobile et alignement des widgets YouTube/Aperçu à `bottom-20`.
 - **v1.8.6** (2026-05-04) : Course Preview Sidebar. Panneau latéral interactif listant les 12 modules et leçons pour rassurer sur le contenu avant l'achat.
 - **v1.8.5** (2026-05-04) : Marketing Polish. Optimisation du wording ("3h de conseils pour éviter les pièges") pour augmenter la valeur perçue.
