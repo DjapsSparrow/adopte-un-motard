@@ -39,14 +39,13 @@ export const SlideToJoin: React.FC<SlideToJoinProps> = ({
     <div className={`w-full max-w-sm mx-auto ${className}`}>
       <motion.div 
         ref={containerRef}
-        style={{ backgroundColor: bgColor }}
-        className="relative h-16 rounded-2xl border border-white/20 overflow-hidden flex items-center p-1.5 backdrop-blur-md shadow-2xl"
+        className="relative h-16 rounded-2xl border border-white/20 overflow-hidden flex items-center p-1.5 backdrop-blur-md shadow-2xl bg-black/40 light:bg-white light:border-black/10"
       >
         <motion.div
           style={{ opacity }}
           className="absolute inset-0 flex items-center justify-center pointer-events-none"
         >
-          <span className="text-[10px] font-black uppercase tracking-[0.4em] text-white ml-14 drop-shadow-sm">
+          <span className="text-[10px] font-black uppercase tracking-[0.4em] text-white light:text-text-primary ml-14 drop-shadow-sm">
             {text}
           </span>
         </motion.div>
