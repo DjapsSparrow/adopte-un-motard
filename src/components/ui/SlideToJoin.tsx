@@ -4,6 +4,7 @@ import { ChevronRight } from 'lucide-react';
 
 interface SlideToJoinProps {
   onSuccess?: () => void;
+  href?: string;
   text?: string;
   successText?: string;
   className?: string;
@@ -11,6 +12,7 @@ interface SlideToJoinProps {
 
 export const SlideToJoin: React.FC<SlideToJoinProps> = ({ 
   onSuccess, 
+  href,
   text = "Glisser pour rejoindre",
   successText = "PRÉPARATION DU VIRAGE...",
   className = ""
@@ -27,11 +29,19 @@ export const SlideToJoin: React.FC<SlideToJoinProps> = ({
     if (info.offset.x > 180) {
       setIsSuccess(true);
       if (onSuccess) onSuccess();
+      
+      // If href is provided, redirect after a short delay
+      if (href) {
+        setTimeout(() => {
+          window.open(href, '_blank');
+        }, 800);
+      }
+
       // Reset after a delay
       setTimeout(() => {
         setIsSuccess(false);
         x.set(0);
-      }, 2000);
+      }, 3000);
     }
   };
 
