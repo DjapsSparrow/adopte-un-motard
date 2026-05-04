@@ -1,20 +1,19 @@
 # PHASE 2: ÉTAT ACTUEL
-(2026-05-04) - **STABILITÉ: 100% BLEU (Feature Rollback)**
+(2026-05-04) - **STABILITÉ: 100% BLEU (Asset Refresh)**
 
 ## 🚀 Résumé de Session
-Retrait complet du calculateur de rentabilité et d'impact CO2. Suite aux retours client, cette section a été jugée superflue pour le funnel de vente actuel. Nettoyage du code et de la navigation.
+Mise à jour des assets visuels. Remplacement de l'image d'action (moto en mouvement) par un plan studio haute qualité de la Zero SR/F dans la section "Ma Promesse".
 
 ### Fichiers Modifiés :
-- `package.json` : Passage en v2.1.0.
-- `src/pages/index.astro` : Suppression de la section.
-- `src/components/Navbar.tsx` : Retrait du lien dans le dock.
-- `src/components/sections/SavingsCalculator.astro` : [SUPPRIMÉ]
-- `src/components/ui/ComparisonTool.tsx` : [SUPPRIMÉ]
+- `package.json` : Passage en v2.1.2.
+- `public/moto-1.jpg` : [REPLACÉ] Nouvelle image studio.
+- `src/components/sections/Authority.astro` : Mise à jour de l'alt text.
 
 ### Objectif Prochain :
 - Test de performance mobile final.
 
 ## 📜 Journal des Versions (Changelog)
+- **v2.1.2** (2026-05-04) : Asset Refresh. Remplacement de la photo d'action par une photo studio (Zero SR/F).
 - **v2.1.0** (2026-05-04) : Feature Rollback. Suppression du calculateur de rentabilité (section + nav).
 - **v2.0.3** (2026-05-04) : Navbar Sync. Ajout du calculateur de rentabilité dans le dock de navigation.
 - **v2.0.2** (2026-05-04) : Calculator Simplification. Suppression du ROI formation, focus sur Economies d'usage et CO2. Mise en page Bento.
