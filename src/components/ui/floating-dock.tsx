@@ -36,84 +36,61 @@ const FloatingDockMobile = ({
   className?: string;
 }) => {
   const [open, setOpen] = useState(false);
-  const radius = 100; // Réduit pour éviter les débordements sur iPhone
 
   return (
     <div className={cn("relative block md:hidden", className)}>
       <AnimatePresence>
         {open && (
-          <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-10 h-10">
-            {items.map((item, idx) => {
-              // Arc plus serré (165° à 15°) pour garder les labels dans l'écran
-              const angle = 165 - (idx * (150 / (items.length - 1)));
-              const angleRad = (angle * Math.PI) / 180;
-              const x = radius * Math.cos(angleRad);
-              const y = -radius * Math.sin(angleRad);
-
-              const isLeft = x < -20;
-              const isRight = x > 20;
-
-              return (
-                <motion.div
-                  key={item.title}
-                  initial={{ opacity: 0, x: 0, y: 0, scale: 0 }}
-                  animate={{
-                    opacity: 1,
-                    x: x,
-                    y: y,
-                    scale: 1,
-                  }}
-                  exit={{
-                    opacity: 0,
-                    x: 0,
-                    y: 0,
-                    scale: 0,
-                    transition: {
-                      delay: idx * 0.05,
-                    },
-                  }}
-                  transition={{ 
-                    type: "spring", 
-                    stiffness: 200, 
-                    damping: 15,
-                    delay: (items.length - 1 - idx) * 0.05 
-                  }}
-                  className="absolute top-0 left-0"
+          <motion.div
+            layoutId="nav"
+            className="absolute bottom-full right-0 mb-4 flex flex-col items-end gap-3"
+          >
+            {items.map((item, idx) => (
+              <motion.div
+                key={item.title}
+                initial={{ opacity: 0, x: 20 }}
+                animate={{
+                  opacity: 1,
+                  x: 0,
+                }}
+                exit={{
+                  opacity: 0,
+                  x: 20,
+                  transition: {
+                    delay: idx * 0.05,
+                  },
+                }}
+                transition={{ delay: (items.length - 1 - idx) * 0.05 }}
+              >
+                <a
+                  href={item.href}
+                  className="flex items-center gap-3 group"
                 >
-                  <a
-                    href={item.href}
-                    className="h-10 w-10 rounded-full bg-deep-charcoal/95 backdrop-blur-md border border-white/10 flex items-center justify-center text-paper shadow-2xl relative"
-                  >
+                  <span className="text-xs font-bold text-white bg-deep-charcoal/80 backdrop-blur-sm px-3 py-1.5 rounded-lg border border-white/10 opacity-0 group-hover:opacity-100 md:group-hover:opacity-100 transition-opacity whitespace-nowrap !opacity-100">
+                    {item.title}
+                  </span>
+                  <div className="h-10 w-10 rounded-full bg-deep-charcoal/95 backdrop-blur-md border border-white/10 flex items-center justify-center text-paper shadow-xl">
                     <div className="h-4 w-4">{item.icon}</div>
-                    
-                    <div className={cn(
-                      "absolute bg-deep-charcoal/90 backdrop-blur-sm px-2 py-1 rounded-lg border border-white/10 shadow-xl pointer-events-none",
-                      isLeft ? "right-full mr-3 top-1/2 -translate-y-1/2" : 
-                      isRight ? "left-full ml-3 top-1/2 -translate-y-1/2" : 
-                      "bottom-full mb-3 left-1/2 -translate-x-1/2"
-                    )}>
-                      <span className="text-[10px] text-white font-bold whitespace-nowrap uppercase tracking-wider">
-                        {item.title}
-                      </span>
-                    </div>
-                  </a>
-                </motion.div>
-              );
-            })}
-          </div>
+                  </div>
+                </a>
+              </motion.div>
+            ))}
+          </motion.div>
         )}
       </AnimatePresence>
-      <button
-        onClick={() => setOpen(!open)}
-        className="h-10 w-10 rounded-full bg-deep-charcoal border border-white/10 flex items-center justify-center text-paper relative z-10 shadow-xl"
-      >
-        <motion.div
-          animate={{ rotate: open ? 180 : 0 }}
-          transition={{ duration: 0.3 }}
+      <div className="flex justify-end w-full">
+        <button
+          onClick={() => setOpen(!open)}
+          className="h-12 w-12 rounded-full bg-deep-charcoal border border-white/10 flex items-center justify-center text-paper relative z-10 shadow-2xl"
         >
-          <IconLayoutNavbarCollapse className="h-5 w-5" />
-        </motion.div>
-      </button>
+          <motion.div
+            animate={{ rotate: open ? 180 : 0 }}
+            transition={{ duration: 0.3 }}
+          >
+            <IconLayoutNavbarCollapse className="h-6 w-6" />
+          </motion.div>
+        </button>
+      </div>
     </div>
   );
 };

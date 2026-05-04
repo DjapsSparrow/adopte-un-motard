@@ -1,12 +1,13 @@
 # PHASE 1: ÉTAT ACTUEL
-(2026-05-04) - **STABILITÉ: 100% BLEU (iPhone Optimization)**
+(2026-05-04) - **STABILITÉ: 100% BLEU (Mobile UI Simplicity)**
 
 ## 🚀 Résumé de Session
-Optimisation du Dock Mobile pour éviter les débordements sur iPhone (écrans étroits).
+Simplification du Dock Mobile : passage sur un menu vertical calé à droite avec labels à gauche.
 
 ### Fichiers Modifiés :
-- `package.json` : Passage en v1.4.3.
-- `src/components/ui/floating-dock.tsx` : Réduction du rayon à 100px et resserrement de l'arc (165° à 15°).
+- `package.json` : Passage en v1.5.0.
+- `src/components/ui/floating-dock.tsx` : Refacto vers un menu vertical (Side-aligned).
+- `src/components/Navbar.tsx` : Alignement à droite sur mobile pour le déclencheur.
 
 ### Objectif Prochain :
 - Intégrer les vrais avis clients.
@@ -14,6 +15,7 @@ Optimisation du Dock Mobile pour éviter les débordements sur iPhone (écrans �
 - Test de performance mobile final.
 
 ## 📜 Journal des Versions (Changelog)
+- **v1.5.0** (2026-05-04) : Simplified Mobile Dock. Trigger à droite, menu vertical, texte à gauche.
 - **v1.4.3** (2026-05-04) : iPhone Viewport Fix. Resserrement de l'arc pour garantir que les labels restent dans l'écran sur les téléphones étroits.
 - **v1.4.2** (2026-05-04) : Dynamic Label Positioning. Les labels s'écartent vers l'extérieur pour éviter tout chevauchement.
 - **v1.4.1** (2026-05-04) : Mobile Dock Labels. Ajout de texte sous les pictos pour compenser l'absence de hover sur mobile.
