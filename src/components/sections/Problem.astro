@@ -7,7 +7,9 @@ import { HelpCircle, AlertTriangle, ZapOff } from 'lucide-react';
   <div class="container mx-auto px-6 max-w-5xl">
     <FadeIn client:visible>
       <div class="text-center mb-16">
-        <h2 class="text-xs font-black uppercase tracking-[0.3em] text-accent mb-4">Le constat</h2>
+        <div class="inline-block px-4 py-1.5 rounded-full bg-accent/10 border border-accent/20 mb-6">
+          <h2 class="text-xs font-black uppercase tracking-[0.3em] text-accent">Le constat</h2>
+        </div>
         <p class="text-3xl md:text-5xl font-black text-text-primary italic uppercase tracking-tighter">
           On vous raconte tout... <br /> <span class="text-accent">et surtout n'importe quoi.</span>
         </p>
@@ -16,18 +18,18 @@ import { HelpCircle, AlertTriangle, ZapOff } from 'lucide-react';
 
     <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
       <FadeIn client:visible delay={0.1} className="bg-surface p-8 rounded-[24px] border border-white/5 flex flex-col items-center text-center">
-        <HelpCircle class="text-accent mb-6" size={40} />
-        <p class="text-text-primary font-bold leading-tight uppercase italic">L'autonomie est-elle une fiction ou une réalité ?</p>
+        <HelpCircle class="text-accent mb-10" size={40} />
+        <p class="text-text-primary font-bold leading-tight uppercase italic">L'autonomie est-elle une fiction ou une réalité&nbsp;?</p>
       </FadeIn>
 
       <FadeIn client:visible delay={0.2} className="bg-surface p-8 rounded-[24px] border border-white/5 flex flex-col items-center text-center">
-        <ZapOff class="text-accent mb-6" size={40} />
-        <p class="text-text-primary font-bold leading-tight uppercase italic">Votre installation électrique va-t-elle tenir ?</p>
+        <ZapOff class="text-accent mb-10" size={40} />
+        <p class="text-text-primary font-bold leading-tight uppercase italic">Votre installation électrique va-t-elle tenir&nbsp;?</p>
       </FadeIn>
 
       <FadeIn client:visible delay={0.3} className="bg-surface p-8 rounded-[24px] border border-white/5 flex flex-col items-center text-center">
-        <AlertTriangle class="text-accent mb-6" size={40} />
-        <p class="text-text-primary font-bold leading-tight uppercase italic">Allez-vous vraiment retrouver le plaisir de piloter ?</p>
+        <AlertTriangle class="text-accent mb-10" size={40} />
+        <p class="text-text-primary font-bold leading-tight uppercase italic">Allez-vous vraiment retrouver le plaisir de piloter&nbsp;?</p>
       </FadeIn>
     </div>
 
