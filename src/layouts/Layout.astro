@@ -6,6 +6,18 @@ import { ScrollToTop } from '../components/ui/ScrollToTop';
 import { YouTubeWidget } from '../components/ui/YouTubeWidget';
 import { CoursePreview } from '../components/ui/CoursePreview';
 import { version } from '../../package.json';
+
+interface Props {
+	title?: string;
+	description?: string;
+}
+
+const { 
+	title = "Adopte un Motard — Passer à la moto électrique (Guide & Formation)",
+	description = "Apprenez à vivre la moto électrique au quotidien. 5 ans d'expérience condensés en une formation ultra-complète pour décider, choisir et rouler sereinement."
+} = Astro.props;
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 ---
 <!doctype html>
 <html lang="fr" class="scroll-smooth">
@@ -15,7 +27,27 @@ import { version } from '../../package.json';
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<link rel="icon" href="/favicon.ico" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Adopte un Motard</title>
+		
+		<!-- Primary Meta Tags -->
+		<title>{title}</title>
+		<meta name="title" content={title} />
+		<meta name="description" content={description} />
+		<link rel="canonical" href={canonicalURL} />
+
+		<!-- Open Graph / Facebook -->
+		<meta property="og:type" content="website" />
+		<meta property="og:url" content={Astro.url} />
+		<meta property="og:title" content={title} />
+		<meta property="og:description" content={description} />
+		<meta property="og:image" content={new URL('/hero-bg.jpg', Astro.url)} />
+
+		<!-- Twitter -->
+		<meta property="twitter:card" content="summary_large_image" />
+		<meta property="twitter:url" content={Astro.url} />
+		<meta property="twitter:title" content={title} />
+		<meta property="twitter:description" content={description} />
+		<meta property="twitter:image" content={new URL('/hero-bg.jpg', Astro.url)} />
+
 		<script is:inline>
 			(function() {
 				const theme = localStorage.getItem('theme');

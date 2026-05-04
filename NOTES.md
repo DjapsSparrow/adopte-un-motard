@@ -16,6 +16,7 @@ Finalisation du Mode Clair et polissage extrême de l'UX/UI. Harmonisation des c
 - Test de performance mobile final.
 
 ## 📜 Journal des Versions (Changelog)
+- **v2.4.3** (2026-05-04) : SEO Master Optimization. Activation de `@astrojs/sitemap`, création de `robots.txt`, implémentation complète des tags Meta, OpenGraph et Twitter Cards dans le Layout global.
 - **v2.4.2** (2026-05-04) : Library Sync. Extraction et ajout du `LiquidSwitch` à la bibliothèque Antigravity globale.
 - **v2.4.1** (2026-05-04) : Liquid Gooey Switch. Remplacement des icônes par un commutateur organique à effet liquide (blur/contrast filter) intégré dans le dock.
 - **v2.3.9** (2026-05-04) : Motorbike Headlight Toggler. Remplacement des icônes standard par un système de phare éteint (Jour) / phare allumé (Nuit) avec lueur cyan.
