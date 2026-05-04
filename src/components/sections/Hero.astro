@@ -1,4 +1,7 @@
 ---
+import { Image } from 'astro:assets';
+import logoLight from '../../assets/images/logo.png';
+import logoDark from '../../assets/images/logo-dark.png';
 import { Button } from '../ui/Button';
 import { FadeIn } from '../ui/FadeIn';
 import { LuminousArc } from '../ui/LuminousArc';
@@ -19,16 +22,20 @@ import { LuminousArc } from '../ui/LuminousArc';
     </FadeIn>
 
     <FadeIn client:visible delay={0.1}>
-      <div class="relative h-20 md:h-28 mb-10">
-        <img 
-          src="/logo.png" 
+      <div class="relative h-20 md:h-28 mb-10 flex justify-center">
+        <Image 
+          src={logoLight} 
           alt="Adopte un motard" 
-          class="h-full mx-auto drop-shadow-[0_0_20px_rgba(255,255,255,0.2)] light:hidden" 
+          class="h-full w-auto drop-shadow-[0_0_20px_rgba(255,255,255,0.2)] light:hidden" 
+          quality="mid"
+          loading="eager"
         />
-        <img 
-          src="/logo-dark.png" 
+        <Image 
+          src={logoDark} 
           alt="Adopte un motard" 
-          class="h-full mx-auto hidden light:block light:drop-shadow-[0_0_15px_rgba(0,0,0,0.1)]" 
+          class="h-full w-auto hidden light:block light:drop-shadow-[0_0_15px_rgba(0,0,0,0.1)]" 
+          quality="mid"
+          loading="eager"
         />
       </div>
     </FadeIn>

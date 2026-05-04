@@ -1,63 +1,79 @@
 ---
 import { AnimatedTestimonials } from "../ui/animated-testimonials";
 import { FadeIn } from "../ui/FadeIn";
+import { getImage } from 'astro:assets';
 
-const testimonials = [
+// Import dynamique de tous les assets de témoignages
+const testimonialImages = import.meta.glob('../../assets/images/testimonials/*.jpg', { eager: true });
+
+const rawTestimonials = [
   {
     quote: "J'avais peur que l'électrique manque de caractère, mais la formation m'a montré comment exploiter le couple instantané. J'ai évité l'erreur d'acheter un modèle sous-dimensionné pour mes trajets quotidiens.",
     name: "Marc Lefebvre",
     designation: "Cadre Supérieur",
-    src: "/images/testimonials/t1.jpg",
+    src: "t1.jpg",
   },
   {
     quote: "En tant que débutante, j'étais stressée par l'autonomie. Les conseils sur la gestion de la batterie et les bornes de recharge m'ont totalement rassurée. Je roule sereine maintenant !",
     name: "Élodie Martin",
     designation: "Infirmière Libérale",
-    src: "/images/testimonials/t2.jpg",
+    src: "t2.jpg",
   },
   {
     quote: "Après 30 ans de thermique, le passage à l'électrique était un défi. Cette formation est d'une clarté incroyable. Elle m'a évité de perdre des heures en recherches contradictoires sur internet.",
     name: "Jean-Pierre Dubois",
     designation: "Retraité Passionné",
-    src: "/images/testimonials/t3.jpg",
+    src: "t3.jpg",
   },
   {
     quote: "Le module sur l'équipement spécifique et la sécurité en ville est top. J'ai pu choisir ma première moto électrique en toute confiance, sans me faire influencer par des vendeurs peu scrupuleux.",
     name: "Clara Vallet",
     designation: "Architecte",
-    src: "/images/testimonials/t4.jpg",
+    src: "t4.jpg",
   },
   {
     quote: "Je craignais de perdre le plaisir du pilotage sans les rapports à passer. En fait, c'est tout l'inverse : on se concentre sur la trajectoire et le couple est juste dingue. La formation a balayé mes derniers doutes.",
     name: "Lucas Martin",
     designation: "Jeune Permis",
-    src: "/images/testimonials/t5.jpg",
+    src: "t5.jpg",
   },
   {
     quote: "Passionnée de montagne, je cherchais une moto capable de grimper les cols sans faire de bruit. La formation m'a convaincue sur le frein moteur régénératif, un vrai game-changer en descente !",
     name: "Julie Giraud",
     designation: "Photographe Nature",
-    src: "/images/testimonials/t6.jpg",
+    src: "t6.jpg",
   },
   {
     quote: "Je pensais que l'électrique était réservé à la ville. Grâce aux modules sur les longs trajets et la planification, j'ai pu traverser la France avec ma Zero DSR. Aucun stress, que du plaisir.",
     name: "Sébastien Morel",
     designation: "Consultant IT",
-    src: "/images/testimonials/t7.jpg",
+    src: "t7.jpg",
   },
   {
     quote: "Ancien mécanicien, j'étais sceptique sur la fiabilité. Cette formation décortique tout : moteur, batterie, électronique. Ça m'a évité d'acheter un modèle avec une technologie dépassée.",
     name: "Philippe Girard",
     designation: "Mécanicien (retraité)",
-    src: "/images/testimonials/t8.jpg",
+    src: "t8.jpg",
   },
   {
     quote: "Le silence est devenu ma priorité pour mes balades dominicales. Les conseils sur l'assurance et la revente m'ont permis de sécuriser mon achat. Je recommande à 100% pour ceux qui hésitent encore.",
     name: "Valérie Perret",
     designation: "Commerciale",
-    src: "/images/testimonials/t9.jpg",
+    src: "t9.jpg",
   },
 ];
+
+const testimonials = await Promise.all(rawTestimonials.map(async (t) => {
+  const imageAsset = (testimonialImages[`../../assets/images/testimonials/${t.src}`] as any).default;
+  const optimized = await getImage({ 
+    src: imageAsset, 
+    width: 600, 
+    height: 600, 
+    format: 'webp',
+    quality: 'mid'
+  });
+  return { ...t, src: optimized.src };
+}));
 ---
 
 <section id="temoignages" class="pb-24 md:pb-32 pt-8 md:pt-12 bg-bg overflow-hidden">
