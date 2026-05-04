@@ -1,17 +1,18 @@
 # PHASE 1: ÉTAT ACTUEL
-(2026-05-04) - **STABILITÉ: 100% BLEU (UX Visibility)**
+(2026-05-04) - **STABILITÉ: 100% BLEU (UX Fix)**
 
 ## 🚀 Résumé de Session
-Optimisation de la visibilité "Above-the-fold" : ajustement des tailles et de la hiérarchie.
+Correction du contraste du bouton SlideToJoin face à l'arc lumineux.
 
 ### Fichiers Modifiés :
-- `package.json` : Passage en v1.7.4.
-- `src/components/sections/Hero.astro` : Réduction des titres, agrandissement du logo et réorganisation de la hiérarchie (Badge en haut).
+- `package.json` : Passage en v1.7.5.
+- `src/components/ui/SlideToJoin.tsx` : Ajout d'un fond sombre semi-transparent, d'un `backdrop-blur` et augmentation de l'opacité du texte.
 
 ### Objectif Prochain :
 - Test de performance mobile final.
 
 ## 📜 Journal des Versions (Changelog)
+- **v1.7.5** (2026-05-04) : SlideToJoin Contrast Fix. Amélioration de la lisibilité du texte sur l'arc lumineux (Backdrop blur + Darker bg).
 - **v1.7.4** (2026-05-04) : Above-the-fold Optimization. Hiérarchie corrigée et tailles ajustées pour garantir la visibilité du CTA sans scroll.
 - **v1.7.3** (2026-05-04) : Hero Layout Adjustment. Contenu remonté et restauration du logo.
 - **v1.7.2** (2026-05-04) : High-Fidelity Luminous Arc. Intégration d'un arc SVG parallax inspiré de Bolt.new.
