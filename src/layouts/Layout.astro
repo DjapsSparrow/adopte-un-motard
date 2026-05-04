@@ -4,6 +4,7 @@ import '../styles/global.css';
 import { Navbar } from '../components/Navbar';
 import { ScrollToTop } from '../components/ui/ScrollToTop';
 import { YouTubeWidget } from '../components/ui/YouTubeWidget';
+import { CoursePreview } from '../components/ui/CoursePreview';
 import { version } from '../../package.json';
 ---
 <!doctype html>
@@ -21,6 +22,7 @@ import { version } from '../../package.json';
 		<slot />
 		<ScrollToTop client:load />
 		<YouTubeWidget client:load />
+		<CoursePreview client:load />
 		
 		<!-- 🎖️ Version Badge -->
 		<div class="fixed bottom-4 left-4 z-50 pointer-events-none">
