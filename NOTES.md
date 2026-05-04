@@ -1,17 +1,21 @@
 # PHASE 2: ÉTAT ACTUEL
-(2026-05-04) - **STABILITÉ: 100% BLEU (Navbar Navigation Update)**
+(2026-05-04) - **STABILITÉ: 100% BLEU (Feature Rollback)**
 
 ## 🚀 Résumé de Session
-Intégration du calculateur de rentabilité dans la barre de navigation (FloatingDock). Le lien a été ajouté chronologiquement entre les sections "Pour qui ?" et "Tarifs" avec une icône de calculatrice dédiée.
+Retrait complet du calculateur de rentabilité et d'impact CO2. Suite aux retours client, cette section a été jugée superflue pour le funnel de vente actuel. Nettoyage du code et de la navigation.
 
 ### Fichiers Modifiés :
-- `package.json` : Passage en v2.0.3.
-- `src/components/Navbar.tsx` : Ajout de l'item "Rentabilité" (#rentabilite).
+- `package.json` : Passage en v2.1.0.
+- `src/pages/index.astro` : Suppression de la section.
+- `src/components/Navbar.tsx` : Retrait du lien dans le dock.
+- `src/components/sections/SavingsCalculator.astro` : [SUPPRIMÉ]
+- `src/components/ui/ComparisonTool.tsx` : [SUPPRIMÉ]
 
 ### Objectif Prochain :
 - Test de performance mobile final.
 
 ## 📜 Journal des Versions (Changelog)
+- **v2.1.0** (2026-05-04) : Feature Rollback. Suppression du calculateur de rentabilité (section + nav).
 - **v2.0.3** (2026-05-04) : Navbar Sync. Ajout du calculateur de rentabilité dans le dock de navigation.
 - **v2.0.2** (2026-05-04) : Calculator Simplification. Suppression du ROI formation, focus sur Economies d'usage et CO2. Mise en page Bento.
 - **v2.0.1** (2026-05-04) : Calculator Contrast Hotfix. Amélioration radicale de la visibilité des textes sur le comparateur.

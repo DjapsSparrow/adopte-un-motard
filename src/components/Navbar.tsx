@@ -8,8 +8,7 @@ import {
   IconReceipt2,
   IconTargetArrow,
   IconShoppingCart,
-  IconShieldCheck,
-  IconCalculator
+  IconShieldCheck
 } from "@tabler/icons-react";
 
 export const Navbar = () => {
@@ -33,11 +32,6 @@ export const Navbar = () => {
       title: "Pour qui ?",
       icon: <IconTargetArrow className="h-full w-full" />,
       href: "#ciblage",
-    },
-    {
-      title: "Rentabilité",
-      icon: <IconCalculator className="h-full w-full" />,
-      href: "#rentabilite",
     },
     {
       title: "Tarifs",
