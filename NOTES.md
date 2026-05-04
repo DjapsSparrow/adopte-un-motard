@@ -1,17 +1,20 @@
-# PHASE 1: ÉTAT ACTUEL
-(2026-05-04) - **STABILITÉ: 100% BLEU (Testimonials Interactivity)**
+# PHASE 2: ÉTAT ACTUEL
+(2026-05-04) - **STABILITÉ: 100% BLEU (Savings Calculator v2.0)**
 
 ## 🚀 Résumé de Session
-Amélioration de l'expérience utilisateur sur la section témoignages. Ajout de la pause automatique du défilement au survol de la souris et support du balayage tactile (swipe) sur mobile pour une navigation intuitive.
+Lancement du "Comparateur de Rentabilité & Impact CO2". Un outil interactif majeur qui permet aux utilisateurs de visualiser concrètement leurs économies annuelles et le point de rentabilité écologique de leur passage à l'électrique.
 
 ### Fichiers Modifiés :
-- `package.json` : Passage en v1.9.1.
-- `src/components/ui/animated-testimonials.tsx` : Logique de pause et de drag (swipe).
+- `package.json` : Passage en v2.0.0 (Mise à jour majeure).
+- `src/components/ui/ComparisonTool.tsx` : Logique de calcul TCO et CO2 (React).
+- `src/components/sections/SavingsCalculator.astro` : Section d'intégration.
+- `src/pages/index.astro` : Ajout de la section au funnel de vente.
 
 ### Objectif Prochain :
 - Test de performance mobile final.
 
 ## 📜 Journal des Versions (Changelog)
+- **v2.0.0** (2026-05-04) : Savings Calculator. Déploiement de l'outil de simulation TCO & CO2 interactif.
 - **v1.9.1** (2026-05-04) : Testimonials Interactivity. Ajout de la pause au survol et du support swipe (framer-motion).
 - **v1.9.0** (2026-05-04) : Left Widgets Stack. Empilement de CoursePreview au-dessus de YouTubeWidget sur le bord gauche.
 - **v1.8.9** (2026-05-04) : Testimonial Swap. Remplacement de Léa par Lucas (t5.jpg) et mise à jour de l'avis sur le pilotage.
