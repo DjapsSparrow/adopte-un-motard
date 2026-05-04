@@ -1,18 +1,19 @@
 # PHASE 1: ÉTAT ACTUEL
-(2026-05-04) - **STABILITÉ: 100% BLEU (Widgets Swap)**
+(2026-05-04) - **STABILITÉ: 100% BLEU (Testimonial Swap)**
 
 ## 🚀 Résumé de Session
-Inversion des positions des widgets flottants pour éviter les chevauchements avec les menus. L'aperçu du programme est désormais à gauche (avec ouverture latérale gauche) et le widget YouTube est à droite.
+Mise à jour d'un témoignage spécifique : remplacement de Léa Roussel par Lucas Martin (portrait fourni par l'utilisateur). Adaptation du contenu pour refléter l'expérience d'un jeune permis sur le plaisir du pilotage sans embrayage.
 
 ### Fichiers Modifiés :
-- `package.json` : Passage en v1.8.8.
-- `src/components/ui/CoursePreview.tsx` : Bascule à gauche (bouton + sidebar).
-- `src/components/ui/YouTubeWidget.tsx` : Bascule à droite (bouton + label).
+- `package.json` : Passage en v1.8.9.
+- `src/components/sections/Testimonials.astro` : Mise à jour du profil `t5`.
+- `public/images/testimonials/t5.jpg` : Nouveau portrait (Lucas).
 
 ### Objectif Prochain :
 - Test de performance mobile final.
 
 ## 📜 Journal des Versions (Changelog)
+- **v1.8.9** (2026-05-04) : Testimonial Swap. Remplacement de Léa par Lucas (t5.jpg) et mise à jour de l'avis sur le pilotage.
 - **v1.8.8** (2026-05-04) : Widgets Swap. Inversion CoursePreview (gauche) et YouTubeWidget (droite). Sidebar Aperçu s'ouvre depuis la gauche.
 - **v1.8.7** (2026-05-04) : Mobile UI Cleanup. Masquage du ScrollToTop sur mobile et alignement des widgets YouTube/Aperçu à `bottom-20`.
 - **v1.8.6** (2026-05-04) : Course Preview Sidebar. Panneau latéral interactif listant les 12 modules et leçons pour rassurer sur le contenu avant l'achat.
