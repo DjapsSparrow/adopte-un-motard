@@ -56,7 +56,7 @@ export const SlideToJoin: React.FC<SlideToJoinProps> = ({
           dragElastic={0.1}
           onDragEnd={handleDragEnd}
           style={{ x }}
-          className="relative z-10 h-full aspect-square bg-accent rounded-xl flex items-center justify-center cursor-grab active:cursor-grabbing shadow-[0_0_20px_rgba(0,163,255,0.4)]"
+          className="relative z-10 h-full aspect-square bg-accent rounded-xl flex items-center justify-center cursor-grab active:cursor-grabbing shadow-[0_0_20px_rgba(0,163,255,0.4)] light:shadow-none"
         >
           <ChevronRight className="text-bg w-6 h-6" />
         </motion.div>
