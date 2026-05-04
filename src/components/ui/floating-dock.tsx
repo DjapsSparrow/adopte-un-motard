@@ -93,7 +93,7 @@ const FloatingDockMobile = ({
       <div className="flex justify-end w-full">
         <button
           onClick={() => setOpen(!open)}
-          className="h-12 w-12 rounded-full bg-deep-charcoal border border-white/10 flex items-center justify-center text-white relative z-10 shadow-2xl light:bg-white light:border-black/5 light:text-accent"
+          className="h-12 w-12 rounded-full bg-deep-charcoal border border-white/10 flex items-center justify-center text-white relative z-10 shadow-2xl light:bg-white light:border-black/5 light:text-accent cursor-pointer"
         >
           <motion.div
             animate={{ rotate: open ? 180 : 0 }}

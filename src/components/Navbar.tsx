@@ -57,7 +57,7 @@ export const Navbar = () => {
       {/* Top Floating Toggler */}
       <div className="fixed top-6 right-6 z-[60] pointer-events-auto">
         <AnimatedThemeToggler 
-          className="p-3 rounded-2xl bg-surface/50 backdrop-blur-md border border-white/10 text-accent hover:scale-110 transition-transform shadow-xl light:bg-white light:border-black/5" 
+          className="p-3 rounded-2xl bg-surface/50 backdrop-blur-md border border-white/10 text-accent hover:scale-110 transition-transform shadow-xl light:bg-white light:border-black/5 cursor-pointer" 
         />
       </div>
 

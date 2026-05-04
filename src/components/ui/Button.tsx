@@ -19,7 +19,7 @@ export const Button: React.FC<ButtonProps> = ({
   className = '', 
   ...props 
 }) => {
-  const baseStyles = "inline-flex items-center justify-center font-black text-xs uppercase tracking-[0.2em] px-10 py-5 rounded-2xl transition-all focus:outline-none focus:ring-2 focus:ring-accent/50";
+  const baseStyles = "inline-flex items-center justify-center font-black text-xs uppercase tracking-[0.2em] px-10 py-5 rounded-2xl transition-all focus:outline-none focus:ring-2 focus:ring-accent/50 cursor-pointer";
   
   const variants = {
     primary: "bg-accent text-bg shadow-[0_4px_14px_0_rgba(0,163,255,0.39)]",

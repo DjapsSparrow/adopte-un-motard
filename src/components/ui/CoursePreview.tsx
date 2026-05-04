@@ -129,7 +129,7 @@ export const CoursePreview: React.FC = () => {
         transition={{ type: "spring", stiffness: 260, damping: 20, delay: 1.2 }}
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
-        className="fixed bottom-36 md:bottom-40 left-4 md:left-6 z-50 flex items-center gap-3 group pointer-events-auto"
+        className="fixed bottom-36 md:bottom-40 left-4 md:left-6 z-50 flex items-center gap-3 group pointer-events-auto cursor-pointer"
       >
         <div className="flex items-center justify-center w-12 h-12 bg-accent rounded-full shadow-[0_0_20px_rgba(0,163,255,0.3)] group-hover:shadow-[0_0_30px_rgba(0,163,255,0.5)] transition-all duration-300">
           <BookOpen size={24} className="text-white" />
@@ -166,7 +166,7 @@ export const CoursePreview: React.FC = () => {
                 </div>
                 <button 
                   onClick={() => setIsOpen(false)}
-                  className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-white/10 transition-colors border border-white/5 light:bg-black/5 light:border-black/5"
+                  className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-white/10 transition-colors border border-white/5 light:bg-black/5 light:border-black/5 cursor-pointer"
                 >
                   <X size={20} className="text-white light:text-text-primary" />
                 </button>
@@ -207,7 +207,7 @@ export const CoursePreview: React.FC = () => {
                 <a 
                   href="https://ecole.fudoshin.solutions/offers/aab1d65b-e96b-49a2-b054-de94398f7f7b"
                   target="_blank"
-                  className="flex items-center justify-center gap-3 w-full py-4 bg-accent text-white font-black uppercase tracking-widest text-sm rounded-xl hover:scale-[1.02] transition-all shadow-[0_0_20px_rgba(0,163,255,0.3)]"
+                  className="flex items-center justify-center gap-3 w-full py-4 bg-accent text-white font-black uppercase tracking-widest text-sm rounded-xl hover:scale-[1.02] transition-all shadow-[0_0_20px_rgba(0,163,255,0.3)] cursor-pointer"
                 >
                   Rejoindre la formation
                   <ChevronRight size={18} />
