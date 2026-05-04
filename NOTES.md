@@ -1,17 +1,18 @@
 # PHASE 1: ÉTAT ACTUEL
-(2026-05-04) - **STABILITÉ: 100% BLEU (Navbar Reorder)**
+(2026-05-04) - **STABILITÉ: 100% BLEU (Build Hotfix)**
 
 ## 🚀 Résumé de Session
-Réorganisation des liens de navigation pour correspondre à l'ordre de lecture séquentiel du site.
+Correction d'une erreur de build (ReferenceError: target is not defined) dans le composant FloatingDock.
 
 ### Fichiers Modifiés :
-- `package.json` : Passage en v1.7.7.
-- `src/components/Navbar.tsx` : Réorganisation de l'array `links`.
+- `package.json` : Passage en v1.7.8.
+- `src/components/ui/floating-dock.tsx` : Ajout de `target` dans la déstructuration de `IconContainer`.
 
 ### Objectif Prochain :
 - Test de performance mobile final.
 
 ## 📜 Journal des Versions (Changelog)
+- **v1.7.8** (2026-05-04) : Build Hotfix. Correction d'une variable non définie (`target`) empêchant le pré-rendu static du site.
 - **v1.7.7** (2026-05-04) : Navbar Reordering. Alignement des items du dock avec l'ordre réel des sections (Accueil > Programme > Ma Promesse > Pour qui > Tarifs > Témoignages > Rejoindre).
 - **v1.7.6** (2026-05-04) : Sales CTA & External Liaison. Intégration du lien d'achat (29€) sur tous les CTAs avec ouverture `_blank`. Ajout d'un bloc de prix dans la section Investissement.
 - **v1.7.5** (2026-05-04) : SlideToJoin Contrast Fix. Amélioration de la lisibilité du texte sur l'arc lumineux (Backdrop blur + Darker bg).
