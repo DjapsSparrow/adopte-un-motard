@@ -65,8 +65,6 @@ export const Navbar = () => {
         <div className="pointer-events-auto w-full max-w-5xl flex justify-end md:justify-center">
           <FloatingDock 
             items={links} 
-            desktopClassName="bg-deep-charcoal/90 backdrop-blur-lg border-white/10"
-            mobileClassName=""
           />
         </div>
       </div>

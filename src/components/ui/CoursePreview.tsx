@@ -156,7 +156,7 @@ export const CoursePreview: React.FC = () => {
               animate={{ x: 0 }}
               exit={{ x: '-100%' }}
               transition={{ type: "spring", damping: 30, stiffness: 300 }}
-              className="fixed left-0 top-0 h-full w-full md:w-[500px] bg-bg/95 backdrop-blur-2xl border-r border-white/10 z-[100] flex flex-col shadow-2xl"
+              className="fixed left-0 top-0 h-full w-full md:w-[500px] bg-bg/95 backdrop-blur-2xl border-r border-white/10 z-[100] flex flex-col shadow-2xl light:bg-white/95 light:border-black/5"
             >
               {/* Header */}
               <div className="p-8 border-b border-white/5 flex items-center justify-between">
@@ -166,9 +166,9 @@ export const CoursePreview: React.FC = () => {
                 </div>
                 <button 
                   onClick={() => setIsOpen(false)}
-                  className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-white/10 transition-colors border border-white/5"
+                  className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-white/10 transition-colors border border-white/5 light:bg-black/5 light:border-black/5"
                 >
-                  <X size={20} className="text-white" />
+                  <X size={20} className="text-white light:text-text-primary" />
                 </button>
               </div>
 
@@ -207,7 +207,7 @@ export const CoursePreview: React.FC = () => {
                 <a 
                   href="https://ecole.fudoshin.solutions/offers/aab1d65b-e96b-49a2-b054-de94398f7f7b"
                   target="_blank"
-                  className="flex items-center justify-center gap-3 w-full py-4 bg-accent text-text-primary font-black uppercase tracking-widest text-sm rounded-xl hover:scale-[1.02] transition-all shadow-[0_0_20px_rgba(0,163,255,0.3)]"
+                  className="flex items-center justify-center gap-3 w-full py-4 bg-accent text-white font-black uppercase tracking-widest text-sm rounded-xl hover:scale-[1.02] transition-all shadow-[0_0_20px_rgba(0,163,255,0.3)]"
                 >
                   Rejoindre la formation
                   <ChevronRight size={18} />
