@@ -1,12 +1,12 @@
 # PHASE 1: ÉTAT ACTUEL
-(2026-05-04) - **STABILITÉ: 100% BLEU (UX Fix)**
+(2026-05-04) - **STABILITÉ: 100% BLEU (iPhone Optimization)**
 
 ## 🚀 Résumé de Session
-Correction du chevauchement des labels du Dock Mobile via un positionnement dynamique.
+Optimisation du Dock Mobile pour éviter les débordements sur iPhone (écrans étroits).
 
 ### Fichiers Modifiés :
-- `package.json` : Passage en v1.4.2.
-- `src/components/ui/floating-dock.tsx` : Positionnement intelligent des labels (Gauche/Droite/Haut) et augmentation du rayon à 130px.
+- `package.json` : Passage en v1.4.3.
+- `src/components/ui/floating-dock.tsx` : Réduction du rayon à 100px et resserrement de l'arc (165° à 15°).
 
 ### Objectif Prochain :
 - Intégrer les vrais avis clients.
@@ -14,6 +14,7 @@ Correction du chevauchement des labels du Dock Mobile via un positionnement dyna
 - Test de performance mobile final.
 
 ## 📜 Journal des Versions (Changelog)
+- **v1.4.3** (2026-05-04) : iPhone Viewport Fix. Resserrement de l'arc pour garantir que les labels restent dans l'écran sur les téléphones étroits.
 - **v1.4.2** (2026-05-04) : Dynamic Label Positioning. Les labels s'écartent vers l'extérieur pour éviter tout chevauchement.
 - **v1.4.1** (2026-05-04) : Mobile Dock Labels. Ajout de texte sous les pictos pour compenser l'absence de hover sur mobile.
 - **v1.4.0** (2026-05-04) : New Mobile Dock Arc. Déploiement semi-circulaire pour éviter l'obstruction centrale.

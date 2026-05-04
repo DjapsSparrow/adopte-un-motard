@@ -36,7 +36,7 @@ const FloatingDockMobile = ({
   className?: string;
 }) => {
   const [open, setOpen] = useState(false);
-  const radius = 130; // Rayon augmenté pour plus d'espace
+  const radius = 100; // Réduit pour éviter les débordements sur iPhone
 
   return (
     <div className={cn("relative block md:hidden", className)}>
@@ -44,15 +44,14 @@ const FloatingDockMobile = ({
         {open && (
           <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-10 h-10">
             {items.map((item, idx) => {
-              const angle = 180 - (idx * (180 / (items.length - 1)));
+              // Arc plus serré (165° à 15°) pour garder les labels dans l'écran
+              const angle = 165 - (idx * (150 / (items.length - 1)));
               const angleRad = (angle * Math.PI) / 180;
               const x = radius * Math.cos(angleRad);
               const y = -radius * Math.sin(angleRad);
 
-              // Logique de positionnement du label pour éviter le chevauchement
-              const isLeft = x < -40;
-              const isRight = x > 40;
-              const isTop = !isLeft && !isRight;
+              const isLeft = x < -20;
+              const isRight = x > 20;
 
               return (
                 <motion.div
@@ -87,7 +86,6 @@ const FloatingDockMobile = ({
                   >
                     <div className="h-4 w-4">{item.icon}</div>
                     
-                    {/* Label positionné dynamiquement */}
                     <div className={cn(
                       "absolute bg-deep-charcoal/90 backdrop-blur-sm px-2 py-1 rounded-lg border border-white/10 shadow-xl pointer-events-none",
                       isLeft ? "right-full mr-3 top-1/2 -translate-y-1/2" : 
