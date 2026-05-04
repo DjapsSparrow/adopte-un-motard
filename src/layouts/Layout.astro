@@ -19,7 +19,7 @@ import { version } from '../../package.json';
 		<script is:inline>
 			(function() {
 				const theme = localStorage.getItem('theme');
-				if (theme === 'light') {
+				if (theme !== 'dark') {
 					document.documentElement.classList.add('light');
 				}
 			})();

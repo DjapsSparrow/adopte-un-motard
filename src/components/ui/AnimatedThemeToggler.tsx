@@ -77,10 +77,14 @@ export const AnimatedThemeToggler = ({
     }
     updateTheme()
     
-    // Initial check from localStorage
-    if (localStorage.getItem("theme") === "light") {
-        document.documentElement.classList.add("light")
-        setIsLight(true)
+    // Initial check from localStorage (Default to Light)
+    const storedTheme = localStorage.getItem("theme");
+    if (storedTheme === "dark") {
+        document.documentElement.classList.remove("light");
+        setIsLight(false);
+    } else {
+        document.documentElement.classList.add("light");
+        setIsLight(true);
     }
 
     const observer = new MutationObserver(updateTheme)

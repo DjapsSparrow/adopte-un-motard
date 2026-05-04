@@ -16,6 +16,7 @@ Finalisation du Mode Clair et polissage extrême de l'UX/UI. Harmonisation des c
 - Test de performance mobile final.
 
 ## 📜 Journal des Versions (Changelog)
+- **v2.3.8** (2026-05-04) : Light Mode Default. Inversion de la priorité du thème : le mode clair est désormais chargé par défaut au premier accès.
 - **v2.3.7** (2026-05-04) : Editorial Image Integration. Refonte du conteneur image (aspect 3/4, rotation organique, badge "100% Vécu" et effets de lueur).
 - **v2.3.6** (2026-05-04) : Authority Image Refresh. Remplacement de l'image de la promesse par une photo en conditions réelles (Liberté branchée).
 - **v2.3.5** (2026-05-04) : Global Sales URL Update. Redirection directe vers la page de paiement sécurisée sur tous les CTAs.
