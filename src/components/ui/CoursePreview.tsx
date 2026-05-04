@@ -205,7 +205,7 @@ export const CoursePreview: React.FC = () => {
               {/* Footer CTA */}
               <div className="p-8 border-t border-white/5 bg-surface/50">
                 <a 
-                  href="https://ecole.fudoshin.solutions/offers/aab1d65b-e96b-49a2-b054-de94398f7f7b"
+                  href="https://ecole.fudoshin.solutions/purchases/new?price_id=aa71d7be-526a-40f4-902c-3a3ddb030c77"
                   target="_blank"
                   className="flex items-center justify-center gap-3 w-full py-4 bg-accent text-white font-black uppercase tracking-widest text-sm rounded-xl hover:scale-[1.02] transition-all shadow-[0_0_20px_rgba(0,163,255,0.3)] cursor-pointer"
                 >

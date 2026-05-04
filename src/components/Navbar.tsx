@@ -47,7 +47,7 @@ export const Navbar = () => {
     {
       title: "Rejoindre",
       icon: <IconShoppingCart className="h-full w-full" />,
-      href: "https://ecole.fudoshin.solutions/offers/aab1d65b-e96b-49a2-b054-de94398f7f7b",
+      href: "https://ecole.fudoshin.solutions/purchases/new?price_id=aa71d7be-526a-40f4-902c-3a3ddb030c77",
       target: "_blank",
     },
   ];
