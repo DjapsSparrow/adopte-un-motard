@@ -1,18 +1,18 @@
 # PHASE 2: ÉTAT ACTUEL
-(2026-05-04) - **STABILITÉ: 100% BLEU (Calculator Simplification)**
+(2026-05-04) - **STABILITÉ: 100% BLEU (Navbar Navigation Update)**
 
 ## 🚀 Résumé de Session
-Simplification radicale du calculateur de rentabilité pour une meilleure lisibilité. Suppression de la notion de rentabilité de la formation (jugée superflue par le client) pour se concentrer sur les deux arguments chocs : les économies annuelles réelles (carburant + entretien) et la neutralité carbone.
+Intégration du calculateur de rentabilité dans la barre de navigation (FloatingDock). Le lien a été ajouté chronologiquement entre les sections "Pour qui ?" et "Tarifs" avec une icône de calculatrice dédiée.
 
 ### Fichiers Modifiés :
-- `package.json` : Passage en v2.0.2.
-- `src/components/ui/ComparisonTool.tsx` : Nouvelle mise en page en 3 blocs Bento clairs.
-- `src/components/sections/SavingsCalculator.astro` : Restauration et mise à jour du texte.
+- `package.json` : Passage en v2.0.3.
+- `src/components/Navbar.tsx` : Ajout de l'item "Rentabilité" (#rentabilite).
 
 ### Objectif Prochain :
 - Test de performance mobile final.
 
 ## 📜 Journal des Versions (Changelog)
+- **v2.0.3** (2026-05-04) : Navbar Sync. Ajout du calculateur de rentabilité dans le dock de navigation.
 - **v2.0.2** (2026-05-04) : Calculator Simplification. Suppression du ROI formation, focus sur Economies d'usage et CO2. Mise en page Bento.
 - **v2.0.1** (2026-05-04) : Calculator Contrast Hotfix. Amélioration radicale de la visibilité des textes sur le comparateur.
 - **v2.0.0** (2026-05-04) : Savings Calculator. Déploiement de l'outil de simulation TCO & CO2 interactif.
