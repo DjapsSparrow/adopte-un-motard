@@ -76,8 +76,9 @@ const FloatingDockMobile = ({
                   rel={item.target === "_blank" ? "noopener noreferrer" : undefined}
                   onClick={() => setOpen(false)}
                   className="flex items-center gap-3 group"
+                  aria-label={item.title}
                 >
-                  <span className="text-xs font-bold text-white bg-accent/90 backdrop-blur-sm px-3 py-1.5 rounded-lg border border-white/10 opacity-0 group-hover:opacity-100 md:group-hover:opacity-100 transition-opacity whitespace-nowrap !opacity-100 shadow-xl">
+                  <span className="text-xs font-bold text-white bg-accent/90 backdrop-blur-sm px-3 py-1.5 rounded-lg border border-white/10 opacity-0 group-hover:opacity-100 md:group-hover:opacity-100 transition-opacity whitespace-nowrap !opacity-100 shadow-xl text-white">
                     {item.title}
                   </span>
                   <div className="h-10 w-10 rounded-full bg-deep-charcoal/95 backdrop-blur-md border border-white/10 flex items-center justify-center text-white shadow-xl light:bg-slate-100 light:border-black/5 light:text-slate-600">
@@ -94,6 +95,7 @@ const FloatingDockMobile = ({
         <button
           onClick={() => setOpen(!open)}
           className="h-12 w-12 rounded-full bg-deep-charcoal border border-white/10 flex items-center justify-center text-white relative z-10 shadow-2xl light:bg-white light:border-black/5 light:text-accent cursor-pointer"
+          aria-label="Menu de navigation"
         >
           <motion.div
             animate={{ rotate: open ? 180 : 0 }}
@@ -183,7 +185,7 @@ function IconContainer({
   const [hovered, setHovered] = useState(false);
 
   return (
-    <a href={href} target={target} rel={target === "_blank" ? "noopener noreferrer" : undefined}>
+    <a href={href} target={target} rel={target === "_blank" ? "noopener noreferrer" : undefined} aria-label={title}>
       <motion.div
         ref={ref}
         style={{ width, height }}
