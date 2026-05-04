@@ -1,8 +1,8 @@
 "use client";
 
 import React, { useState, useEffect } from 'react';
-import { motion, useSpring, useTransform, animate } from 'framer-motion';
-import { PiggyBank, Leaf, Zap, Fuel, ArrowRight } from 'lucide-react';
+import { motion, animate } from 'framer-motion';
+import { PiggyBank, Leaf, Zap } from 'lucide-react';
 
 const Odometer = ({ value, prefix = "", suffix = "" }: { value: number; prefix?: string; suffix?: string }) => {
   const [displayValue, setDisplayValue] = useState(0);
@@ -10,7 +10,7 @@ const Odometer = ({ value, prefix = "", suffix = "" }: { value: number; prefix?:
   useEffect(() => {
     const controls = animate(displayValue, value, {
       duration: 0.5,
-      ease: [0.5, 0, 0, 0.75], // Tesla Easing
+      ease: [0.5, 0, 0, 0.75],
       onUpdate: (latest) => setDisplayValue(latest)
     });
     return () => controls.stop();
@@ -32,8 +32,6 @@ export const ComparisonTool: React.FC = () => {
   const maintenanceSavings = (km / 10000) * 350;
   
   const annualSavings = (thermalFuelCost - electricFuelCost) + maintenanceSavings;
-  const monthlySavings = annualSavings / 12;
-  const breakEvenDays = annualSavings > 0 ? Math.round((29 / (annualSavings / 365))) : 0;
   
   const co2Thermal = km * 0.120;
   const co2Electric = km * 0.010;
@@ -42,24 +40,16 @@ export const ComparisonTool: React.FC = () => {
   const isEcoNeutral = co2Net <= 0;
 
   return (
-    <div className="w-full max-w-4xl mx-auto bg-white rounded-[32px] p-8 md:p-12 shadow-[0_20px_50px_rgba(0,0,0,0.1)] border border-black/5">
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20">
-        
-        {/* Left Column: Controls */}
-        <div className="flex flex-col justify-center">
-          <div className="flex items-center gap-3 mb-8">
-            <div className="w-10 h-10 rounded-full bg-accent/10 flex items-center justify-center text-accent">
-              <Zap size={20} />
-            </div>
-            <h3 className="text-xl font-black text-deep-charcoal uppercase italic">Simulateur de roulage</h3>
-          </div>
-
-          <div className="mb-12">
-            <div className="flex justify-between items-end mb-6">
-              <label className="text-xs font-black uppercase tracking-widest text-deep-charcoal opacity-60">Kilométrage annuel</label>
-              <div className="text-3xl font-black text-deep-charcoal italic">
-                {km.toLocaleString()} <span className="text-accent text-xl">km</span>
+    <div className="w-full max-w-5xl mx-auto space-y-4">
+      {/* 1. SLIDER BLOCK */}
+      <div className="bg-white rounded-[32px] p-8 md:p-10 shadow-[0_10px_30px_rgba(0,0,0,0.05)] border border-black/5">
+        <div className="flex flex-col md:flex-row md:items-center justify-between gap-8">
+          <div className="flex-1">
+            <div className="flex items-center gap-3 mb-6">
+              <div className="w-10 h-10 rounded-full bg-accent/10 flex items-center justify-center text-accent">
+                <Zap size={20} />
               </div>
+              <h3 className="text-xl font-black text-deep-charcoal uppercase italic">Combien roulez-vous ?</h3>
             </div>
             <input 
               type="range" 
@@ -76,77 +66,75 @@ export const ComparisonTool: React.FC = () => {
               <span>25 000 km</span>
             </div>
           </div>
-
-          <div className="bg-bg/5 rounded-2xl p-6 border border-black/5">
-            <p className="text-sm text-deep-charcoal leading-relaxed">
-              En roulant <span className="font-bold text-deep-charcoal">{km.toLocaleString()} km/an</span> votre formation est rentabilisée en seulement :
-            </p>
-            <div className="text-4xl font-black text-accent italic mt-2">
-              <Odometer value={breakEvenDays} suffix=" jours" />
+          <div className="bg-bg/5 rounded-2xl p-6 border border-black/5 min-w-[200px] text-center">
+            <div className="text-4xl font-black text-deep-charcoal italic leading-none">
+              {km.toLocaleString()} <span className="text-accent text-xl">km</span>
             </div>
-            <p className="text-[10px] font-bold uppercase tracking-widest text-deep-charcoal/40 mt-4 italic">
-              Basé sur les économies réelles de carburant
+            <div className="text-[10px] font-black uppercase tracking-widest text-deep-charcoal/40 mt-2">Par an</div>
+          </div>
+        </div>
+      </div>
+
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        {/* 2. SAVINGS BLOCK */}
+        <div className="bg-white rounded-[32px] p-8 md:p-10 shadow-[0_10px_30px_rgba(0,0,0,0.05)] border border-black/5 flex flex-col justify-between">
+          <div>
+            <div className="flex items-center gap-2 mb-8">
+              <PiggyBank size={20} className="text-accent" />
+              <span className="text-xs font-black uppercase tracking-widest text-deep-charcoal opacity-60">Économie Annuelle</span>
+            </div>
+            <div className="text-6xl md:text-7xl font-black text-deep-charcoal italic tracking-tighter">
+              <Odometer value={annualSavings} suffix=" €" />
+            </div>
+            <p className="text-xs font-bold text-accent uppercase tracking-widest mt-4">
+              Carburant + Entretien inclus
             </p>
+          </div>
+          
+          <div className="mt-12 space-y-4">
+            <div className="space-y-2">
+              <div className="flex justify-between text-[10px] font-black uppercase text-deep-charcoal/40">
+                <span>Coût Thermique</span>
+                <span>{Math.round(thermalFuelCost + maintenanceSavings).toLocaleString()} €</span>
+              </div>
+              <div className="h-2 bg-gray-100 rounded-full overflow-hidden">
+                <motion.div animate={{ width: "100%" }} className="h-full bg-deep-charcoal/20" />
+              </div>
+            </div>
+            <div className="space-y-2">
+              <div className="flex justify-between text-[10px] font-black uppercase text-accent">
+                <span>Coût Électrique</span>
+                <span>{Math.round(electricFuelCost).toLocaleString()} €</span>
+              </div>
+              <div className="h-2 bg-gray-100 rounded-full overflow-hidden">
+                <motion.div 
+                  animate={{ width: `${(electricFuelCost / (thermalFuelCost + maintenanceSavings) || 0) * 100}%` }}
+                  className="h-full bg-accent shadow-[0_0_15px_rgba(0,163,255,0.5)]" 
+                />
+              </div>
+            </div>
           </div>
         </div>
 
-        {/* Right Column: Visualization */}
-        <div className="space-y-12">
-          {/* Money Chart */}
+        {/* 3. CARBON BLOCK */}
+        <div className="bg-white rounded-[32px] p-8 md:p-10 shadow-[0_10px_30px_rgba(0,0,0,0.05)] border border-black/5 flex flex-col justify-between">
           <div>
-            <div className="flex items-center justify-between mb-6">
-              <div className="flex items-center gap-2">
-                <PiggyBank size={18} className="text-accent" />
-                <span className="text-xs font-black uppercase tracking-widest text-deep-charcoal">Économie annuelle</span>
-              </div>
-              <div className="text-2xl font-black text-deep-charcoal italic">
-                <Odometer value={annualSavings} suffix=" €" />
-              </div>
+            <div className="flex items-center gap-2 mb-8">
+              <Leaf size={20} className={isEcoNeutral ? "text-accent" : "text-power-red"} />
+              <span className="text-xs font-black uppercase tracking-widest text-deep-charcoal opacity-60">Impact Écologique</span>
             </div>
-            
-            <div className="space-y-4">
-              <div className="space-y-2">
-                <div className="flex justify-between text-[10px] font-black uppercase text-deep-charcoal/60">
-                  <span>Thermique</span>
-                  <Odometer value={thermalFuelCost + (km/10000*350)} suffix=" €" />
-                </div>
-                <div className="h-4 bg-gray-100 rounded-full overflow-hidden">
-                  <motion.div 
-                    initial={{ width: 0 }}
-                    animate={{ width: "100%" }}
-                    className="h-full bg-deep-charcoal"
-                  />
-                </div>
-              </div>
-
-              <div className="space-y-2">
-                <div className="flex justify-between text-[10px] font-black uppercase text-accent">
-                  <span>Électrique (Zero SR/F)</span>
-                  <Odometer value={electricFuelCost} suffix=" €" />
-                </div>
-                <div className="h-4 bg-gray-100 rounded-full overflow-hidden">
-                  <motion.div 
-                    animate={{ width: `${(electricFuelCost / (thermalFuelCost + (km/10000*350)) || 0) * 100}%` }}
-                    className="h-full bg-accent shadow-[0_0_15px_rgba(0,163,255,0.5)]"
-                  />
-                </div>
-              </div>
+            <div className={`text-5xl md:text-6xl font-black italic tracking-tighter ${isEcoNeutral ? "text-accent" : "text-power-red"}`}>
+              {isEcoNeutral ? "Neutralisé !" : <Odometer value={co2Net} suffix=" kg CO2" />}
             </div>
+            <p className="text-xs text-deep-charcoal/60 leading-relaxed mt-4">
+              {isEcoNeutral 
+                ? "Vous avez remboursé la dette carbone de fabrication de votre batterie." 
+                : `Dette carbone restante à compenser en roulant.`}
+            </p>
           </div>
 
-          {/* CO2 Chart */}
-          <div>
-            <div className="flex items-center justify-between mb-6">
-              <div className="flex items-center gap-2">
-                <Leaf size={18} className={isEcoNeutral ? "text-accent" : "text-power-red"} />
-                <span className="text-xs font-black uppercase tracking-widest text-deep-charcoal">Empreinte Carbone</span>
-              </div>
-              <div className={`text-2xl font-black italic ${isEcoNeutral ? "text-accent" : "text-power-red"}`}>
-                {isEcoNeutral ? "Neutralisé !" : <Odometer value={co2Net} suffix=" kg CO2" />}
-              </div>
-            </div>
-
-            <div className="relative h-6 bg-gray-100 rounded-full overflow-hidden p-1">
+          <div className="mt-12">
+            <div className="relative h-8 bg-gray-100 rounded-full overflow-hidden p-1">
               <motion.div 
                 animate={{ 
                   width: `${Math.min(100, Math.max(0, ((km * 0.110) / 1000) * 100))}%`,
@@ -154,20 +142,16 @@ export const ComparisonTool: React.FC = () => {
                 }}
                 className="h-full rounded-full transition-colors duration-500"
               />
-              <div className="absolute inset-0 flex items-center justify-between px-4 pointer-events-none">
-                <span className="text-[8px] font-black uppercase text-white">Dette Carbone</span>
-                <span className="text-[8px] font-black uppercase text-white">Rentabilité Éco (9k km)</span>
+              <div className="absolute inset-0 flex items-center justify-between px-6 pointer-events-none">
+                <span className="text-[9px] font-black uppercase text-white">Fabrication</span>
+                <span className="text-[9px] font-black uppercase text-white">Point Mort (9 000 km)</span>
               </div>
             </div>
-            
-            <p className="text-[10px] text-deep-charcoal/60 leading-relaxed mt-4">
-              {isEcoNeutral 
-                ? "Bravo ! Vous avez compensé la dette carbone liée à la fabrication de votre batterie." 
-                : `Plus que ${Math.round(9091 - km)} km pour effacer totalement votre dette carbone initiale.`}
+            <p className="text-[10px] font-black uppercase tracking-widest text-deep-charcoal/40 mt-4 text-center">
+              Dette de fabrication : 1 000 kg CO2
             </p>
           </div>
         </div>
-
       </div>
     </div>
   );

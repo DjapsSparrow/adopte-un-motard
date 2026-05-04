@@ -1,17 +1,19 @@
 # PHASE 2: ÉTAT ACTUEL
-(2026-05-04) - **STABILITÉ: 100% BLEU (Calculator Contrast Hotfix)**
+(2026-05-04) - **STABILITÉ: 100% BLEU (Calculator Simplification)**
 
 ## 🚀 Résumé de Session
-Correction critique des contrastes sur le comparateur de rentabilité. Remplacement des textes clairs sur fond blanc/gris par des tons foncés (Deep Charcoal) et amélioration de la lisibilité des labels sur les jauges CO2.
+Simplification radicale du calculateur de rentabilité pour une meilleure lisibilité. Suppression de la notion de rentabilité de la formation (jugée superflue par le client) pour se concentrer sur les deux arguments chocs : les économies annuelles réelles (carburant + entretien) et la neutralité carbone.
 
 ### Fichiers Modifiés :
-- `package.json` : Passage en v2.0.1.
-- `src/components/ui/ComparisonTool.tsx` : Harmonisation des couleurs de texte pour une accessibilité maximale.
+- `package.json` : Passage en v2.0.2.
+- `src/components/ui/ComparisonTool.tsx` : Nouvelle mise en page en 3 blocs Bento clairs.
+- `src/components/sections/SavingsCalculator.astro` : Restauration et mise à jour du texte.
 
 ### Objectif Prochain :
 - Test de performance mobile final.
 
 ## 📜 Journal des Versions (Changelog)
+- **v2.0.2** (2026-05-04) : Calculator Simplification. Suppression du ROI formation, focus sur Economies d'usage et CO2. Mise en page Bento.
 - **v2.0.1** (2026-05-04) : Calculator Contrast Hotfix. Amélioration radicale de la visibilité des textes sur le comparateur.
 - **v2.0.0** (2026-05-04) : Savings Calculator. Déploiement de l'outil de simulation TCO & CO2 interactif.
 - **v1.9.1** (2026-05-04) : Testimonials Interactivity. Ajout de la pause au survol et du support swipe (framer-motion).
