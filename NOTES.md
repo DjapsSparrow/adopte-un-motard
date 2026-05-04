@@ -1,21 +1,18 @@
 # PHASE 1: ÉTAT ACTUEL
-(2026-05-04) - **STABILITÉ: 100% BLEU (Sales CTA Integration)**
+(2026-05-04) - **STABILITÉ: 100% BLEU (Navbar Reorder)**
 
 ## 🚀 Résumé de Session
-Intégration du lien d'achat externe (29€) sur tous les points de conversion et ouverture dans de nouveaux onglets.
+Réorganisation des liens de navigation pour correspondre à l'ordre de lecture séquentiel du site.
 
 ### Fichiers Modifiés :
-- `package.json` : Passage en v1.7.6.
-- `src/components/ui/floating-dock.tsx` : Support de la prop `target`.
-- `src/components/Navbar.tsx` : Lien "Rejoindre" vers offre externe.
-- `src/components/ui/SlideToJoin.tsx` : Redirection swipe vers offre externe.
-- `src/components/sections/FinalCTA.astro` : Lien vers offre externe.
-- `src/components/sections/Investment.astro` : Ajout d'un bloc de prix avec bouton d'achat.
+- `package.json` : Passage en v1.7.7.
+- `src/components/Navbar.tsx` : Réorganisation de l'array `links`.
 
 ### Objectif Prochain :
 - Test de performance mobile final.
 
 ## 📜 Journal des Versions (Changelog)
+- **v1.7.7** (2026-05-04) : Navbar Reordering. Alignement des items du dock avec l'ordre réel des sections (Accueil > Programme > Ma Promesse > Pour qui > Tarifs > Témoignages > Rejoindre).
 - **v1.7.6** (2026-05-04) : Sales CTA & External Liaison. Intégration du lien d'achat (29€) sur tous les CTAs avec ouverture `_blank`. Ajout d'un bloc de prix dans la section Investissement.
 - **v1.7.5** (2026-05-04) : SlideToJoin Contrast Fix. Amélioration de la lisibilité du texte sur l'arc lumineux (Backdrop blur + Darker bg).
 - **v1.7.4** (2026-05-04) : Above-the-fold Optimization. Hiérarchie corrigée et tailles ajustées pour garantir la visibilité du CTA sans scroll.

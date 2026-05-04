@@ -24,14 +24,14 @@ export const Navbar = () => {
       href: "#programme",
     },
     {
+      title: "Ma Promesse",
+      icon: <IconShieldCheck className="h-full w-full" />,
+      href: "#promesse",
+    },
+    {
       title: "Pour qui ?",
       icon: <IconTargetArrow className="h-full w-full" />,
       href: "#ciblage",
-    },
-    {
-      title: "Témoignages",
-      icon: <IconMessageHeart className="h-full w-full" />,
-      href: "#temoignages",
     },
     {
       title: "Tarifs",
@@ -39,9 +39,9 @@ export const Navbar = () => {
       href: "#tarifs",
     },
     {
-      title: "Ma Promesse",
-      icon: <IconShieldCheck className="h-full w-full" />,
-      href: "#promesse",
+      title: "Témoignages",
+      icon: <IconMessageHeart className="h-full w-full" />,
+      href: "#temoignages",
     },
     {
       title: "Rejoindre",
