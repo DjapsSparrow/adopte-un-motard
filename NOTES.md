@@ -1,18 +1,19 @@
 # PHASE 1: ÉTAT ACTUEL
-(2026-05-04) - **STABILITÉ: 100% BLEU (Testimonial Swap)**
+(2026-05-04) - **STABILITÉ: 100% BLEU (Left Widgets Stack)**
 
 ## 🚀 Résumé de Session
-Mise à jour d'un témoignage spécifique : remplacement de Léa Roussel par Lucas Martin (portrait fourni par l'utilisateur). Adaptation du contenu pour refléter l'expérience d'un jeune permis sur le plaisir du pilotage sans embrayage.
+Réorganisation des widgets flottants sur le côté gauche. L'aperçu de la formation est désormais placé au-dessus du widget YouTube pour une hiérarchie visuelle claire et pour libérer le côté droit de l'écran.
 
 ### Fichiers Modifiés :
-- `package.json` : Passage en v1.8.9.
-- `src/components/sections/Testimonials.astro` : Mise à jour du profil `t5`.
-- `public/images/testimonials/t5.jpg` : Nouveau portrait (Lucas).
+- `package.json` : Passage en v1.9.0.
+- `src/components/ui/CoursePreview.tsx` : Positionnement à `bottom-36/40` à gauche.
+- `src/components/ui/YouTubeWidget.tsx` : Positionnement à `bottom-20/24` à gauche.
 
 ### Objectif Prochain :
 - Test de performance mobile final.
 
 ## 📜 Journal des Versions (Changelog)
+- **v1.9.0** (2026-05-04) : Left Widgets Stack. Empilement de CoursePreview au-dessus de YouTubeWidget sur le bord gauche.
 - **v1.8.9** (2026-05-04) : Testimonial Swap. Remplacement de Léa par Lucas (t5.jpg) et mise à jour de l'avis sur le pilotage.
 - **v1.8.8** (2026-05-04) : Widgets Swap. Inversion CoursePreview (gauche) et YouTubeWidget (droite). Sidebar Aperçu s'ouvre depuis la gauche.
 - **v1.8.7** (2026-05-04) : Mobile UI Cleanup. Masquage du ScrollToTop sur mobile et alignement des widgets YouTube/Aperçu à `bottom-20`.
