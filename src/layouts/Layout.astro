@@ -14,13 +14,13 @@ import { version } from '../../package.json';
 		<meta name="generator" content={Astro.generator} />
 		<title>Adopte un Motard</title>
 	</head>
-	<body class="font-sans antialiased text-deep-charcoal bg-paper selection:bg-electric-cyan/50">
+	<body class="font-sans antialiased text-white bg-bg selection:bg-accent/30 overflow-x-hidden">
 		<Navbar client:load />
 		<slot />
 		
 		<!-- 🎖️ Version Badge -->
 		<div class="fixed bottom-4 left-4 z-50 pointer-events-none">
-			<span class="text-[10px] font-bold font-mono text-black bg-white px-2 py-1 rounded-full border border-black/10 shadow-sm">
+			<span class="text-[10px] font-bold font-mono text-white/40 bg-white/5 backdrop-blur-sm px-2 py-1 rounded-full border border-white/10 shadow-sm">
 				v{version}
 			</span>
 		</div>

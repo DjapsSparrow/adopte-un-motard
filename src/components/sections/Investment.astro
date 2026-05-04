@@ -3,46 +3,48 @@ import { FadeIn } from '../ui/FadeIn';
 import { BadgeCheck, Clock, PiggyBank } from 'lucide-react';
 ---
 
-<section id="tarifs" class="py-24 md:py-32 bg-white">
+<section id="tarifs" class="py-24 md:py-32 bg-bg">
   <div class="container mx-auto px-6 max-w-5xl">
     <FadeIn client:visible>
-      <div class="text-center mb-16">
-        <h2 class="text-3xl md:text-[40px] font-bold text-deep-charcoal mb-4">Pourquoi cet investissement ?</h2>
-        <p class="text-[20px] text-carbon-grey max-w-2xl mx-auto">
-          Un prix transparent pour un résultat concret.
+      <div class="text-center mb-20">
+        <h2 class="text-xs font-black uppercase tracking-[0.3em] text-accent mb-4">Investissement intelligent</h2>
+        <p class="text-3xl md:text-5xl font-black text-white italic uppercase tracking-tighter">
+          Un prix transparent. <br/> <span class="text-accent">Une maîtrise totale.</span>
         </p>
       </div>
     </FadeIn>
 
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-      <FadeIn client:visible delay={0.1} className="bg-paper p-8 rounded-2xl border border-carbon-grey/10 text-center">
-        <div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-white mb-6 shadow-sm text-electric-cyan">
-          <BadgeCheck size={32} />
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <FadeIn client:visible delay={0.1} className="bg-surface p-10 rounded-[24px] border border-white/5 relative group hover:border-accent/30 transition-all">
+        <div class="inline-flex items-center justify-center w-14 h-14 rounded-xl bg-accent/10 mb-8 text-accent">
+          <BadgeCheck size={28} />
         </div>
-        <h3 class="text-xl font-bold text-deep-charcoal mb-3">La Fiabilité</h3>
-        <p class="text-carbon-grey">
-          Des données vérifiées et des tests réels effectués sur des milliers de kilomètres. Pas de bla-bla théorique.
+        <h3 class="text-xl font-black text-white mb-4 uppercase italic">La Fiabilité</h3>
+        <p class="text-text-secondary text-sm leading-relaxed">
+          Données vérifiées sur des milliers de kilomètres. Pas de théorie, <span class="text-white italic">juste la réalité du bitume.</span>
         </p>
       </FadeIn>
 
-      <FadeIn client:visible delay={0.2} className="bg-paper p-8 rounded-2xl border border-carbon-grey/10 text-center">
-        <div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-white mb-6 shadow-sm text-electric-cyan">
-          <Clock size={32} />
+      <FadeIn client:visible delay={0.2} className="bg-surface p-10 rounded-[24px] border border-white/5 relative group hover:border-accent/30 transition-all">
+        <div class="inline-flex items-center justify-center w-14 h-14 rounded-xl bg-accent/10 mb-8 text-accent">
+          <Clock size={28} />
         </div>
-        <h3 class="text-xl font-bold text-deep-charcoal mb-3">Le Gain de temps</h3>
-        <p class="text-carbon-grey">
-          Apprenez en seulement 2 heures ce qu'il m'a fallu 5 ans de pratique pour maîtriser et comprendre.
+        <h3 class="text-xl font-black text-white mb-4 uppercase italic">Le Gain de temps</h3>
+        <p class="text-text-secondary text-sm leading-relaxed">
+          Maîtrisez en 2 heures ce qui demande <span class="text-white italic">5 ans de pratique</span> intensive pour être compris.
         </p>
       </FadeIn>
 
-      <FadeIn client:visible delay={0.3} className="bg-paper p-8 rounded-2xl border border-carbon-grey/10 text-center relative overflow-hidden">
-        <div class="absolute inset-0 bg-gradient-to-br from-electric-cyan/10 to-transparent pointer-events-none"></div>
-        <div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-white mb-6 shadow-sm text-power-red relative z-10">
-          <PiggyBank size={32} />
+      <FadeIn client:visible delay={0.3} className="bg-surface p-10 rounded-[24px] border border-accent/20 relative group hover:border-accent/50 transition-all shadow-[0_0_30px_rgba(0,163,255,0.05)]">
+        <div class="absolute top-0 right-0 p-4">
+          <div class="h-2 w-2 rounded-full bg-accent animate-pulse"></div>
         </div>
-        <h3 class="text-xl font-bold text-deep-charcoal mb-3 relative z-10">La Rentabilité</h3>
-        <p class="text-carbon-grey relative z-10">
-          La formation coûte le prix d'un plein... pour vous éviter de faire une erreur de casting à 15 000 €.
+        <div class="inline-flex items-center justify-center w-14 h-14 rounded-xl bg-accent/20 mb-8 text-accent">
+          <PiggyBank size={28} />
+        </div>
+        <h3 class="text-xl font-black text-white mb-4 uppercase italic">Rentabilité</h3>
+        <p class="text-text-secondary text-sm leading-relaxed">
+          Évitez une erreur de casting à <span class="text-white italic">15 000 €</span> pour le prix d'un seul plein d'essence.
         </p>
       </FadeIn>
     </div>

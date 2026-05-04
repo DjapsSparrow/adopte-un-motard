@@ -1,0 +1,94 @@
+---
+import { Battery, Zap, Smartphone, Shield, Map, Gauge } from 'lucide-react';
+import { FadeIn } from '../ui/FadeIn';
+---
+
+<section class="py-24 md:py-32 bg-bg relative overflow-hidden" id="technologie">
+  <div class="container mx-auto px-6">
+    <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-8">
+      <div class="max-w-2xl">
+        <h2 class="text-xs font-black uppercase tracking-[0.3em] text-accent mb-4">Ingénierie de précision</h2>
+        <p class="text-3xl md:text-5xl font-black text-white italic uppercase tracking-tighter">
+          Une architecture <span class="text-accent">sans compromis.</span>
+        </p>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4 auto-rows-[250px]">
+      {/* Bento Item: Performance (Large) */}
+      <div class="md:col-span-2 md:row-span-2 group relative overflow-hidden rounded-[24px] border border-white/5 bg-surface p-8 transition-all hover:border-accent/30">
+        <div class="absolute top-0 right-0 p-8 opacity-10 group-hover:opacity-20 transition-opacity">
+          <Zap size={200} class="text-accent" />
+        </div>
+        <div class="relative z-10 h-full flex flex-col justify-between">
+          <div class="h-12 w-12 rounded-xl bg-accent/10 flex items-center justify-center text-accent">
+            <Zap size={24} />
+          </div>
+          <div>
+            <h3 class="text-4xl font-black text-white mb-2 italic uppercase">0-100 km/h en 2.8s</h3>
+            <p class="text-text-secondary max-w-sm">
+              Une accélération instantanée grâce au couple constant du moteur à induction haute performance.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      {/* Bento Item: Autonomie */}
+      <div class="md:col-span-1 md:row-span-1 group relative overflow-hidden rounded-[24px] border border-white/5 bg-surface p-6 transition-all hover:border-accent/30">
+        <div class="relative z-10 flex flex-col justify-between h-full">
+          <div class="flex items-center justify-between">
+            <div class="h-10 w-10 rounded-xl bg-accent/10 flex items-center justify-center text-accent">
+              <Battery size={20} />
+            </div>
+            <span class="text-xs font-bold text-accent">98% OPTIMISÉ</span>
+          </div>
+          <div>
+            <h3 class="text-xl font-black text-white mb-1 uppercase italic">Autonomie</h3>
+            <div class="w-full h-1 bg-white/5 rounded-full mt-2 overflow-hidden">
+              <div class="w-4/5 h-full bg-accent animate-pulse"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Bento Item: Connectivité */}
+      <div class="md:col-span-1 md:row-span-1 group relative overflow-hidden rounded-[24px] border border-white/5 bg-surface p-6 transition-all hover:border-accent/30">
+        <div class="relative z-10 flex flex-col justify-between h-full">
+          <div class="h-10 w-10 rounded-xl bg-accent/10 flex items-center justify-center text-accent">
+            <Smartphone size={20} />
+          </div>
+          <div>
+            <h3 class="text-xl font-black text-white mb-1 uppercase italic">Smart Link</h3>
+            <p class="text-xs text-text-secondary">Contrôle total via l'application mobile Antigravity.</p>
+          </div>
+        </div>
+      </div>
+
+      {/* Bento Item: Sécurité */}
+      <div class="md:col-span-1 md:row-span-1 group relative overflow-hidden rounded-[24px] border border-white/5 bg-surface p-6 transition-all hover:border-accent/30">
+        <div class="relative z-10 flex flex-col justify-between h-full">
+          <div class="h-10 w-10 rounded-xl bg-accent/10 flex items-center justify-center text-accent">
+            <Shield size={20} />
+          </div>
+          <div>
+            <h3 class="text-xl font-black text-white mb-1 uppercase italic">Cyber-Shield</h3>
+            <p class="text-xs text-text-secondary">Protection des données et localisation GPS temps réel.</p>
+          </div>
+        </div>
+      </div>
+
+      {/* Bento Item: Navigation */}
+      <div class="md:col-span-1 md:row-span-1 group relative overflow-hidden rounded-[24px] border border-white/5 bg-surface p-6 transition-all hover:border-accent/30">
+        <div class="relative z-10 flex flex-col justify-between h-full">
+          <div class="h-10 w-10 rounded-xl bg-accent/10 flex items-center justify-center text-accent">
+            <Map size={20} />
+          </div>
+          <div>
+            <h3 class="text-xl font-black text-white mb-1 uppercase italic">Précision</h3>
+            <p class="text-xs text-text-secondary">Cartographie optimisée pour les trajets électriques.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

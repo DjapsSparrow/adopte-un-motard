@@ -5,43 +5,49 @@ import { ElectricText } from '../ui/electric-text';
 import { ArrowDown } from 'lucide-react';
 ---
 
-<section class="relative pt-32 pb-20 md:pt-40 md:pb-32 overflow-hidden flex flex-col items-center justify-center min-h-[90vh] bg-deep-charcoal">
-  {/* Background Image with Overlay */}
-  <div class="absolute inset-0 z-0">
-    <img 
-      src="/hero-bg-v2.jpg" 
-      alt="Horizon électrique" 
-      class="w-full h-full object-cover opacity-100" 
-    />
-    <div class="absolute inset-0 bg-gradient-to-b from-black/80 via-black/40 to-deep-charcoal"></div>
-  </div>
+<section class="relative pt-32 pb-40 md:pt-48 md:pb-64 overflow-hidden flex flex-col items-center justify-center min-h-screen bg-bg">
+  {/* Luminous Arc (Glow) Effect at the bottom */}
+  <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-[150%] h-[300px] bg-[radial-gradient(ellipse_at_top,_var(--color-accent)_0%,_transparent_70%)] opacity-20 blur-[100px] pointer-events-none"></div>
+  <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-full h-[1px] bg-gradient-to-r from-transparent via-accent to-transparent opacity-50"></div>
 
-  <div class="container mx-auto px-6 max-w-4xl text-center relative z-10">
+  <div class="container mx-auto px-6 max-w-5xl text-center relative z-10">
     <FadeIn client:visible>
-      <img src="/logo.png" alt="Adopte Un Motard Logo" class="h-48 md:h-64 mx-auto mb-10 object-contain drop-shadow-xl" />
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-accent/20 bg-accent/5 text-accent text-xs font-bold tracking-widest uppercase mb-8">
+        <span class="relative flex h-2 w-2">
+          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent opacity-75"></span>
+          <span class="relative inline-flex rounded-full h-2 w-2 bg-accent"></span>
+        </span>
+        Technologie Antigravity v1.6
+      </div>
     </FadeIn>
 
     <FadeIn client:visible delay={0.1}>
-      <h1 class="text-4xl md:text-[60px] font-black leading-tight text-white mb-8 tracking-tight">
-        <ElectricText client:load text="Passer à la moto électrique :" /> <br />
-        <span class="text-electric-cyan">Arrêtez de fantasmer</span>, apprenez à la vivre.
+      <h1 class="text-5xl md:text-[80px] font-black leading-[0.9] text-white mb-8 tracking-tighter uppercase italic">
+        L'apesanteur, <br />
+        <span class="text-accent text-glow">maintenant sur deux roues.</span>
       </h1>
     </FadeIn>
 
     <FadeIn client:visible delay={0.2}>
-      <p class="text-lg md:text-[22px] text-paper/90 leading-relaxed max-w-3xl mx-auto mb-12">
-        <strong>5 ans d’expérience au quotidien</strong> condensés en une formation ultra-complète pour décider, choisir et rouler sereinement. 
-        Sans discours de vendeur, <span class="underline decoration-electric-cyan decoration-4 underline-offset-4">juste la réalité du bitume</span>.
+      <p class="text-lg md:text-[24px] text-text-secondary leading-relaxed max-w-3xl mx-auto mb-16 font-medium">
+        Passez à l'ère électrique avec une <span class="text-white">précision chirurgicale</span> et une puissance instantanée.
       </p>
     </FadeIn>
 
-    <FadeIn client:visible delay={0.3} className="flex flex-col sm:flex-row items-center justify-center gap-6">
-      <Button href="#programme" client:load className="w-full sm:w-auto text-lg py-5 px-10">
-        Rejoindre la formation
-      </Button>
-      <Button href="#programme" variant="secondary" client:load className="w-full sm:w-auto text-lg py-5 px-10 text-white border-white/20 hover:bg-white/10" icon={ArrowDown}>
-        Voir le programme
-      </Button>
+    <FadeIn client:visible delay={0.3} className="w-full max-w-md mx-auto">
+      <div class="relative group">
+        <input 
+          type="text" 
+          placeholder="Entrez votre ville pour un essai..." 
+          class="w-full bg-surface border border-white/10 rounded-2xl py-5 px-6 text-white placeholder:text-text-secondary focus:outline-none focus:border-accent/50 transition-all shadow-2xl"
+        />
+        <button class="absolute right-2 top-2 bottom-2 bg-accent text-bg px-6 rounded-xl font-black text-sm hover:scale-105 transition-transform active:scale-95">
+          RÉSERVER
+        </button>
+      </div>
+      <p class="mt-4 text-[10px] text-text-secondary uppercase tracking-[0.2em] font-bold opacity-50">
+        Aucun engagement • Disponibilité immédiate
+      </p>
     </FadeIn>
   </div>
 </section>

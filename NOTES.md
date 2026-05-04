@@ -1,20 +1,23 @@
 # PHASE 1: ÉTAT ACTUEL
-(2026-05-04) - **STABILITÉ: 100% BLEU (Design Refresh)**
+(2026-05-04) - **STABILITÉ: 100% BLEU (Electric Mobility Pivot)**
 
 ## 🚀 Résumé de Session
-Mise à jour visuelle du Hero : nouvelle image de fond "Horizon Électrique".
+Migration majeure vers le nouveau Design System "Electric Mobility" (Dark-Tech).
 
 ### Fichiers Modifiés :
-- `package.json` : Passage en v1.5.4.
-- `src/components/sections/Hero.astro` : Remplacement de l'image de fond et ajustement de l'opacité.
-- `public/hero-bg-v2.jpg` : Ajout du nouvel asset visuel.
+- `package.json` : Passage en v1.6.0.
+- `src/styles/global.css` : Nouvelle palette de couleurs et utilitaires "Glow".
+- `src/components/sections/Hero.astro` : Refonte totale (Arc lumineux, Titre Premium).
+- `src/components/sections/BentoFeatures.astro` : [NOUVEAU] Grille Bento pour les caractéristiques.
+- `src/components/ui/Button.tsx` : Nouveau style Glow Blue.
+- `src/layouts/Layout.astro` & Sections : Adaptations Full Dark.
 
 ### Objectif Prochain :
-- Intégrer les vrais avis clients.
-- Finaliser le lien de conversion final dans le Dock.
-- Test de performance mobile final.
+- Intégrer les vrais avis clients dans le style Bento.
+- Test de performance mobile final (Audit LCP/FCP sur le nouveau design).
 
 ## 📜 Journal des Versions (Changelog)
+- **v1.6.0** (2026-05-04) : Major Design System Pivot. Transition vers l'esthétique "Antigravity Electric Mobility" (Full Dark, Electric Blue, Bento Grid).
 - **v1.5.4** (2026-05-04) : Hero Background Refresh. Nouvelle image "Signature" pour un impact visuel accru.
 - **v1.5.3** (2026-05-04) : Security Hardening. Audit complet, Referrer-Policy renforcée, blocage étendu des fichiers sensibles.
 - **v1.5.2** (2026-05-04) : Click-outside Mobile Menu. Fermeture automatique si on clique n'importe où ailleurs sur l'écran.

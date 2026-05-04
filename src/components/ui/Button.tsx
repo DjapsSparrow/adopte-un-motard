@@ -19,11 +19,11 @@ export const Button: React.FC<ButtonProps> = ({
   className = '', 
   ...props 
 }) => {
-  const baseStyles = "inline-flex items-center justify-center font-bold text-base px-8 py-4 rounded-[100px] transition-colors focus:outline-none focus:ring-2 focus:ring-electric-cyan focus:ring-offset-2 focus:ring-offset-paper";
+  const baseStyles = "inline-flex items-center justify-center font-black text-xs uppercase tracking-[0.2em] px-10 py-5 rounded-2xl transition-all focus:outline-none focus:ring-2 focus:ring-accent/50";
   
   const variants = {
-    primary: "bg-electric-cyan text-deep-charcoal",
-    secondary: "bg-transparent text-deep-charcoal border border-carbon-grey/30 hover:border-carbon-grey"
+    primary: "bg-accent text-bg shadow-[0_4px_14px_0_rgba(0,163,255,0.39)]",
+    secondary: "bg-surface text-white border border-white/10 hover:border-accent/30"
   };
 
   const Component = href ? motion.a : motion.button;
@@ -33,16 +33,16 @@ export const Button: React.FC<ButtonProps> = ({
     <Component
       className={`${baseStyles} ${variants[variant]} ${className}`}
       whileHover={{ 
-        scale: 1.02,
-        boxShadow: variant === 'primary' ? "0 0 20px rgba(168, 230, 226, 0.5)" : "none" 
+        scale: 1.05,
+        boxShadow: variant === 'primary' ? "0 0 25px rgba(0, 163, 255, 0.6)" : "0 0 15px rgba(255, 255, 255, 0.1)" 
       }}
-      whileTap={{ scale: 0.98 }}
-      transition={{ type: "spring", stiffness: 400, damping: 17 }}
+      whileTap={{ scale: 0.95 }}
+      transition={{ type: "spring", stiffness: 500, damping: 15 }}
       {...linkProps}
       {...props as any}
     >
       {children}
-      {Icon && <Icon className="ml-2 w-5 h-5" />}
+      {Icon && <Icon className="ml-3 w-4 h-4" />}
     </Component>
   );
 };
