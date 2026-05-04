@@ -17,19 +17,31 @@ import { HelpCircle, AlertTriangle, ZapOff } from 'lucide-react';
     </FadeIn>
 
     <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
-      <FadeIn client:visible delay={0.1} className="bg-surface p-8 rounded-[24px] border border-white/5 flex flex-col items-center text-center">
-        <HelpCircle class="text-accent mb-10" size={40} />
-        <p class="text-text-primary font-bold leading-tight uppercase italic">L'autonomie est-elle une fiction ou une réalité&nbsp;?</p>
+      <FadeIn client:visible delay={0.1} className="bg-surface p-10 rounded-[24px] border border-white/5 flex flex-col items-center text-center light:bg-white light:shadow-xl light:shadow-black/5">
+        <div class="text-accent mb-10">
+          <HelpCircle size={40} strokeWidth={2.5} />
+        </div>
+        <p class="text-text-primary font-black leading-tight uppercase italic">
+          L'autonomie est-elle une <br /> <span class="whitespace-nowrap text-accent">fiction ou une réalité&nbsp;?</span>
+        </p>
       </FadeIn>
 
-      <FadeIn client:visible delay={0.2} className="bg-surface p-8 rounded-[24px] border border-white/5 flex flex-col items-center text-center">
-        <ZapOff class="text-accent mb-10" size={40} />
-        <p class="text-text-primary font-bold leading-tight uppercase italic">Votre installation électrique va-t-elle tenir&nbsp;?</p>
+      <FadeIn client:visible delay={0.2} className="bg-surface p-10 rounded-[24px] border border-white/5 flex flex-col items-center text-center light:bg-white light:shadow-xl light:shadow-black/5">
+        <div class="text-accent mb-10">
+          <ZapOff size={40} strokeWidth={2.5} />
+        </div>
+        <p class="text-text-primary font-black leading-tight uppercase italic">
+          Votre installation électrique <br /> <span class="whitespace-nowrap text-accent">va-t-elle tenir&nbsp;?</span>
+        </p>
       </FadeIn>
 
-      <FadeIn client:visible delay={0.3} className="bg-surface p-8 rounded-[24px] border border-white/5 flex flex-col items-center text-center">
-        <AlertTriangle class="text-accent mb-10" size={40} />
-        <p class="text-text-primary font-bold leading-tight uppercase italic">Allez-vous vraiment retrouver le plaisir de piloter&nbsp;?</p>
+      <FadeIn client:visible delay={0.3} className="bg-surface p-10 rounded-[24px] border border-white/5 flex flex-col items-center text-center light:bg-white light:shadow-xl light:shadow-black/5">
+        <div class="text-accent mb-10">
+          <AlertTriangle size={40} strokeWidth={2.5} />
+        </div>
+        <p class="text-text-primary font-black leading-tight uppercase italic">
+          Allez-vous vraiment retrouver <br /> <span class="whitespace-nowrap text-accent">le plaisir de piloter&nbsp;?</span>
+        </p>
       </FadeIn>
     </div>
 
