@@ -64,6 +64,7 @@ const FloatingDockMobile = ({
               >
                 <a
                   href={item.href}
+                  onClick={() => setOpen(false)}
                   className="flex items-center gap-3 group"
                 >
                   <span className="text-xs font-bold text-white bg-deep-charcoal/80 backdrop-blur-sm px-3 py-1.5 rounded-lg border border-white/10 opacity-0 group-hover:opacity-100 md:group-hover:opacity-100 transition-opacity whitespace-nowrap !opacity-100">

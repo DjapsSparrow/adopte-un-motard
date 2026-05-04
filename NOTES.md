@@ -1,13 +1,12 @@
 # PHASE 1: ÉTAT ACTUEL
-(2026-05-04) - **STABILITÉ: 100% BLEU (Mobile UI Simplicity)**
+(2026-05-04) - **STABILITÉ: 100% BLEU (UX Polish)**
 
 ## 🚀 Résumé de Session
-Simplification du Dock Mobile : passage sur un menu vertical calé à droite avec labels à gauche.
+Auto-fermeture du menu mobile lors du clic sur une section.
 
 ### Fichiers Modifiés :
-- `package.json` : Passage en v1.5.0.
-- `src/components/ui/floating-dock.tsx` : Refacto vers un menu vertical (Side-aligned).
-- `src/components/Navbar.tsx` : Alignement à droite sur mobile pour le déclencheur.
+- `package.json` : Passage en v1.5.1.
+- `src/components/ui/floating-dock.tsx` : Ajout d'un handler `onClick` sur les liens pour fermer le menu.
 
 ### Objectif Prochain :
 - Intégrer les vrais avis clients.
@@ -15,6 +14,7 @@ Simplification du Dock Mobile : passage sur un menu vertical calé à droite ave
 - Test de performance mobile final.
 
 ## 📜 Journal des Versions (Changelog)
+- **v1.5.1** (2026-05-04) : Auto-close Mobile Menu. Le menu se replie automatiquement après la sélection d'une section.
 - **v1.5.0** (2026-05-04) : Simplified Mobile Dock. Trigger à droite, menu vertical, texte à gauche.
 - **v1.4.3** (2026-05-04) : iPhone Viewport Fix. Resserrement de l'arc pour garantir que les labels restent dans l'écran sur les téléphones étroits.
 - **v1.4.2** (2026-05-04) : Dynamic Label Positioning. Les labels s'écartent vers l'extérieur pour éviter tout chevauchement.
