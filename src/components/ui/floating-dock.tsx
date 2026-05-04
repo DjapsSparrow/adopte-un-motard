@@ -77,7 +77,7 @@ const FloatingDockMobile = ({
                   onClick={() => setOpen(false)}
                   className="flex items-center gap-3 group"
                 >
-                  <span className="text-xs font-bold text-text-primary bg-deep-charcoal/80 backdrop-blur-sm px-3 py-1.5 rounded-lg border border-white/10 opacity-0 group-hover:opacity-100 md:group-hover:opacity-100 transition-opacity whitespace-nowrap !opacity-100">
+                  <span className="text-xs font-bold text-white bg-accent/90 backdrop-blur-sm px-3 py-1.5 rounded-lg border border-white/10 opacity-0 group-hover:opacity-100 md:group-hover:opacity-100 transition-opacity whitespace-nowrap !opacity-100 shadow-xl">
                     {item.title}
                   </span>
                   <div className="h-10 w-10 rounded-full bg-deep-charcoal/95 backdrop-blur-md border border-white/10 flex items-center justify-center text-white shadow-xl light:bg-slate-100 light:border-black/5 light:text-slate-600">
@@ -197,7 +197,7 @@ function IconContainer({
               initial={{ opacity: 0, y: 10, x: "-50%" }}
               animate={{ opacity: 1, y: 0, x: "-50%" }}
               exit={{ opacity: 0, y: 2, x: "-50%" }}
-              className="px-2 py-1 whitespace-pre rounded-md bg-electric-cyan text-deep-charcoal absolute left-1/2 -top-10 w-fit text-xs font-black shadow-lg border border-white/20"
+              className="px-2 py-1 whitespace-pre rounded-md bg-accent text-white absolute left-1/2 -top-10 w-fit text-xs font-black shadow-lg border border-white/20"
             >
               {title}
             </motion.div>
