@@ -1,19 +1,19 @@
 # PHASE 1: ÉTAT ACTUEL
-(2026-05-04) - **STABILITÉ: 100% BLEU (Funnel Optimization)**
+(2026-05-04) - **STABILITÉ: 100% BLEU (UX Polish - ScrollToTop)**
 
 ## 🚀 Résumé de Session
-Refonte du tunnel de conversion : déplacement du SlideToJoin vers le bas de page et mise en avant de la valeur (29€ / 2h de formation) dans le Hero.
+Ajout d'un bouton de retour en haut de page avec un seuil de déclenchement à 45% de scroll et des animations fluides d'entrée/sortie.
 
 ### Fichiers Modifiés :
-- `package.json` : Passage en v1.8.0.
-- `src/components/ui/SlideToJoin.tsx` : Flexibilité accrue via les props.
-- `src/components/sections/Hero.astro` : Nouveau bloc prix/valeur et lien de scroll.
-- `src/components/sections/FinalCTA.astro` : Intégration du SlideToJoin comme acte d'engagement final.
+- `package.json` : Passage en v1.8.1.
+- `src/components/ui/ScrollToTop.tsx` : Logique de scroll et animations Framer Motion.
+- `src/layouts/Layout.astro` : Intégration globale du bouton.
 
 ### Objectif Prochain :
 - Test de performance mobile final.
 
 ## 📜 Journal des Versions (Changelog)
+- **v1.8.1** (2026-05-04) : ScrollToTop Utility. Bouton dynamique apparaissant à 45% de scroll (fade in vers le haut) et disparaissant en dessous (fade out vers le bas).
 - **v1.8.0** (2026-05-04) : Funnel Optimization. Déplacement du `SlideToJoin` en clôture de page. Le Hero affiche désormais le prix (29€) et la durée de formation (+2h) pour maximiser la perception de valeur immédiate.
 - **v1.7.9** (2026-05-04) : Library Sync. Extraction et ajout du composant `SlideToJoin` à la bibliothèque Antigravity globale.
 - **v1.7.8** (2026-05-04) : Build Hotfix. Correction d'une variable non définie (`target`) empêchant le pré-rendu static du site.
