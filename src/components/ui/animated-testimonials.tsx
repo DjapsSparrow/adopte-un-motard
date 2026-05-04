@@ -18,6 +18,7 @@ export const AnimatedTestimonials = ({
   autoplay?: boolean;
 }) => {
   const [active, setActive] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
 
   const handleNext = () => {
     setActive((prev) => (prev + 1) % testimonials.length);
@@ -32,22 +33,31 @@ export const AnimatedTestimonials = ({
   };
 
   useEffect(() => {
-    if (autoplay) {
+    if (autoplay && !isPaused) {
       const interval = setInterval(handleNext, 5000);
       return () => clearInterval(interval);
     }
-  }, [autoplay]);
+  }, [autoplay, isPaused]);
 
   const randomRotateY = () => {
     return Math.floor(Math.random() * 21) - 10;
   };
 
+  const swipeConfidenceThreshold = 10000;
+  const swipePower = (offset: number, velocity: number) => {
+    return Math.abs(offset) * velocity;
+  };
+
   return (
-    <div className="max-w-sm md:max-w-4xl mx-auto antialiased font-sans px-4 md:px-8 lg:px-12 py-20">
+    <div 
+      className="max-w-sm md:max-w-4xl mx-auto antialiased font-sans px-4 md:px-8 lg:px-12 py-20"
+      onMouseEnter={() => setIsPaused(true)}
+      onMouseLeave={() => setIsPaused(false)}
+    >
       <div className="relative grid grid-cols-1 md:grid-cols-2 gap-20">
         <div>
           <div className="relative h-80 w-full">
-            <AnimatePresence>
+            <AnimatePresence initial={false}>
               {testimonials.map((testimonial, index) => (
                 <motion.div
                   key={testimonial.src}
@@ -77,7 +87,17 @@ export const AnimatedTestimonials = ({
                     duration: 0.4,
                     ease: "easeInOut",
                   }}
-                  className="absolute inset-0 origin-bottom"
+                  className="absolute inset-0 origin-bottom touch-pan-y"
+                  drag="x"
+                  dragConstraints={{ left: 0, right: 0 }}
+                  onDragEnd={(e, { offset, velocity }) => {
+                    const swipe = swipePower(offset.x, velocity.x);
+                    if (swipe < -swipeConfidenceThreshold) {
+                      handleNext();
+                    } else if (swipe > swipeConfidenceThreshold) {
+                      handlePrev();
+                    }
+                  }}
                 >
                   <img
                     src={testimonial.src}
@@ -85,7 +105,7 @@ export const AnimatedTestimonials = ({
                     width={500}
                     height={500}
                     draggable={false}
-                    className="h-full w-full rounded-3xl object-cover object-center"
+                    className="h-full w-full rounded-3xl object-cover object-center pointer-events-none"
                   />
                 </motion.div>
               ))}

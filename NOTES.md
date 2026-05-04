@@ -1,18 +1,18 @@
 # PHASE 1: ÉTAT ACTUEL
-(2026-05-04) - **STABILITÉ: 100% BLEU (Left Widgets Stack)**
+(2026-05-04) - **STABILITÉ: 100% BLEU (Testimonials Interactivity)**
 
 ## 🚀 Résumé de Session
-Réorganisation des widgets flottants sur le côté gauche. L'aperçu de la formation est désormais placé au-dessus du widget YouTube pour une hiérarchie visuelle claire et pour libérer le côté droit de l'écran.
+Amélioration de l'expérience utilisateur sur la section témoignages. Ajout de la pause automatique du défilement au survol de la souris et support du balayage tactile (swipe) sur mobile pour une navigation intuitive.
 
 ### Fichiers Modifiés :
-- `package.json` : Passage en v1.9.0.
-- `src/components/ui/CoursePreview.tsx` : Positionnement à `bottom-36/40` à gauche.
-- `src/components/ui/YouTubeWidget.tsx` : Positionnement à `bottom-20/24` à gauche.
+- `package.json` : Passage en v1.9.1.
+- `src/components/ui/animated-testimonials.tsx` : Logique de pause et de drag (swipe).
 
 ### Objectif Prochain :
 - Test de performance mobile final.
 
 ## 📜 Journal des Versions (Changelog)
+- **v1.9.1** (2026-05-04) : Testimonials Interactivity. Ajout de la pause au survol et du support swipe (framer-motion).
 - **v1.9.0** (2026-05-04) : Left Widgets Stack. Empilement de CoursePreview au-dessus de YouTubeWidget sur le bord gauche.
 - **v1.8.9** (2026-05-04) : Testimonial Swap. Remplacement de Léa par Lucas (t5.jpg) et mise à jour de l'avis sur le pilotage.
 - **v1.8.8** (2026-05-04) : Widgets Swap. Inversion CoursePreview (gauche) et YouTubeWidget (droite). Sidebar Aperçu s'ouvre depuis la gauche.
