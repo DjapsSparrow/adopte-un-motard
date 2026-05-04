@@ -15,30 +15,24 @@ import { ShieldCheck, Video, CheckSquare } from 'lucide-react';
     </FadeIn>
 
     <FadeIn client:visible delay={0.1}>
-      <blockquote class="text-[20px] md:text-[24px] text-text-secondary font-medium italic max-w-3xl mx-auto mb-16">
+      <blockquote class="text-[20px] md:text-[24px] text-text-secondary font-medium italic max-w-3xl mx-auto mb-16 leading-relaxed">
         "La formation ne s'arrête pas au dernier slide, elle se poursuit à chaque virage que nous prendrons désormais en silence."
       </blockquote>
     </FadeIn>
 
     <FadeIn client:visible delay={0.2} className="flex flex-col items-center justify-center">
-      <Button href="#" client:load className="text-xl py-6 px-12 mb-8 w-full sm:w-auto">
-        J'ACCÈDE À LA FORMATION
+      <Button href="#tarifs" client:load className="text-xl py-6 px-12 mb-10 w-full sm:w-auto">
+        J'ACCÈDE À LA FORMATION MAINTENANT
       </Button>
 
-      <div class="flex flex-wrap justify-center items-center gap-6 text-text-secondary text-xs font-bold uppercase tracking-widest">
+      <div class="flex flex-wrap justify-center items-center gap-6 text-text-secondary text-[10px] font-black uppercase tracking-[0.2em] opacity-60">
         <div class="flex items-center gap-2">
-          <ShieldCheck size={16} class="text-accent" />
+          <div class="h-1 w-1 rounded-full bg-accent"></div>
           <span>Accès immédiat</span>
         </div>
-        <span class="hidden sm:inline opacity-20">•</span>
         <div class="flex items-center gap-2">
-          <Video size={16} class="text-accent" />
-          <span>Vidéos HD</span>
-        </div>
-        <span class="hidden sm:inline opacity-20">•</span>
-        <div class="flex items-center gap-2">
-          <CheckSquare size={16} class="text-accent" />
-          <span>Quiz de validation</span>
+          <div class="h-1 w-1 rounded-full bg-accent"></div>
+          <span>Vidéos + Quiz de validation</span>
         </div>
       </div>
     </FadeIn>

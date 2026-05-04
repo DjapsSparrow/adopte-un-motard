@@ -1,8 +1,7 @@
 ---
 import { Button } from '../ui/Button';
 import { FadeIn } from '../ui/FadeIn';
-import { ElectricText } from '../ui/electric-text';
-import { ArrowDown } from 'lucide-react';
+import { SlideToJoin } from '../ui/SlideToJoin';
 ---
 
 <section class="relative pt-32 pb-40 md:pt-48 md:pb-64 overflow-hidden flex flex-col items-center justify-center min-h-screen bg-bg">
@@ -17,37 +16,26 @@ import { ArrowDown } from 'lucide-react';
           <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent opacity-75"></span>
           <span class="relative inline-flex rounded-full h-2 w-2 bg-accent"></span>
         </span>
-        Technologie Antigravity v1.6
+        Formation 100% En Ligne
       </div>
     </FadeIn>
 
     <FadeIn client:visible delay={0.1}>
-      <h1 class="text-5xl md:text-[80px] font-black leading-[0.9] text-white mb-8 tracking-tighter uppercase italic">
-        L'apesanteur, <br />
-        <span class="text-accent text-glow">maintenant sur deux roues.</span>
+      <h1 class="text-4xl md:text-[64px] font-black leading-[1.1] text-white mb-8 tracking-tighter uppercase italic">
+        Passer à la moto électrique : <br />
+        <span class="text-accent text-glow">Arrêtez de fantasmer, <br class="hidden md:block" /> apprenez à la vivre.</span>
       </h1>
     </FadeIn>
 
     <FadeIn client:visible delay={0.2}>
-      <p class="text-lg md:text-[24px] text-text-secondary leading-relaxed max-w-3xl mx-auto mb-16 font-medium">
-        Passez à l'ère électrique avec une <span class="text-white">précision chirurgicale</span> et une puissance instantanée.
+      <p class="text-lg md:text-[22px] text-text-secondary leading-relaxed max-w-3xl mx-auto mb-16 font-medium">
+        <strong>5 ans d’expérience au quotidien</strong> condensés en une formation ultra-complète pour décider, choisir et rouler sereinement. <br class="hidden md:block" />
+        Sans discours de vendeur, <span class="text-white">juste la réalité du bitume.</span>
       </p>
     </FadeIn>
 
-    <FadeIn client:visible delay={0.3} className="w-full max-w-md mx-auto">
-      <div class="relative group">
-        <input 
-          type="text" 
-          placeholder="Entrez votre ville pour un essai..." 
-          class="w-full bg-surface border border-white/10 rounded-2xl py-5 px-6 text-white placeholder:text-text-secondary focus:outline-none focus:border-accent/50 transition-all shadow-2xl"
-        />
-        <button class="absolute right-2 top-2 bottom-2 bg-accent text-bg px-6 rounded-xl font-black text-sm hover:scale-105 transition-transform active:scale-95">
-          RÉSERVER
-        </button>
-      </div>
-      <p class="mt-4 text-[10px] text-text-secondary uppercase tracking-[0.2em] font-bold opacity-50">
-        Aucun engagement • Disponibilité immédiate
-      </p>
+    <FadeIn client:visible delay={0.3}>
+      <SlideToJoin client:load />
     </FadeIn>
   </div>
 </section>

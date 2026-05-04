@@ -1,22 +1,23 @@
 # PHASE 1: ÉTAT ACTUEL
-(2026-05-04) - **STABILITÉ: 100% BLEU (Electric Mobility Pivot)**
+(2026-05-04) - **STABILITÉ: 100% BLEU (Content Restoration)**
 
 ## 🚀 Résumé de Session
-Migration majeure vers le nouveau Design System "Electric Mobility" (Dark-Tech).
+Restauration du contenu métier stratégique et ajout d'interactivité Hero (Swipe).
 
 ### Fichiers Modifiés :
-- `package.json` : Passage en v1.6.0.
-- `src/styles/global.css` : Nouvelle palette de couleurs et utilitaires "Glow".
-- `src/components/sections/Hero.astro` : Refonte totale (Arc lumineux, Titre Premium).
-- `src/components/sections/BentoFeatures.astro` : [NOUVEAU] Grille Bento pour les caractéristiques.
-- `src/components/ui/Button.tsx` : Nouveau style Glow Blue.
-- `src/layouts/Layout.astro` & Sections : Adaptations Full Dark.
+- `package.json` : Passage en v1.7.0.
+- `src/components/ui/SlideToJoin.tsx` : [NOUVEAU] Bouton interactif Swipe-to-Action.
+- `src/components/sections/Problem.astro` : [RESTAURÉ] Section "Le Constat" avec le contenu original.
+- `src/components/sections/BentoFeatures.astro` : Restructuration en 10 Modules thématiques.
+- `src/components/sections/Hero.astro` : Restauration du texte et intégration du Swipe.
+- Autres : Mise à jour du contenu sur toutes les sections (Authority, Targeting, Investment, FinalCTA).
 
 ### Objectif Prochain :
-- Intégrer les vrais avis clients dans le style Bento.
-- Test de performance mobile final (Audit LCP/FCP sur le nouveau design).
+- Test de performance mobile final.
+- Finalisation des icônes pour les 10 modules.
 
 ## 📜 Journal des Versions (Changelog)
+- **v1.7.0** (2026-05-04) : Content Restoration & Swipe Interaction. Réintégration de la copie métier et ajout du bouton interactif "Slide to Join".
 - **v1.6.0** (2026-05-04) : Major Design System Pivot. Transition vers l'esthétique "Antigravity Electric Mobility" (Full Dark, Electric Blue, Bento Grid).
 - **v1.5.4** (2026-05-04) : Hero Background Refresh. Nouvelle image "Signature" pour un impact visuel accru.
 - **v1.5.3** (2026-05-04) : Security Hardening. Audit complet, Referrer-Policy renforcée, blocage étendu des fichiers sensibles.

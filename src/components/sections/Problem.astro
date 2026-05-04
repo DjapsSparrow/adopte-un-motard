@@ -1,50 +1,45 @@
 ---
 import { FadeIn } from '../ui/FadeIn';
-import { HelpCircle, BatteryWarning, PlugZap, Gauge } from 'lucide-react';
+import { HelpCircle, AlertTriangle, ZapOff } from 'lucide-react';
 ---
 
-<section class="py-24 md:py-32 bg-white">
-  <div class="container mx-auto px-6 max-w-3xl">
+<section id="constat" class="py-24 md:py-32 bg-bg relative">
+  <div class="container mx-auto px-6 max-w-5xl">
     <FadeIn client:visible>
-      <h2 class="text-3xl md:text-[40px] font-bold text-deep-charcoal mb-8 text-center leading-tight">
-        On vous raconte tout... <br/>
-        <span class="text-power-red">et surtout n'importe quoi.</span>
-      </h2>
+      <div class="text-center mb-16">
+        <h2 class="text-xs font-black uppercase tracking-[0.3em] text-accent mb-4">Le constat</h2>
+        <p class="text-3xl md:text-5xl font-black text-white italic uppercase tracking-tighter">
+          On vous raconte tout... <br /> <span class="text-accent">et surtout n'importe quoi.</span>
+        </p>
+      </div>
     </FadeIn>
 
-    <FadeIn client:visible delay={0.1}>
-      <p class="text-[20px] text-carbon-grey leading-relaxed mb-12 text-center">
-        Vous lorgnez sur l’électrique, mais vous êtes noyé sous les avis contradictoires. Entre les fiches techniques marketing et les "experts" qui n’ont roulé que 20 minutes sur un parking, il est impossible de savoir :
-      </p>
-    </FadeIn>
-
-    <div class="flex flex-col gap-6 mb-12">
-      <FadeIn client:visible delay={0.2} className="flex items-start gap-4 p-6 bg-paper rounded-2xl border border-carbon-grey/10">
-        <BatteryWarning className="w-8 h-8 text-electric-cyan flex-shrink-0 mt-1" />
-        <p class="text-xl font-semibold text-deep-charcoal">
-          L'autonomie est-elle une fiction ou une réalité ?
-        </p>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
+      <FadeIn client:visible delay={0.1} className="bg-surface p-8 rounded-[24px] border border-white/5 flex flex-col items-center text-center">
+        <HelpCircle class="text-accent mb-6" size={40} />
+        <p class="text-white font-bold leading-tight uppercase italic">L'autonomie est-elle une fiction ou une réalité ?</p>
       </FadeIn>
 
-      <FadeIn client:visible delay={0.3} className="flex items-start gap-4 p-6 bg-paper rounded-2xl border border-carbon-grey/10">
-        <PlugZap className="w-8 h-8 text-electric-cyan flex-shrink-0 mt-1" />
-        <p class="text-xl font-semibold text-deep-charcoal">
-          Votre installation électrique va-t-elle tenir ?
-        </p>
+      <FadeIn client:visible delay={0.2} className="bg-surface p-8 rounded-[24px] border border-white/5 flex flex-col items-center text-center">
+        <ZapOff class="text-accent mb-6" size={40} />
+        <p class="text-white font-bold leading-tight uppercase italic">Votre installation électrique va-t-elle tenir ?</p>
       </FadeIn>
 
-      <FadeIn client:visible delay={0.4} className="flex items-start gap-4 p-6 bg-paper rounded-2xl border border-carbon-grey/10">
-        <Gauge className="w-8 h-8 text-electric-cyan flex-shrink-0 mt-1" />
-        <p class="text-xl font-semibold text-deep-charcoal">
-          Allez-vous vraiment retrouver le plaisir de piloter ?
-        </p>
+      <FadeIn client:visible delay={0.3} className="bg-surface p-8 rounded-[24px] border border-white/5 flex flex-col items-center text-center">
+        <AlertTriangle class="text-accent mb-6" size={40} />
+        <p class="text-white font-bold leading-tight uppercase italic">Allez-vous vraiment retrouver le plaisir de piloter ?</p>
       </FadeIn>
     </div>
 
-    <FadeIn client:visible delay={0.5} className="text-center p-8 bg-power-red/5 rounded-2xl border border-power-red/20">
-      <p class="text-[22px] font-bold text-deep-charcoal">
-        Résultat ? Vous hésitez, vous avez peur de faire une erreur à 15 000 € et <span class="text-power-red">vous restez sur le bord de la route.</span>
+    <FadeIn client:visible delay={0.4} className="max-w-3xl mx-auto text-center">
+      <p class="text-xl md:text-2xl text-text-secondary leading-relaxed mb-8">
+        Entre les fiches techniques marketing et les "experts" qui n’ont roulé que 20 minutes sur un parking, <span class="text-white">il est impossible de savoir.</span>
       </p>
+      <div class="p-8 rounded-[24px] bg-accent/5 border border-accent/20">
+        <p class="text-white font-black italic uppercase text-lg">
+          Résultat ? Vous hésitez, vous avez peur de faire une erreur à <span class="text-accent text-glow">15 000 €</span> et vous restez sur le bord de la route.
+        </p>
+      </div>
     </FadeIn>
   </div>
 </section>
