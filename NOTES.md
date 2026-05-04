@@ -1,17 +1,18 @@
 # PHASE 1: ÉTAT ACTUEL
-(2026-05-04) - **STABILITÉ: 100% BLEU (Layout Fix)**
+(2026-05-04) - **STABILITÉ: 100% BLEU (UX Visibility)**
 
 ## 🚀 Résumé de Session
-Réajustement du layout Hero : remontée du contenu et réintégration du logo.
+Optimisation de la visibilité "Above-the-fold" : ajustement des tailles et de la hiérarchie.
 
 ### Fichiers Modifiés :
-- `package.json` : Passage en v1.7.3.
-- `src/components/sections/Hero.astro` : Réduction du padding-top et ajout du `logo.png`.
+- `package.json` : Passage en v1.7.4.
+- `src/components/sections/Hero.astro` : Réduction des titres, agrandissement du logo et réorganisation de la hiérarchie (Badge en haut).
 
 ### Objectif Prochain :
 - Test de performance mobile final.
 
 ## 📜 Journal des Versions (Changelog)
+- **v1.7.4** (2026-05-04) : Above-the-fold Optimization. Hiérarchie corrigée et tailles ajustées pour garantir la visibilité du CTA sans scroll.
 - **v1.7.3** (2026-05-04) : Hero Layout Adjustment. Contenu remonté et restauration du logo.
 - **v1.7.2** (2026-05-04) : High-Fidelity Luminous Arc. Intégration d'un arc SVG parallax inspiré de Bolt.new.
 - **v1.7.1** (2026-05-04) : Hotfix Lucide Icons. Correction de l'import `Tool` -> `Wrench`.

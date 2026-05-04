@@ -5,16 +5,12 @@ import { SlideToJoin } from '../ui/SlideToJoin';
 import { LuminousArc } from '../ui/LuminousArc';
 ---
 
-<section class="relative pt-20 pb-32 md:pt-28 md:pb-48 overflow-hidden flex flex-col items-center min-h-[90vh] bg-bg">
+<section class="relative pt-12 pb-24 md:pt-16 md:pb-32 overflow-hidden flex flex-col items-center min-h-[85vh] bg-bg">
   <LuminousArc client:load />
 
   <div class="container mx-auto px-6 max-w-5xl text-center relative z-10">
     <FadeIn client:visible>
-      <img src="/logo.png" alt="Adopte un motard" class="h-12 md:h-16 mx-auto mb-12 drop-shadow-[0_0_15px_rgba(255,255,255,0.2)]" />
-    </FadeIn>
-
-    <FadeIn client:visible delay={0.1}>
-      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-accent/20 bg-accent/5 text-accent text-[10px] font-bold tracking-widest uppercase mb-8">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-accent/20 bg-accent/5 text-accent text-[9px] font-black tracking-widest uppercase mb-8">
         <span class="relative flex h-2 w-2">
           <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent opacity-75"></span>
           <span class="relative inline-flex rounded-full h-2 w-2 bg-accent"></span>
@@ -24,20 +20,24 @@ import { LuminousArc } from '../ui/LuminousArc';
     </FadeIn>
 
     <FadeIn client:visible delay={0.1}>
-      <h1 class="text-4xl md:text-[64px] font-black leading-[1.1] text-white mb-8 tracking-tighter uppercase italic">
+      <img src="/logo.png" alt="Adopte un motard" class="h-20 md:h-28 mx-auto mb-10 drop-shadow-[0_0_20px_rgba(255,255,255,0.2)]" />
+    </FadeIn>
+
+    <FadeIn client:visible delay={0.2}>
+      <h1 class="text-2xl md:text-[50px] font-black leading-[1.1] text-white mb-6 tracking-tighter uppercase italic">
         Passer à la moto électrique : <br />
         <span class="text-accent text-glow">Arrêtez de fantasmer, <br class="hidden md:block" /> apprenez à la vivre.</span>
       </h1>
     </FadeIn>
 
-    <FadeIn client:visible delay={0.2}>
-      <p class="text-lg md:text-[22px] text-text-secondary leading-relaxed max-w-3xl mx-auto mb-16 font-medium">
+    <FadeIn client:visible delay={0.3}>
+      <p class="text-base md:text-lg text-text-secondary leading-relaxed max-w-2xl mx-auto mb-10 font-medium">
         <strong>5 ans d’expérience au quotidien</strong> condensés en une formation ultra-complète pour décider, choisir et rouler sereinement. <br class="hidden md:block" />
         Sans discours de vendeur, <span class="text-white">juste la réalité du bitume.</span>
       </p>
     </FadeIn>
 
-    <FadeIn client:visible delay={0.3}>
+    <FadeIn client:visible delay={0.4}>
       <SlideToJoin client:load />
     </FadeIn>
   </div>
