@@ -1,17 +1,22 @@
 # PHASE 1: ÉTAT ACTUEL
-(2026-05-04) - **STABILITÉ: 100% BLEU (UX Fix)**
+(2026-05-04) - **STABILITÉ: 100% BLEU (Sales CTA Integration)**
 
 ## 🚀 Résumé de Session
-Correction du contraste du bouton SlideToJoin face à l'arc lumineux.
+Intégration du lien d'achat externe (29€) sur tous les points de conversion et ouverture dans de nouveaux onglets.
 
 ### Fichiers Modifiés :
-- `package.json` : Passage en v1.7.5.
-- `src/components/ui/SlideToJoin.tsx` : Ajout d'un fond sombre semi-transparent, d'un `backdrop-blur` et augmentation de l'opacité du texte.
+- `package.json` : Passage en v1.7.6.
+- `src/components/ui/floating-dock.tsx` : Support de la prop `target`.
+- `src/components/Navbar.tsx` : Lien "Rejoindre" vers offre externe.
+- `src/components/ui/SlideToJoin.tsx` : Redirection swipe vers offre externe.
+- `src/components/sections/FinalCTA.astro` : Lien vers offre externe.
+- `src/components/sections/Investment.astro` : Ajout d'un bloc de prix avec bouton d'achat.
 
 ### Objectif Prochain :
 - Test de performance mobile final.
 
 ## 📜 Journal des Versions (Changelog)
+- **v1.7.6** (2026-05-04) : Sales CTA & External Liaison. Intégration du lien d'achat (29€) sur tous les CTAs avec ouverture `_blank`. Ajout d'un bloc de prix dans la section Investissement.
 - **v1.7.5** (2026-05-04) : SlideToJoin Contrast Fix. Amélioration de la lisibilité du texte sur l'arc lumineux (Backdrop blur + Darker bg).
 - **v1.7.4** (2026-05-04) : Above-the-fold Optimization. Hiérarchie corrigée et tailles ajustées pour garantir la visibilité du CTA sans scroll.
 - **v1.7.3** (2026-05-04) : Hero Layout Adjustment. Contenu remonté et restauration du logo.

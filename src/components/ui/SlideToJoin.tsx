@@ -14,7 +14,7 @@ export const SlideToJoin: React.FC = () => {
   const handleDragEnd = (event: any, info: any) => {
     if (info.offset.x > 180) {
       setIsSuccess(true);
-      window.location.href = '#tarifs';
+      window.open('https://ecole.fudoshin.solutions/offers/aab1d65b-e96b-49a2-b054-de94398f7f7b', '_blank');
       // Reset after a delay
       setTimeout(() => {
         setIsSuccess(false);

@@ -16,7 +16,7 @@ export const FloatingDock = ({
   desktopClassName,
   mobileClassName,
 }: {
-  items: { title: string; icon: React.ReactNode; href: string }[];
+  items: { title: string; icon: React.ReactNode; href: string; target?: string }[];
   desktopClassName?: string;
   mobileClassName?: string;
 }) => {
@@ -32,7 +32,7 @@ const FloatingDockMobile = ({
   items,
   className,
 }: {
-  items: { title: string; icon: React.ReactNode; href: string }[];
+  items: { title: string; icon: React.ReactNode; href: string; target?: string }[];
   className?: string;
 }) => {
   const [open, setOpen] = useState(false);
@@ -72,6 +72,8 @@ const FloatingDockMobile = ({
               >
                 <a
                   href={item.href}
+                  target={item.target}
+                  rel={item.target === "_blank" ? "noopener noreferrer" : undefined}
                   onClick={() => setOpen(false)}
                   className="flex items-center gap-3 group"
                 >
@@ -109,7 +111,7 @@ const FloatingDockDesktop = ({
   items,
   className,
 }: {
-  items: { title: string; icon: React.ReactNode; href: string }[];
+  items: { title: string; icon: React.ReactNode; href: string; target?: string }[];
   className?: string;
 }) => {
   let mouseX = useMotionValue(Infinity);
@@ -139,6 +141,7 @@ function IconContainer({
   title: string;
   icon: React.ReactNode;
   href: string;
+  target?: string;
 }) {
   let ref = useRef<HTMLDivElement>(null);
 
@@ -179,7 +182,7 @@ function IconContainer({
   const [hovered, setHovered] = useState(false);
 
   return (
-    <a href={href}>
+    <a href={href} target={target} rel={target === "_blank" ? "noopener noreferrer" : undefined}>
       <motion.div
         ref={ref}
         style={{ width, height }}
