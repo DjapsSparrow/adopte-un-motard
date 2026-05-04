@@ -1,12 +1,12 @@
 # PHASE 1: ÉTAT ACTUEL
-(2026-05-04) - **STABILITÉ: 100% BLEU (UI Adjustment)**
+(2026-05-04) - **STABILITÉ: 100% BLEU (New Feature)**
 
 ## 🚀 Résumé de Session
-Correction de l'espacement des blocs dans la section Problem.
+Implémentation du Dock Mobile en arc de cercle (Option 1).
 
 ### Fichiers Modifiés :
-- `package.json` : Passage en v1.3.1.
-- `src/components/sections/Problem.astro` : Correction de l'espacement via flex/gap.
+- `package.json` : Passage en v1.4.0.
+- `src/components/ui/floating-dock.tsx` : Refacto complète du mode mobile (déploiement semi-circulaire via Framer Motion).
 
 ### Objectif Prochain :
 - Intégrer les vrais avis clients.
@@ -14,6 +14,7 @@ Correction de l'espacement des blocs dans la section Problem.
 - Test de performance mobile final.
 
 ## 📜 Journal des Versions (Changelog)
+- **v1.4.0** (2026-05-04) : New Mobile Dock Arc. Déploiement semi-circulaire pour éviter l'obstruction centrale.
 - **v1.3.1** (2026-05-04) : Fix espacement blocs Problem (flex gap).
 - **v1.3.0** (2026-05-04) : UX Polish. Hero haute visibilité, ElectricText, Dock optimisé, Espacement sections.
 - **v1.2.0** (2026-05-04) : UI Enhancements (Aceternity UI). FloatingDock, CanvasText, AnimatedTestimonials.
