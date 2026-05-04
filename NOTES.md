@@ -2,20 +2,26 @@
 (2026-05-04) - **STABILITÉ: 100% BLEU (Multi-Theme Support v2.2)**
 
 ## 🚀 Résumé de Session
-Implémentation d'un système de thèmes (Dark/Light) haut de gamme. Récupération de la logique "View Transition" de Karate Shotokan pour une transition fluide et morphique. Le site reste sombre par défaut mais propose désormais une version claire accessible via un commutateur en haut à droite.
+Finalisation du Mode Clair et polissage extrême de l'UX/UI. Harmonisation des contrastes, passage à un système de paiement direct et stabilisation de la navigation globale.
 
 ### Fichiers Modifiés :
-- `package.json` : Passage en v2.2.0.
-- `src/styles/global.css` : Refonte vers un système de variables CSS (`:root` / `.light`).
-- `src/components/ui/AnimatedThemeToggler.tsx` : [NOUVEAU] Commutateur animé premium.
-- `src/components/Navbar.tsx` : Intégration du commutateur.
-- `src/layouts/Layout.astro` : Ajout du script d'initialisation (anti-flash).
-- Global : Remplacement de `text-white` par `text-text-primary` pour la compatibilité thème.
+- `package.json` : Passage en v2.3.5.
+- `src/styles/global.css` : Ajout du smooth scroll premium et d'une barre de défilement personnalisée.
+- `src/components/sections/Hero.astro` : Implémentation du logo adaptatif (Light/Dark).
+- `src/components/ui/SlideToJoin.tsx` : Correction de la redirection et support `href`.
+- Global : Harmonisation des curseurs `pointer` sur tous les éléments cliquables.
+- Vente : Mise à jour de tous les liens vers le nouveau système de paiement.
 
 ### Objectif Prochain :
 - Test de performance mobile final.
 
 ## 📜 Journal des Versions (Changelog)
+- **v2.3.5** (2026-05-04) : Global Sales URL Update. Redirection directe vers la page de paiement sécurisée sur tous les CTAs.
+- **v2.3.4** (2026-05-04) : SlideToJoin Navigation Fix. Migration vers un système de `href` natif pour contourner la sérialisation des props Astro.
+- **v2.3.3** (2026-05-04) : Adaptive Logo. Bascule automatique entre logo texte blanc et logo texte noir.
+- **v2.3.2** (2026-05-04) : UX Polish & Smooth Scroll. Ajout du défilement fluide global et harmonisation des curseurs pointer.
+- **v2.2.9** (2026-05-04) : Semantic Color Cards. Forçage des couleurs Vert/Rouge sur les cartes "C'est OUI si..." en mode clair.
+- **v2.2.8** (2026-05-04) : Light Mode UI Fixes. Ombre portée sur la carte de prix, tooltip du dock en blanc sur bleu, et fix de la section "Constat".
 - **v2.2.0** (2026-05-04) : Multi-Theme Support. Ajout de la bascule Light/Dark avec animation View Transition.
 - **v2.1.2** (2026-05-04) : Asset Refresh. Remplacement de la photo d'action par une photo studio (Zero SR/F).
 - **v2.1.0** (2026-05-04) : Feature Rollback. Suppression du calculateur de rentabilité (section + nav).
