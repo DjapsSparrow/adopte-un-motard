@@ -1,7 +1,6 @@
 "use client"
 
-import React, { useCallback, useEffect, useRef, useState } from "react"
-import { Moon, Sun } from "lucide-react"
+import { useCallback, useEffect, useRef, useState } from "react"
 import { flushSync } from "react-dom"
 
 export type TransitionVariant =
@@ -69,7 +68,7 @@ export const AnimatedThemeToggler = ({
   ...props
 }: AnimatedThemeTogglerProps) => {
   const [isLight, setIsLight] = useState(false)
-  const buttonRef = useRef<HTMLButtonElement>(null)
+  const buttonRef = useRef<HTMLInputElement>(null)
 
   useEffect(() => {
     const updateTheme = () => {
@@ -165,34 +164,16 @@ export const AnimatedThemeToggler = ({
   }, [variant, fromCenter, duration, isLight])
 
   return (
-    <button
-      type="button"
-      ref={buttonRef}
-      onClick={toggleTheme}
-      className={className}
-      {...props}
-    >
-      {isLight ? (
-        <div className="relative group/icon">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="text-deep-charcoal opacity-70 group-hover/icon:opacity-100 transition-opacity">
-            <circle cx="12" cy="12" r="9" />
-            <path d="M12 3v18" className="opacity-20" />
-            <path d="M3 12h18" className="opacity-20" />
-          </svg>
-        </div>
-      ) : (
-        <div className="relative group/icon">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="text-accent drop-shadow-[0_0_10px_rgba(0,163,255,1)]">
-            <circle cx="12" cy="12" r="9" className="fill-accent/20" />
-            <circle cx="12" cy="12" r="3" className="fill-accent" />
-            <line x1="12" y1="3" x2="12" y2="1" />
-            <line x1="21" y1="12" x2="23" y2="12" />
-            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
-            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
-          </svg>
-        </div>
-      )}
-      <span className="sr-only">Mode Phare Allumé / Éteint</span>
-    </button>
+    <div className="flex items-center justify-center h-full">
+      <input
+        type="checkbox"
+        role="switch"
+        ref={buttonRef}
+        checked={!isLight}
+        onChange={toggleTheme}
+        className="liquid-switch scale-75 md:scale-90"
+        aria-label="Changer le thème (Mode Liquide)"
+      />
+    </div>
   )
 }
