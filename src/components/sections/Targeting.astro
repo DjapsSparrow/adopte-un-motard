@@ -19,24 +19,26 @@ import { CheckCircle2, XCircle } from 'lucide-react';
     <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
       {/* OUI Column */}
       <FadeIn client:visible delay={0.1}>
-        <div class="bg-surface p-10 rounded-[24px] border border-emerald-500/20 h-full relative overflow-hidden group light:border-emerald-500/10">
+        <div class="bg-surface p-10 rounded-[24px] border border-emerald-500/20 h-full relative overflow-hidden group light:bg-white light:shadow-xl light:shadow-emerald-500/5 light:border-emerald-500/10">
           <div class="absolute top-0 right-0 w-32 h-32 bg-emerald-500/5 blur-3xl rounded-full translate-x-1/2 -translate-y-1/2"></div>
           <div class="flex items-center gap-4 mb-8 relative z-10">
-            <CheckCircle2 class="w-8 h-8 text-emerald-500" />
+            <div class="text-emerald-500">
+              <CheckCircle2 size={32} strokeWidth={2.5} />
+            </div>
             <h3 class="text-2xl font-black text-emerald-500 italic uppercase">C'est OUI si...</h3>
           </div>
           <ul class="space-y-6 text-text-secondary relative z-10">
             <li class="flex items-start gap-4">
-              <div class="h-1.5 w-1.5 rounded-full bg-emerald-500 mt-2.5 flex-shrink-0"></div>
-              <p>Vous voulez un <span class="text-text-primary italic">avis impartial</span> basé sur le réel.</p>
+              <div class="h-2 w-2 rounded-full bg-emerald-500 mt-2 flex-shrink-0"></div>
+              <p>Vous voulez un <span class="text-text-primary italic font-bold">avis impartial</span> basé sur le réel.</p>
             </li>
             <li class="flex items-start gap-4">
-              <div class="h-1.5 w-1.5 rounded-full bg-emerald-500 mt-2.5 flex-shrink-0"></div>
-              <p>Vous voulez <span class="text-text-primary italic">organiser votre logistique</span> sans stress.</p>
+              <div class="h-2 w-2 rounded-full bg-emerald-500 mt-2 flex-shrink-0"></div>
+              <p>Vous voulez <span class="text-text-primary italic font-bold">organiser votre logistique</span> sans stress.</p>
             </li>
             <li class="flex items-start gap-4">
-              <div class="h-1.5 w-1.5 rounded-full bg-emerald-500 mt-2.5 flex-shrink-0"></div>
-              <p>Vous voulez transformer l'absence d'embrayage en <span class="text-text-primary italic">plaisir de pilotage.</span></p>
+              <div class="h-2 w-2 rounded-full bg-emerald-500 mt-2 flex-shrink-0"></div>
+              <p>Vous voulez transformer l'absence d'embrayage en <span class="text-text-primary italic font-bold">plaisir de pilotage.</span></p>
             </li>
           </ul>
         </div>
@@ -44,22 +46,24 @@ import { CheckCircle2, XCircle } from 'lucide-react';
 
       {/* NON Column */}
       <FadeIn client:visible delay={0.2}>
-        <div class="bg-surface p-10 rounded-[24px] border border-rose-500/20 h-full relative group transition-colors light:border-rose-500/10">
+        <div class="bg-surface p-10 rounded-[24px] border border-rose-500/20 h-full relative group transition-colors light:bg-white light:shadow-xl light:shadow-rose-500/5 light:border-rose-500/10">
           <div class="flex items-center gap-4 mb-8">
-            <XCircle class="w-8 h-8 text-rose-500" />
+            <div class="text-rose-500">
+              <XCircle size={32} strokeWidth={2.5} />
+            </div>
             <h3 class="text-2xl font-black text-rose-500 italic uppercase">C'est NON si...</h3>
           </div>
           <ul class="space-y-6 text-text-secondary">
             <li class="flex items-start gap-4">
-              <div class="h-1.5 w-1.5 rounded-full bg-rose-500 mt-2.5 flex-shrink-0"></div>
-              <p>Vous cherchez un simple <span class="italic text-text-primary/60 light:text-text-primary">guide d'achat</span> de prix.</p>
+              <div class="h-2 w-2 rounded-full bg-rose-500 mt-2 flex-shrink-0"></div>
+              <p>Vous cherchez un simple <span class="italic text-text-primary font-bold">guide d'achat</span> de prix.</p>
             </li>
             <li class="flex items-start gap-4">
-              <div class="h-1.5 w-1.5 rounded-full bg-rose-500 mt-2.5 flex-shrink-0"></div>
+              <div class="h-2 w-2 rounded-full bg-rose-500 mt-2 flex-shrink-0"></div>
               <p>Vous voulez un cours d'ingénierie pure sur les moteurs.</p>
             </li>
             <li class="flex items-start gap-4">
-              <div class="h-1.5 w-1.5 rounded-full bg-rose-500 mt-2.5 flex-shrink-0"></div>
+              <div class="h-2 w-2 rounded-full bg-rose-500 mt-2 flex-shrink-0"></div>
               <p>Vous pensez que seule l'odeur de l'essence fait un motard.</p>
             </li>
           </ul>
