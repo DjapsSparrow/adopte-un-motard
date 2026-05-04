@@ -2,12 +2,11 @@
 import { Button } from '../ui/Button';
 import { FadeIn } from '../ui/FadeIn';
 import { SlideToJoin } from '../ui/SlideToJoin';
+import { LuminousArc } from '../ui/LuminousArc';
 ---
 
 <section class="relative pt-32 pb-40 md:pt-48 md:pb-64 overflow-hidden flex flex-col items-center justify-center min-h-screen bg-bg">
-  {/* Luminous Arc (Glow) Effect at the bottom */}
-  <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-[150%] h-[300px] bg-[radial-gradient(ellipse_at_top,_var(--color-accent)_0%,_transparent_70%)] opacity-20 blur-[100px] pointer-events-none"></div>
-  <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-full h-[1px] bg-gradient-to-r from-transparent via-accent to-transparent opacity-50"></div>
+  <LuminousArc client:load />
 
   <div class="container mx-auto px-6 max-w-5xl text-center relative z-10">
     <FadeIn client:visible>
