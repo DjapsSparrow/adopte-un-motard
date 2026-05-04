@@ -1,18 +1,20 @@
 # PHASE 1: ÉTAT ACTUEL
-(2026-05-04) - **STABILITÉ: 100% BLEU (Course Preview Sidebar)**
+(2026-05-04) - **STABILITÉ: 100% BLEU (Mobile UI Cleanup)**
 
 ## 🚀 Résumé de Session
-Ajout d'un panneau latéral interactif (Sidebar) permettant de consulter l'intégralité du programme de la formation (12 modules) sans quitter le site. Design premium avec flou gaussien et animations fluides.
+Nettoyage des widgets flottants sur mobile. Suppression du bouton "Retour en haut" sur mobile (jugé redondant) et alignement horizontal des widgets YouTube et Aperçu pour une interface plus propre.
 
 ### Fichiers Modifiés :
-- `package.json` : Passage en v1.8.6.
-- `src/components/ui/CoursePreview.tsx` : Logique de la sidebar et contenu détaillé.
-- `src/layouts/Layout.astro` : Intégration globale du widget.
+- `package.json` : Passage en v1.8.7.
+- `src/components/ui/ScrollToTop.tsx` : Masquage sur mobile.
+- `src/components/ui/YouTubeWidget.tsx` : Alignement responsive.
+- `src/components/ui/CoursePreview.tsx` : Alignement responsive.
 
 ### Objectif Prochain :
 - Test de performance mobile final.
 
 ## 📜 Journal des Versions (Changelog)
+- **v1.8.7** (2026-05-04) : Mobile UI Cleanup. Masquage du ScrollToTop sur mobile et alignement des widgets YouTube/Aperçu à `bottom-20`.
 - **v1.8.6** (2026-05-04) : Course Preview Sidebar. Panneau latéral interactif listant les 12 modules et leçons pour rassurer sur le contenu avant l'achat.
 - **v1.8.5** (2026-05-04) : Marketing Polish. Optimisation du wording ("3h de conseils pour éviter les pièges") pour augmenter la valeur perçue.
 - **v1.8.4** (2026-05-04) : Testimonials Expansion. Ajout de 4 avis supplémentaires couvrant la montagne, le touring longue distance et la technique mécanique.

@@ -129,7 +129,7 @@ export const CoursePreview: React.FC = () => {
         transition={{ type: "spring", stiffness: 260, damping: 20, delay: 1.2 }}
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
-        className="fixed bottom-40 right-6 z-50 flex items-center gap-3 group pointer-events-auto"
+        className="fixed bottom-20 md:bottom-24 right-4 md:right-6 z-50 flex items-center gap-3 group pointer-events-auto"
       >
         <div className="bg-white/5 backdrop-blur-md border border-white/10 px-3 py-1.5 rounded-lg opacity-0 translate-x-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 pointer-events-none">
           <span className="text-[10px] font-black uppercase tracking-widest text-white whitespace-nowrap">Aperçu du programme</span>

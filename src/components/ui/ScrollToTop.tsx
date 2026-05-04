@@ -31,7 +31,7 @@ export const ScrollToTop: React.FC = () => {
           exit={{ opacity: 0, y: 20 }}
           transition={{ type: "spring", stiffness: 300, damping: 25 }}
           onClick={scrollToTop}
-          className="fixed bottom-24 right-6 z-50 p-3 rounded-full bg-deep-charcoal/80 backdrop-blur-md border border-white/10 text-accent shadow-2xl hover:bg-accent hover:text-bg transition-colors"
+          className="fixed bottom-40 right-6 z-50 hidden md:flex p-3 rounded-full bg-deep-charcoal/80 backdrop-blur-md border border-white/10 text-accent shadow-2xl hover:bg-accent hover:text-bg transition-colors"
           aria-label="Retour en haut"
         >
           <ChevronUp size={24} />
