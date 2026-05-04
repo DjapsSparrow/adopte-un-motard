@@ -1,18 +1,19 @@
 # PHASE 1: ÉTAT ACTUEL
-(2026-05-04) - **STABILITÉ: 100% BLEU (YouTube Social Proof)**
+(2026-05-04) - **STABILITÉ: 100% BLEU (Authentic Testimonials)**
 
 ## 🚀 Résumé de Session
-Ajout d'un widget YouTube flottant pour renforcer la preuve sociale et l'autorité de la marque.
+Intégration de témoignages réels avec portraits fournis par l'utilisateur. Génération de noms et avis cohérents avec les problématiques traitées dans la formation.
 
 ### Fichiers Modifiés :
-- `package.json` : Passage en v1.8.2.
-- `src/components/ui/YouTubeWidget.tsx` : Création du bouton flottant avec effet de hover.
-- `src/layouts/Layout.astro` : Intégration globale du widget.
+- `package.json` : Passage en v1.8.3.
+- `src/components/sections/Testimonials.astro` : Mise à jour des données (5 avis complets).
+- `public/images/testimonials/` : Ajout des portraits `t1` à `t5`.
 
 ### Objectif Prochain :
 - Test de performance mobile final.
 
 ## 📜 Journal des Versions (Changelog)
+- **v1.8.3** (2026-05-04) : Authentic Testimonials. Remplacement des placeholders par 5 avis stratégiques (peur de l'autonomie, choix du modèle, sécurité urbaine, etc.) avec portraits réels.
 - **v1.8.2** (2026-05-04) : YouTube Integration. Widget flottant bas-gauche menant à la chaîne officielle pour renforcer l'autorité métier.
 - **v1.8.1** (2026-05-04) : ScrollToTop Utility. Bouton dynamique apparaissant à 45% de scroll (fade in vers le haut) et disparaissant en dessous (fade out vers le bas).
 - **v1.8.0** (2026-05-04) : Funnel Optimization. Déplacement du `SlideToJoin` en clôture de page. Le Hero affiche désormais le prix (29€) et la durée de formation (+2h) pour maximiser la perception de valeur immédiate.
