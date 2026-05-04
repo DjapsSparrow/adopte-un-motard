@@ -16,6 +16,7 @@ Finalisation du Mode Clair et polissage extrême de l'UX/UI. Harmonisation des c
 - Test de performance mobile final.
 
 ## 📜 Journal des Versions (Changelog)
+- **v2.3.9** (2026-05-04) : Motorbike Headlight Toggler. Remplacement des icônes standard par un système de phare éteint (Jour) / phare allumé (Nuit) avec lueur cyan.
 - **v2.3.8** (2026-05-04) : Light Mode Default. Inversion de la priorité du thème : le mode clair est désormais chargé par défaut au premier accès.
 - **v2.3.7** (2026-05-04) : Editorial Image Integration. Refonte du conteneur image (aspect 3/4, rotation organique, badge "100% Vécu" et effets de lueur).
 - **v2.3.6** (2026-05-04) : Authority Image Refresh. Remplacement de l'image de la promesse par une photo en conditions réelles (Liberté branchée).
