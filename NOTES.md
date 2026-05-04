@@ -1,18 +1,18 @@
 # PHASE 1: ÉTAT ACTUEL
-(2026-05-04) - **STABILITÉ: 100% BLEU (Visual Polish)**
+(2026-05-04) - **STABILITÉ: 100% BLEU (Layout Fix)**
 
 ## 🚀 Résumé de Session
-Amélioration de l'effet de halo Hero pour une esthétique "Bolt.new" ultra-premium.
+Réajustement du layout Hero : remontée du contenu et réintégration du logo.
 
 ### Fichiers Modifiés :
-- `package.json` : Passage en v1.7.2.
-- `src/components/ui/LuminousArc.tsx` : [NOUVEAU] Arc SVG massif avec animation parallax et filtres de lueur.
-- `src/components/sections/Hero.astro` : Intégration du nouvel arc lumineux.
+- `package.json` : Passage en v1.7.3.
+- `src/components/sections/Hero.astro` : Réduction du padding-top et ajout du `logo.png`.
 
 ### Objectif Prochain :
 - Test de performance mobile final.
 
 ## 📜 Journal des Versions (Changelog)
+- **v1.7.3** (2026-05-04) : Hero Layout Adjustment. Contenu remonté et restauration du logo.
 - **v1.7.2** (2026-05-04) : High-Fidelity Luminous Arc. Intégration d'un arc SVG parallax inspiré de Bolt.new.
 - **v1.7.1** (2026-05-04) : Hotfix Lucide Icons. Correction de l'import `Tool` -> `Wrench`.
 - **v1.7.0** (2026-05-04) : Content Restoration & Swipe Interaction. Réintégration de la copie métier et ajout du bouton interactif "Slide to Join".

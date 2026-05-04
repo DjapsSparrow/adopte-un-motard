@@ -5,12 +5,16 @@ import { SlideToJoin } from '../ui/SlideToJoin';
 import { LuminousArc } from '../ui/LuminousArc';
 ---
 
-<section class="relative pt-32 pb-40 md:pt-48 md:pb-64 overflow-hidden flex flex-col items-center justify-center min-h-screen bg-bg">
+<section class="relative pt-20 pb-32 md:pt-28 md:pb-48 overflow-hidden flex flex-col items-center min-h-[90vh] bg-bg">
   <LuminousArc client:load />
 
   <div class="container mx-auto px-6 max-w-5xl text-center relative z-10">
     <FadeIn client:visible>
-      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-accent/20 bg-accent/5 text-accent text-xs font-bold tracking-widest uppercase mb-8">
+      <img src="/logo.png" alt="Adopte un motard" class="h-12 md:h-16 mx-auto mb-12 drop-shadow-[0_0_15px_rgba(255,255,255,0.2)]" />
+    </FadeIn>
+
+    <FadeIn client:visible delay={0.1}>
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-accent/20 bg-accent/5 text-accent text-[10px] font-bold tracking-widest uppercase mb-8">
         <span class="relative flex h-2 w-2">
           <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent opacity-75"></span>
           <span class="relative inline-flex rounded-full h-2 w-2 bg-accent"></span>
