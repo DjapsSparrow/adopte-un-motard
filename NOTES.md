@@ -1,18 +1,19 @@
 # PHASE 1: ÉTAT ACTUEL
-(2026-05-04) - **STABILITÉ: 100% BLEU (UX Polish - ScrollToTop)**
+(2026-05-04) - **STABILITÉ: 100% BLEU (YouTube Social Proof)**
 
 ## 🚀 Résumé de Session
-Ajout d'un bouton de retour en haut de page avec un seuil de déclenchement à 45% de scroll et des animations fluides d'entrée/sortie.
+Ajout d'un widget YouTube flottant pour renforcer la preuve sociale et l'autorité de la marque.
 
 ### Fichiers Modifiés :
-- `package.json` : Passage en v1.8.1.
-- `src/components/ui/ScrollToTop.tsx` : Logique de scroll et animations Framer Motion.
-- `src/layouts/Layout.astro` : Intégration globale du bouton.
+- `package.json` : Passage en v1.8.2.
+- `src/components/ui/YouTubeWidget.tsx` : Création du bouton flottant avec effet de hover.
+- `src/layouts/Layout.astro` : Intégration globale du widget.
 
 ### Objectif Prochain :
 - Test de performance mobile final.
 
 ## 📜 Journal des Versions (Changelog)
+- **v1.8.2** (2026-05-04) : YouTube Integration. Widget flottant bas-gauche menant à la chaîne officielle pour renforcer l'autorité métier.
 - **v1.8.1** (2026-05-04) : ScrollToTop Utility. Bouton dynamique apparaissant à 45% de scroll (fade in vers le haut) et disparaissant en dessous (fade out vers le bas).
 - **v1.8.0** (2026-05-04) : Funnel Optimization. Déplacement du `SlideToJoin` en clôture de page. Le Hero affiche désormais le prix (29€) et la durée de formation (+2h) pour maximiser la perception de valeur immédiate.
 - **v1.7.9** (2026-05-04) : Library Sync. Extraction et ajout du composant `SlideToJoin` à la bibliothèque Antigravity globale.
