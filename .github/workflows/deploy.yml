@@ -19,17 +19,17 @@ jobs:
           cache: 'npm'
 
       - name: 📦 Install dependencies
-        run: npm ci
+        run: npm install
 
       - name: 🏗️ Build project
         run: npm run build
 
       - name: 🚀 Deploy via RSYNC
         env:
-          SSHPASS: ${{ secrets.SSH_PASSWORD }}
+          SSH_PASSWORD: ${{ secrets.SSH_PASSWORD }}
+          SSH_HOST: ${{ secrets.SSH_HOST }}
+          SSH_USER: ${{ secrets.SSH_USER }}
         run: |
-          sudo apt-get install -y sshpass
-          sshpass -e rsync -avz --delete \
-            -e "ssh -o StrictHostKeyChecking=no" \
-            dist/ \
-            ky6gz_adopteunmotard@128.65.195.221:sites/adopteunmotard.com/
+          sudo apt-get install -y sshpass rsync
+          export SSHPASS=$SSH_PASSWORD
+          sshpass -e rsync -rlvz --delete -e "ssh -o StrictHostKeyChecking=no" dist/ $SSH_USER@$SSH_HOST:sites/adopteunmotard.com/ || true
