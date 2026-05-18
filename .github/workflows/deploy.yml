@@ -33,3 +33,16 @@ jobs:
           sudo apt-get install -y sshpass rsync
           export SSHPASS=$SSH_PASSWORD
           sshpass -e rsync -rlvz --delete -e "ssh -o StrictHostKeyChecking=no" dist/ $SSH_USER@$SSH_HOST:sites/adopteunmotard.com/ || true
+
+      - name: 🚨 Notify Kuroko of failure
+        if: failure()
+        env:
+          WEBHOOK_URL: ${{ secrets.FAILURE_WEBHOOK_URL }}
+        run: |
+          if [ -n "$WEBHOOK_URL" ]; then
+            curl -X POST -H "Content-Type: application/json" \
+            -d "{\"event\": \"deploy_failed\", \"repo\": \"${{ github.repository }}\", \"run_id\": \"${{ github.run_id }}\", \"message\": \"Le déploiement a échoué sur adopte-un-motard.\"}" \
+            $WEBHOOK_URL
+          else
+            echo "⚠️ FAILURE_WEBHOOK_URL non configuré, impossible d'alerter Kuroko."
+          fi
