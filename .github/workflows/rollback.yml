@@ -1,0 +1,52 @@
+name: Rollback from Swiss Backup S3
+
+on:
+  workflow_dispatch:
+    inputs:
+      backup_name:
+        description: 'Nom exact du backup (laisser vide pour restaurer la DERNIÈRE sauvegarde).'
+        required: false
+        default: ''
+
+jobs:
+  rollback:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Setup AWS CLI & Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Download backup from Swiss Backup S3
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.S3_ACCESS_KEY }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.S3_SECRET_KEY }}
+          S3_ENDPOINT: "https://s3.swiss-backup04.infomaniak.com"
+          S3_BUCKET: "webomatik-backups"
+          SITE_ID: "adopte-un-motard"
+          TARGET_BACKUP: ${{ github.event.inputs.backup_name }}
+        run: |
+          aws configure set default.s3.addressing_style path
+          if [ -z "$TARGET_BACKUP" ]; then
+            TARGET_BACKUP=$(aws s3 ls "s3://${S3_BUCKET}/${SITE_ID}/" --endpoint-url "${S3_ENDPOINT}" | sort | tail -n 1 | awk '{print $4}')
+          fi
+          if [ -z "$TARGET_BACKUP" ]; then
+            echo "❌ Erreur: Aucun backup trouvé sur s3://${S3_BUCKET}/${SITE_ID}/"
+            exit 1
+          fi
+          echo "⬇️ Téléchargement: ${TARGET_BACKUP}..."
+          aws s3 cp "s3://${S3_BUCKET}/${SITE_ID}/${TARGET_BACKUP}" ./backup.tar.gz --endpoint-url "${S3_ENDPOINT}"
+          mkdir -p restore_dist
+          tar -xzf ./backup.tar.gz -C restore_dist
+
+      - name: Deploy restored files to Infomaniak
+        env:
+          SSH_PASSWORD: ${{ secrets.SSH_PASSWORD }}
+          SSH_USER: ${{ secrets.SSH_USER }}
+          SSH_HOST: ${{ secrets.SSH_HOST }}
+          SSH_PATH: ${{ secrets.SSH_PATH }}
+        run: |
+          sudo apt-get install -y sshpass rsync
+          export SSHPASS="$SSH_PASSWORD"
+          sshpass -e rsync -rlvz --delete --exclude=".user.ini" --exclude=".infomaniak*" -e "ssh -o StrictHostKeyChecking=no" restore_dist/ $SSH_USER@$SSH_HOST:$SSH_PATH/
+          echo "🎉 Site restauré avec succès depuis Swiss Backup S3 !"

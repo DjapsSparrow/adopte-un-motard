@@ -46,3 +46,63 @@ jobs:
           else
             echo "⚠️ FAILURE_WEBHOOK_URL non configuré, impossible d'alerter Kuroko."
           fi
+
+      - name: Backup production build to Swiss Backup S3
+        if: success()
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.S3_ACCESS_KEY }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.S3_SECRET_KEY }}
+          S3_ENDPOINT: "https://s3.swiss-backup04.infomaniak.com"
+          S3_BUCKET: "webomatik-backups"
+          SITE_ID: "adopte-un-motard"
+        run: |
+          aws configure set default.s3.addressing_style path
+          TIMESTAMP=$(date +'%Y-%m-%d_%H%M%S')
+          BACKUP_NAME="${SITE_ID}_backup_${TIMESTAMP}.tar.gz"
+          echo "{\"site\": \"${SITE_ID}\", \"timestamp\": \"${TIMESTAMP}\", \"commit\": \"${{ github.sha }}\"}" > dist/BACKUP_MANIFEST.json
+          tar -czf "${BACKUP_NAME}" -C dist .
+          rm -f dist/BACKUP_MANIFEST.json
+          echo "Envoi de ${BACKUP_NAME} vers s3://${S3_BUCKET}/${SITE_ID}/${BACKUP_NAME}..."
+          aws s3 cp "${BACKUP_NAME}" "s3://${S3_BUCKET}/${SITE_ID}/${BACKUP_NAME}" --endpoint-url "${S3_ENDPOINT}"
+          pip install boto3 --quiet
+          python3 - << 'PYEOF'
+          import os, re, boto3
+          from botocore.client import Config
+          from datetime import datetime, timezone, timedelta
+          s3 = boto3.client('s3', endpoint_url=os.environ.get("S3_ENDPOINT"),
+                            aws_access_key_id=os.environ.get("AWS_ACCESS_KEY_ID"),
+                            aws_secret_access_key=os.environ.get("AWS_SECRET_ACCESS_KEY"),
+                            config=Config(s3={'addressing_style': 'path'}, signature_version='s3v4'))
+          try:
+              resp = s3.list_objects_v2(Bucket=os.environ.get("S3_BUCKET"), Prefix=f"{os.environ.get('SITE_ID')}/")
+              contents = resp.get("Contents", [])
+              now = datetime.now(timezone.utc)
+              cutoff_12m = now - timedelta(days=365)
+              cutoff_30d = now - timedelta(days=30)
+              pattern = re.compile(rf"{os.environ.get('SITE_ID')}_backup_(\d{{4}}-\d{{2}}-\d{{2}}_\d{{6}})\.tar\.gz")
+              backups = []
+              for obj in contents:
+                  match = pattern.search(obj["Key"])
+                  if match:
+                      try:
+                          dt = datetime.strptime(match.group(1), "%Y-%m-%d_%H%M%S").replace(tzinfo=timezone.utc)
+                          backups.append((dt, obj["Key"]))
+                      except ValueError:
+                          pass
+              backups.sort(key=lambda x: x[0])
+              kept_months = set()
+              to_delete = []
+              for dt, key in backups:
+                  if dt < cutoff_12m:
+                      to_delete.append(key)
+                  elif dt < cutoff_30d:
+                      month_key = dt.strftime("%Y-%m")
+                      if month_key not in kept_months:
+                          kept_months.add(month_key)
+                      else:
+                          to_delete.append(key)
+              for key in to_delete:
+                  s3.delete_object(Bucket=os.environ.get("S3_BUCKET"), Key=key)
+          except Exception as e:
+              print(f"Notice rotation S3: {e}")
+PYEOF
