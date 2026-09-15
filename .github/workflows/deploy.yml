@@ -105,4 +105,4 @@ jobs:
                   s3.delete_object(Bucket=os.environ.get("S3_BUCKET"), Key=key)
           except Exception as e:
               print(f"Notice rotation S3: {e}")
-PYEOF
+          PYEOF
