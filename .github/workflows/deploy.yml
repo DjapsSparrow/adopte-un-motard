@@ -22,17 +22,53 @@ jobs:
         run: npm ci
 
       - name: 🏗️ Build project
-        run: npm run build
-
-      - name: 🚀 Deploy via RSYNC
+        run: npm run build      - name: Deploy via SSH/RSYNC (Auto-Detecting Modern Key / Hardened SSH)
         env:
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
           SSH_PASSWORD: ${{ secrets.SSH_PASSWORD }}
           SSH_HOST: ${{ secrets.SSH_HOST }}
           SSH_USER: ${{ secrets.SSH_USER }}
+          SSH_PATH: ${{ secrets.SSH_PATH }}
         run: |
-          sudo apt-get install -y sshpass rsync
-          export SSHPASS=$SSH_PASSWORD
-          sshpass -e rsync -rlvz --delete -e "ssh -o StrictHostKeyChecking=no" dist/ $SSH_USER@$SSH_HOST:sites/adopteunmotard.com/ || true
+          TARGET_PATH="${SSH_PATH:-sites/adopteunmotard.com}"
+          if [ -n "$SSH_PRIVATE_KEY" ]; then
+            echo "🔑 Mode Clé SSH ED25519 détecté (Modèle Moderne)..."
+            mkdir -p ~/.ssh
+            echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_ed25519
+            chmod 600 ~/.ssh/id_ed25519
+            ssh-keyscan -H "$SSH_HOST" >> ~/.ssh/known_hosts
+
+            echo "🧹 Nettoyage préventif des résidus SSR..."
+            ssh -i ~/.ssh/id_ed25519 -o ConnectTimeout=15 "$SSH_USER@$SSH_HOST" "cd $TARGET_PATH && rm -rf app.js tmp/ server/ package.json package-lock.json" || true
+
+            echo "🚀 Déploiement via RSYNC par clé SSH vers $TARGET_PATH/..."
+            rsync -avz --delete \
+              --exclude='.user.ini' \
+              --exclude='.infomaniak*' \
+              --exclude='pb*' \
+              --exclude='.env*' \
+              -e "ssh -i ~/.ssh/id_ed25519 -o ConnectTimeout=15" \
+              dist/ "$SSH_USER@$SSH_HOST:$TARGET_PATH/"
+            echo "🏆 Déploiement par clé SSH réussi !"
+          else
+            echo "🔒 Mode SSHPASS sécurisé (repli durci sans clé)..."
+            sudo apt-get install -y sshpass rsync
+            export SSHPASS=$SSH_PASSWORD
+
+            echo "🧹 Nettoyage préventif des résidus SSR..."
+            sshpass -e ssh -4 -o StrictHostKeyChecking=accept-new -o ConnectTimeout=15 "$SSH_USER@$SSH_HOST" "cd $TARGET_PATH && rm -rf app.js tmp/ server/ package.json package-lock.json" || true
+
+            echo "🚀 Déploiement via RSYNC sécurisé vers $TARGET_PATH/..."
+            sshpass -e rsync -rlvz --delete \
+              --exclude='.user.ini' \
+              --exclude='.infomaniak*' \
+              --exclude='pb*' \
+              --exclude='.env*' \
+              -e "ssh -4 -o StrictHostKeyChecking=accept-new -o ConnectTimeout=15" \
+              dist/ "$SSH_USER@$SSH_HOST:$TARGET_PATH/"
+            echo "✅ Déploiement sécurisé réussi !"
+          fi
+
 
       - name: 🚨 Notify Kuroko of failure
         if: failure()
