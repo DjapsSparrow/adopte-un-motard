@@ -22,3 +22,8 @@ pnpm-debug.log*
 
 # jetbrains setting folder
 .idea/
+
+# Webomatik Auto-Ignore
+_SAFEPOINTS_/
+**/_SAFEPOINTS_/
+.env.local
