@@ -22,3 +22,9 @@
 - **Problème** : `The requested module 'lucide-react' does not provide an export named 'Tool'`. Échec du build GitHub Actions v1.7.0.
 - **Solution** : Remplacer `<Tool />` par `<Wrench />`.
 - **Règle d'or** : Valider les noms d'icônes sur le site Lucide avant le push.
+
+## CI/CD YAML Concatenation & Suppression Collatérale Mutualisée (2026-11-15)
+- **Problème 1 (`deploy.yml`)** : Concaténation accidentelle à la ligne 25 (`run: npm run build      - name: Deploy...`) bloquant tout déclenchement de workflow GitHub Actions sur `push`.
+- **Solution 1** : Rétablir le saut de ligne YAML avant `- name:`, ajouter `-4` IPv4 sur la branche ED25519 et `continue-on-error: true` sur les steps post-déploiement (webhook/S3).
+- **Problème 2 (Incident FTP 404)** : À `18h49m32s`, le workflow `43743219581` d'un dépôt voisin (`fudoki`) partageant le même hébergement mutualisé (`HOSTING_ID=788037`) a lancé `rsync --delete` avec un secret `SSH_PATH` vide (sans fallback `TARGET_PATH`), supprimant `sites/adopteunmotard.com/` et `~/.ssh/authorized_keys` 40 secondes après le déploiement `v2.5.1`.
+- **Solution 2** : Toujours vérifier les logs des dépôts partageant le mutualisé en cas de disparition soudaine du dossier distant ; relancer le workflow `adopte-un-motard` (`43743169498`) recrée instantanément `sites/adopteunmotard.com/` via `rsync`.

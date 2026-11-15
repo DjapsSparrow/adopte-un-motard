@@ -2,22 +2,22 @@
 
 
 <!-- ROBIN-AUTO-SYNC-START -->
-### 🔄 Auto-Rattrapage Robin (2026-11-15 — Synchronisé avec Git & Fichiers)
-- `2026-11-15` (`v2.5.1`) : feat(landing): remove testimonials section & navbar anchor (conformité légale)
+### 🔄 Auto-Rattrapage Robin (2026-11-15 — Clôture de Session)
+- `2026-11-15` : Clôture complète — [fiche du jour](file:///Volumes/Bakku%20Pakku/APP%20DEV/Sites/adopte%20un%20motard/docs/journal/2026-11-15.md), DNS `MX`/`SPF` Amen propagés, incident FTP `fudoki` résolu (`HTTP 200`, `v2.5.1`).
+- `2026-11-15` (`v2.5.1`, `ce92d57`) : feat(landing): remove testimonials section & navbar anchor (conformité légale)
 - `2026-11-15` (`d58c230`) : fix(ci): repair deploy.yml YAML syntax, IPv4 & S3 resilience
 - `2026-11-15` (`83f7c42`) : sec(audit): patch astro ^7.4.12 & durcissement .htaccess (Cloudflare Audit)
 - `2026-10-23` (`5583518`) : chore: snapshot local changes & Webomatik Auto-Carnet
-- `2026-10-09` (`3be8e6b`) : fix(security): update dependencies to astro ^7.3.8 and sharp ^0.35.5 (0 vulnerabilities)
-- **État Git** : Arbre propre, synchronisé avec `origin/main` (`v2.5.1` sans témoignages fictifs déployée ; DNS MX/SPF Amen configurés et propagés sur Infomaniak).
+- **État Git** : Session clôturée, arbre propre et synchronisé avec `origin/main` (`https://adopteunmotard.com` live en `v2.5.1`, `MX 10 mail-fr.securemail.pro` + SPF Amen actifs).
 <!-- ROBIN-AUTO-SYNC-END -->
 ---
 
 ## 🧭 PHASE 1: ÉTAT ACTUEL & CONTEXTE OPÉRATIONNEL (VIVANT)
-*Dernière synchronisation : 2026-11-15 — Statut : 100% STABLE / PRODUCTION SYNCHRONISÉE*
+*Dernière synchronisation : 2026-11-15 (Clôture) — Statut : 100% STABLE / PRODUCTION SYNCHRONISÉE*
 
 * **Projet** : Adopte un motard (Plateforme d'accompagnement & formation à la mobilité électrique)
-* **URL de Production** : [https://adopteunmotard.com](https://adopteunmotard.com)
-* **Version Active** : `v2.5.1` (Section Témoignages désactivée en attente de vrais retours clients)
+* **URL de Production** : [https://adopteunmotard.com](https://adopteunmotard.com) (`HTTP 200`, site 100 % statique sans formulaire ni envoi SMTP local)
+* **Version Active** : `v2.5.1` (Section Témoignages désactivée pour conformité légale ; DNS `MX` Amen & `SPF` `v=spf1 include:spf.webapps.net ~all` actifs sur Infomaniak)
 * **Stack Technique** :
   - **Moteur SSG** : [Astro ^7.4.12](file:///Volumes/Bakku%20Pakku/APP%20DEV/Sites/adopte%20un%20motard/astro.config.mjs) (Vite ^6.4.6, Sharp ^0.35.5)
   - **UI & Composants dynamiques** : React 19.2.5 & Framer Motion 12.38.0

@@ -17,13 +17,15 @@ Source unique de vérité pour les tâches, jalons et actions en cours de l'équ
 - [x] **Correctif YAML deploy.yml & Push Production** : Réparation de la ligne 25 de `.github/workflows/deploy.yml`, validation du build Astro 7 et push sur `origin/main`.
 - [x] **Retrait Section Témoignages (v2.5.1)** : Désactivation complète du carrousel de 9 avis fictifs et de l'ancre `#temoignages` dans `Navbar.tsx` (conformité légale, 0 résidu dans `dist/`).
 - [x] **Zone DNS Infomaniak (Emails Amen `contact@`)** : Ajout de `MX 10 mail-fr.securemail.pro` et mise à jour du SPF vers `v=spf1 include:spf.webapps.net ~all` sur `adopteunmotard.com`, propagés et vérifiés par `dig`.
+- [x] **Restauration Post-Incident FTP & Clés SSH Mutualisé** : Recréation de `sites/adopteunmotard.com/` via rerun `43743169498` (`HTTP 200`, `v2.5.1`) et rétablissement des 16 clés `~/.ssh/authorized_keys` (débloquant aussi `naanspot.webomatik.org`).
 
 ---
 
 ## 🟡 Tâches en Cours / À Arbitrer (Backlog Immédiat)
 - [ ] **Audit Lighthouse & Core Web Vitals en Production** : Valider les scores réels sur l'URL de production `https://adopteunmotard.com`.
 - [ ] **Validation du Taux de Clic du Funnel** : Contrôler le parcours utilisateur post-retrait du carré de prix Hero (conversion bas de page).
-- [ ] **Transition Clé SSH ED25519 Définitive** : Vérifier que le secret GitHub `SSH_PRIVATE_KEY` est activé sur le repository pour s'affranchir complètement du mode SSHPASS.
+- [ ] **Transition Clé SSH ED25519 Définitive & Pre-flight Guard CI** : Ajouter le secret GitHub `SSH_PRIVATE_KEY` sur `DjapsSparrow/adopte-un-motard` et un garde-fou bloquant sur `TARGET_PATH` dans `deploy.yml`.
+- [ ] **Veille DMARC / DKIM Amen (Si envoi sortant futur)** : Vérifier la configuration DKIM chez Amen si le client souhaite expédier avec `@adopteunmotard.com` (compte tenu de `_dmarc` en `p=reject`).
 - [ ] **Préparation Rétrofit Hub CMS (Optionnel)** : Évaluer l'opportunité de connecter le catalogue de témoignages ou les modules de formation au Hub Webomatik / PocketBase.
 
 ---
