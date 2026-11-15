@@ -15,10 +15,12 @@ Source unique de vérité pour les tâches, jalons et actions en cours de l'équ
 - [x] **Archéologie & Documentation Historique** : Reconstitution des fiches rétroactives dans `docs/journal/` et indexation Hub & Spoke.
 - [x] **Audit Sécurité & Patch Astro 7 (Local)** : Montée vers Astro ^7.4.12, Sharp ^0.35.5 et Vite ^6.4.6 (0 vulnérabilité).
 - [x] **Correctif YAML deploy.yml & Push Production** : Réparation de la ligne 25 de `.github/workflows/deploy.yml`, validation du build Astro 7 et push sur `origin/main`.
+- [x] **Retrait Section Témoignages (v2.5.1)** : Désactivation complète du carrousel de 9 avis fictifs et de l'ancre `#temoignages` dans `Navbar.tsx` (conformité légale, 0 résidu dans `dist/`).
 
 ---
 
 ## 🟡 Tâches en Cours / À Arbitrer (Backlog Immédiat)
+- [ ] **Zone DNS Infomaniak (Emails Amen `contact@`)** : Ajouter `MX 10 mail-fr.securemail.pro` et remplacer le SPF par `v=spf1 include:spf.webapps.net ~all` sur `adopteunmotard.com`, puis vérifier par `dig`.
 - [ ] **Audit Lighthouse & Core Web Vitals en Production** : Valider les scores réels sur l'URL de production `https://adopteunmotard.com`.
 - [ ] **Validation du Taux de Clic du Funnel** : Contrôler le parcours utilisateur post-retrait du carré de prix Hero (conversion bas de page).
 - [ ] **Transition Clé SSH ED25519 Définitive** : Vérifier que le secret GitHub `SSH_PRIVATE_KEY` est activé sur le repository pour s'affranchir complètement du mode SSHPASS.

@@ -3,12 +3,12 @@
 
 <!-- ROBIN-AUTO-SYNC-START -->
 ### 🔄 Auto-Rattrapage Robin (2026-11-15 — Synchronisé avec Git & Fichiers)
+- `2026-11-15` (`v2.5.1`) : feat(landing): remove testimonials section & navbar anchor (conformité légale)
+- `2026-11-15` (`d58c230`) : fix(ci): repair deploy.yml YAML syntax, IPv4 & S3 resilience
 - `2026-11-15` (`83f7c42`) : sec(audit): patch astro ^7.4.12 & durcissement .htaccess (Cloudflare Audit)
 - `2026-10-23` (`5583518`) : chore: snapshot local changes & Webomatik Auto-Carnet
 - `2026-10-09` (`3be8e6b`) : fix(security): update dependencies to astro ^7.3.8 and sharp ^0.35.5 (0 vulnerabilities)
-- `2026-09-23` (`4907971`) : ci: modernize deployment workflow with auto-detecting ssh-key & keyscan
-- `2026-09-15` (`a5cfc22`) : ci: 🐛 Fix YAML indentation for S3 backup
-- **État Git** : Arbre propre, synchronisé avec `origin/main` (correctif `deploy.yml` + build Astro 7 validé et poussé en production).
+- **État Git** : Arbre propre, synchronisé avec `origin/main` (`v2.5.1` sans témoignages fictifs déployée ; DNS MX/SPF Infomaniak à appliquer côté Manager).
 <!-- ROBIN-AUTO-SYNC-END -->
 ---
 
@@ -17,7 +17,7 @@
 
 * **Projet** : Adopte un motard (Plateforme d'accompagnement & formation à la mobilité électrique)
 * **URL de Production** : [https://adopteunmotard.com](https://adopteunmotard.com)
-* **Version Active** : `v2.5.0` (Stabilité validée, images WebP haute performance)
+* **Version Active** : `v2.5.1` (Section Témoignages désactivée en attente de vrais retours clients)
 * **Stack Technique** :
   - **Moteur SSG** : [Astro ^7.4.12](file:///Volumes/Bakku%20Pakku/APP%20DEV/Sites/adopte%20un%20motard/astro.config.mjs) (Vite ^6.4.6, Sharp ^0.35.5)
   - **UI & Composants dynamiques** : React 19.2.5 & Framer Motion 12.38.0
@@ -28,9 +28,9 @@
   - **Pipeline CI/CD** : GitHub Actions ([deploy.yml](file:///Volumes/Bakku%20Pakku/APP%20DEV/Sites/adopte%20un%20motard/.github/workflows/deploy.yml)) avec bi-mode Clé ED25519 / SSHPASS durci (IPv4 forcée, keyscan dynamique)
   - **Résilience & Sauvegarde** : Snapshot automatique de chaque build vers Swiss Backup S3 (`webomatik-backups`), rétention 30j/12m, et procédure de [Rollback 1 clic](file:///Volumes/Bakku%20Pakku/APP%20DEV/Sites/adopte%20un%20motard/.github/workflows/rollback.yml)
 * **Routes & Architecture de Page** :
-  - `/` : Landing page principale monobloc (Sections : Hero, Constat, Promesse/Expertise, Programme 12 modules, Pour Qui, Tarifs/Investissement, Témoignages, Final CTA)
+  - `/` : Landing page principale monobloc (Sections : Hero, Constat, Promesse/Expertise, Programme 12 modules, Pour Qui, Tarifs/Investissement, Final CTA — Témoignages désactivés en `v2.5.1`)
   - `/robots.txt` & `/sitemap-index.xml` : Référencement naturel automatisé
-* **🚫 Arbitrages & Pistes Écartées (Ne pas reproposer)** : Aucun badge de prix dans le Hero (retiré volontairement le 2026-05-31 pour favoriser la lecture narrative du tunnel) ; CTA Hero en « Slide-to-Join » plutôt qu'un bouton classique ; navigation unifiée dans `Navbar.tsx` (`client:load`) sans hybride Astro/React.
+* **🚫 Arbitrages & Pistes Écartées (Ne pas reproposer)** : Aucun badge de prix dans le Hero (retiré volontairement le 2026-05-31 pour favoriser la lecture narrative du tunnel) ; CTA Hero en « Slide-to-Join » plutôt qu'un bouton classique ; navigation unifiée dans `Navbar.tsx` (`client:load`) sans hybride Astro/React ; Section Témoignages désactivée (conformité légale — zéro faux avis client, à réactiver uniquement avec de vrais témoignages).
 * **Backlog Actif** : 👉 **Consulter impérativement la source de vérité :** [docs/task.md](file:///Volumes/Bakku%20Pakku/APP%20DEV/Sites/adopte%20un%20motard/docs/task.md)
 
 ---
@@ -51,18 +51,20 @@
 ## ⚡ PHASE 3: DERNIÈRES DÉCISIONS & SYNTHÈSE DES SESSIONS
 *Consulter les fiches dédiées dans `docs/journal/` pour l'historique complet.*
 
-1. **Patchs Sécurité Astro 7 & Audit Dépendances (2026-10-09 & 2026-11-15)** :
+1. **Retrait Légal des Témoignages Fictifs — v2.5.1 (2026-11-15)** :
+   - Désactivation de `<Testimonials />` sur l'accueil et retrait de l'ancre `#temoignages` dans `Navbar.tsx` (0 résidu texte/photo dans `dist/`, composant conservé hors-build pour futurs vrais avis).
+2. **Patchs Sécurité Astro 7 & Audit Dépendances (2026-10-09 & 2026-11-15)** :
    - Montée de version vers Astro `^7.4.12`, Vite `^6.4.6` et Sharp `^0.35.5` (0 vulnérabilité npm, audit Cloudflare).
-2. **Modernisation SSH & Sécurité (2026-09-23)** :
+3. **Modernisation SSH & Sécurité (2026-09-23)** :
    - Mise en place du support de clé privée ED25519 avec `ssh-keyscan` automatique.
    - Suppression des flags permissifs, conservation du fallback SSHPASS sécurisé IPv4.
-3. **Système de Résilience S3 & Rollback 1 clic (2026-09-15)** :
+4. **Système de Résilience S3 & Rollback 1 clic (2026-09-15)** :
    - Sauvegarde post-build immédiate sur Swiss Backup S3 Infomaniak.
    - Workflow GitHub Actions dédié pour restaurer une version précédente en 30 secondes sans compilation.
-4. **Optimisation CI `npm ci` (2026-06-24)** :
+5. **Optimisation CI `npm ci` (2026-06-24)** :
    - Installation déterministe et accélérée sur runner GitHub Actions.
-5. **Désencombrement du Hero & Favicon Carré (2026-05-31)** :
+6. **Désencombrement du Hero & Favicon Carré (2026-05-31)** :
    - Retrait du badge de prix dans le Hero pour favoriser la lecture narrative du tunnel de vente.
    - Intégration d'un favicon carré haute définition pour affichages desktop/mobile.
-6. **Refonte Performance & Assets v2.5.0 (2026-05-05)** :
+7. **Refonte Performance & Assets v2.5.0 (2026-05-05)** :
    - Conversion WebP native Astro (`astro:assets`), réduction de 80% du poids des médias, LCP optimisé.

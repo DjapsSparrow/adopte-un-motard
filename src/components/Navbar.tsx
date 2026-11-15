@@ -5,7 +5,6 @@ import { AnimatedThemeToggler } from "./ui/AnimatedThemeToggler";
 import {
   IconHome,
   IconListDetails,
-  IconMessageHeart,
   IconReceipt2,
   IconTargetArrow,
   IconShoppingCart,
@@ -38,11 +37,6 @@ export const Navbar = () => {
       title: "Tarifs",
       icon: <IconReceipt2 className="h-full w-full" />,
       href: "#tarifs",
-    },
-    {
-      title: "Témoignages",
-      icon: <IconMessageHeart className="h-full w-full" />,
-      href: "#temoignages",
     },
     {
       title: "Rejoindre",
