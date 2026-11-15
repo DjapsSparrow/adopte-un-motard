@@ -8,7 +8,7 @@
 - `2026-11-15` (`83f7c42`) : sec(audit): patch astro ^7.4.12 & durcissement .htaccess (Cloudflare Audit)
 - `2026-10-23` (`5583518`) : chore: snapshot local changes & Webomatik Auto-Carnet
 - `2026-10-09` (`3be8e6b`) : fix(security): update dependencies to astro ^7.3.8 and sharp ^0.35.5 (0 vulnerabilities)
-- **État Git** : Arbre propre, synchronisé avec `origin/main` (`v2.5.1` sans témoignages fictifs déployée ; DNS MX/SPF Infomaniak à appliquer côté Manager).
+- **État Git** : Arbre propre, synchronisé avec `origin/main` (`v2.5.1` sans témoignages fictifs déployée ; DNS MX/SPF Amen configurés et propagés sur Infomaniak).
 <!-- ROBIN-AUTO-SYNC-END -->
 ---
 
@@ -51,20 +51,22 @@
 ## ⚡ PHASE 3: DERNIÈRES DÉCISIONS & SYNTHÈSE DES SESSIONS
 *Consulter les fiches dédiées dans `docs/journal/` pour l'historique complet.*
 
-1. **Retrait Légal des Témoignages Fictifs — v2.5.1 (2026-11-15)** :
+1. **Zone DNS Infomaniak & Messagerie Amen (2026-11-15)** :
+   - Ajout de `MX 10 mail-fr.securemail.pro` (`.`) et remplacement du SPF (`TXT` `34011230`) par `"v=spf1 include:spf.webapps.net ~all"` via API Infomaniak v2, vérifiés sur `ns11`/`ns12` et `8.8.8.8`/`1.1.1.1`.
+2. **Retrait Légal des Témoignages Fictifs — v2.5.1 (2026-11-15)** :
    - Désactivation de `<Testimonials />` sur l'accueil et retrait de l'ancre `#temoignages` dans `Navbar.tsx` (0 résidu texte/photo dans `dist/`, composant conservé hors-build pour futurs vrais avis).
-2. **Patchs Sécurité Astro 7 & Audit Dépendances (2026-10-09 & 2026-11-15)** :
+3. **Patchs Sécurité Astro 7 & Audit Dépendances (2026-10-09 & 2026-11-15)** :
    - Montée de version vers Astro `^7.4.12`, Vite `^6.4.6` et Sharp `^0.35.5` (0 vulnérabilité npm, audit Cloudflare).
-3. **Modernisation SSH & Sécurité (2026-09-23)** :
+4. **Modernisation SSH & Sécurité (2026-09-23)** :
    - Mise en place du support de clé privée ED25519 avec `ssh-keyscan` automatique.
    - Suppression des flags permissifs, conservation du fallback SSHPASS sécurisé IPv4.
-4. **Système de Résilience S3 & Rollback 1 clic (2026-09-15)** :
+5. **Système de Résilience S3 & Rollback 1 clic (2026-09-15)** :
    - Sauvegarde post-build immédiate sur Swiss Backup S3 Infomaniak.
    - Workflow GitHub Actions dédié pour restaurer une version précédente en 30 secondes sans compilation.
-5. **Optimisation CI `npm ci` (2026-06-24)** :
+6. **Optimisation CI `npm ci` (2026-06-24)** :
    - Installation déterministe et accélérée sur runner GitHub Actions.
-6. **Désencombrement du Hero & Favicon Carré (2026-05-31)** :
+7. **Désencombrement du Hero & Favicon Carré (2026-05-31)** :
    - Retrait du badge de prix dans le Hero pour favoriser la lecture narrative du tunnel de vente.
    - Intégration d'un favicon carré haute définition pour affichages desktop/mobile.
-7. **Refonte Performance & Assets v2.5.0 (2026-05-05)** :
+8. **Refonte Performance & Assets v2.5.0 (2026-05-05)** :
    - Conversion WebP native Astro (`astro:assets`), réduction de 80% du poids des médias, LCP optimisé.
