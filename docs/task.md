@@ -13,10 +13,12 @@ Source unique de vérité pour les tâches, jalons et actions en cours de l'équ
 - [x] **Résilience & Rollback** : Sauvegarde post-déploiement automatique vers Swiss Backup S3 avec rotation 30j/12m et workflow GitHub Actions de Rollback 1 clic.
 - [x] **Sécurité SSH & CI Durcie** : Prise en charge des clés asymétriques ED25519, `ssh-keyscan` dynamique et fallback SSHPASS en IPv4.
 - [x] **Archéologie & Documentation Historique** : Reconstitution des fiches rétroactives dans `docs/journal/` et indexation Hub & Spoke.
+- [x] **Audit Sécurité & Patch Astro 7 (Local)** : Montée vers Astro ^7.4.12, Sharp ^0.35.5 et Vite ^6.4.6 (0 vulnérabilité).
 
 ---
 
 ## 🟡 Tâches en Cours / À Arbitrer (Backlog Immédiat)
+- [ ] **Correctif YAML deploy.yml & Push Production** : Corriger le saut de ligne manquant à la ligne 25 de `.github/workflows/deploy.yml` (`run: npm run build` collé à `- name: Deploy via SSH/RSYNC`) puis pousser les commits locaux sur `origin/main`.
 - [ ] **Audit Lighthouse & Core Web Vitals en Production** : Valider les scores réels sur l'URL de production `https://adopteunmotard.com`.
 - [ ] **Validation du Taux de Clic du Funnel** : Contrôler le parcours utilisateur post-retrait du carré de prix Hero (conversion bas de page).
 - [ ] **Transition Clé SSH ED25519 Définitive** : Vérifier que le secret GitHub `SSH_PRIVATE_KEY` est activé sur le repository pour s'affranchir complètement du mode SSHPASS.
