@@ -46,7 +46,15 @@ jobs:
           SSH_HOST: ${{ secrets.SSH_HOST }}
           SSH_PATH: ${{ secrets.SSH_PATH }}
         run: |
+          TARGET_PATH="${SSH_PATH:-sites/adopteunmotard.com}"
           sudo apt-get install -y sshpass rsync
           export SSHPASS="$SSH_PASSWORD"
-          sshpass -e rsync -rlvz --delete --exclude=".user.ini" --exclude=".infomaniak*" -e "ssh -o StrictHostKeyChecking=no" restore_dist/ $SSH_USER@$SSH_HOST:$SSH_PATH/
+          sshpass -e ssh -o StrictHostKeyChecking=accept-new "$SSH_USER@$SSH_HOST" "mkdir -p '$TARGET_PATH'"
+          sshpass -e rsync -rlvz --delete \
+            --exclude=".user.ini" \
+            --exclude=".infomaniak*" \
+            --exclude=".env*" \
+            --exclude=".DS_Store" \
+            -e "ssh -o StrictHostKeyChecking=accept-new" \
+            restore_dist/ "$SSH_USER@$SSH_HOST:$TARGET_PATH/"
           echo "🎉 Site restauré avec succès depuis Swiss Backup S3 !"

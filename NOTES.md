@@ -16,16 +16,16 @@
 *Dernière synchronisation : 2026-11-15 (Clôture) — Statut : 100% STABLE / PRODUCTION SYNCHRONISÉE*
 
 * **Projet** : Adopte un motard (Plateforme d'accompagnement & formation à la mobilité électrique)
-* **URL de Production** : [https://adopteunmotard.com](https://adopteunmotard.com) (`HTTP 200`, site 100 % statique sans formulaire ni envoi SMTP local)
-* **Version Active** : `v2.5.1` (Section Témoignages désactivée pour conformité légale ; DNS `MX` Amen & `SPF` `v=spf1 include:spf.webapps.net ~all` actifs sur Infomaniak)
+* **URL de Production** : [https://adopteunmotard.com](https://adopteunmotard.com) et [https://www.adopteunmotard.com](https://www.adopteunmotard.com) (`HTTP 200`, site 100 % statique sans formulaire ni envoi SMTP local)
+* **Version Active** : `v2.5.2` (Migration Production Dédiée vers Cloud Managé Infomaniak 4x9nbc - Pa ; MX Amen `10 mail-fr.securemail.pro.` 100% préservé)
 * **Stack Technique** :
   - **Moteur SSG** : [Astro ^7.4.12](file:///Volumes/Bakku%20Pakku/APP%20DEV/Sites/adopte%20un%20motard/astro.config.mjs) (Vite ^6.4.6, Sharp ^0.35.5)
   - **UI & Composants dynamiques** : React 19.2.5 & Framer Motion 12.38.0
   - **Styles** : Tailwind CSS v4.2.4 (intégré via `@tailwindcss/vite`)
   - **Icônes & Typo** : `@tabler/icons-react`, `lucide-react`, `@fontsource/inter`
 * **Infrastructure & CI/CD** :
-  - **Hébergeur** : Infomaniak Web Hosting (Mutualisé, cible relative : `sites/adopteunmotard.com`)
-  - **Pipeline CI/CD** : GitHub Actions ([deploy.yml](file:///Volumes/Bakku%20Pakku/APP%20DEV/Sites/adopte%20un%20motard/.github/workflows/deploy.yml)) avec bi-mode Clé ED25519 / SSHPASS durci (IPv4 forcée, keyscan dynamique)
+  - **Hébergeur** : Cloud Managé Infomaniak (`4x9nbc.ftp.infomaniak.com`, cible : `sites/adopteunmotard.com`) - Migré depuis l'ancien mutualisé `pl0pg8`
+  - **Pipeline CI/CD** : GitHub Actions ([deploy.yml](file:///Volumes/Bakku%20Pakku/APP%20DEV/Sites/adopte%20un%20motard/.github/workflows/deploy.yml)) avec clé ED25519 (`infomaniak_aefe_dep`), `StrictHostKeyChecking=accept-new`
   - **Résilience & Sauvegarde** : Snapshot automatique de chaque build vers Swiss Backup S3 (`webomatik-backups`), rétention 30j/12m, et procédure de [Rollback 1 clic](file:///Volumes/Bakku%20Pakku/APP%20DEV/Sites/adopte%20un%20motard/.github/workflows/rollback.yml)
 * **Routes & Architecture de Page** :
   - `/` : Landing page principale monobloc (Sections : Hero, Constat, Promesse/Expertise, Programme 12 modules, Pour Qui, Tarifs/Investissement, Final CTA — Témoignages désactivés en `v2.5.1`)

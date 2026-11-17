@@ -1,4 +1,5 @@
 name: 🚀 Déploiement Infomaniak
+# Deployment - Production Dédiée (adopteunmotard.com sur Cloud Infomaniak)
 
 on:
   push:
@@ -24,6 +25,20 @@ jobs:
       - name: 🏗️ Build project
         run: npm run build
 
+      - name: 🛡️ Pre-flight Deployment Guard
+        run: |
+          TARGET_PATH="${{ secrets.SSH_PATH }}"
+          TARGET_PATH="${TARGET_PATH:-sites/adopteunmotard.com}"
+          if [ -z "$TARGET_PATH" ] || [ "$TARGET_PATH" = "/" ] || [ "$TARGET_PATH" = "." ] || [ "$TARGET_PATH" = "./" ]; then
+            echo "❌ CRITICAL ERROR: SSH_PATH is empty or root. Aborting deployment."
+            exit 1
+          fi
+          if [[ ! "$TARGET_PATH" =~ sites/ ]]; then
+            echo "❌ CRITICAL ERROR: TARGET_PATH ('$TARGET_PATH') does not target a site subdirectory. Aborting."
+            exit 1
+          fi
+          echo "✅ SSH_PATH validation passed: '$TARGET_PATH'"
+
       - name: 🚀 Deploy via SSH/RSYNC (Auto-Detecting Modern Key / Hardened SSH)
         env:
           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
@@ -33,15 +48,30 @@ jobs:
           SSH_PATH: ${{ secrets.SSH_PATH }}
         run: |
           TARGET_PATH="${SSH_PATH:-sites/adopteunmotard.com}"
+          if [[ "$TARGET_PATH" == /* ]]; then
+            TARGET_PATH="${TARGET_PATH#/}"
+          fi
+          if [ -z "$TARGET_PATH" ] || [ "$TARGET_PATH" = "." ] || [ "$TARGET_PATH" = "/" ]; then
+            echo "❌ Erreur critique : TARGET_PATH invalide ($TARGET_PATH). Abandon."
+            exit 1
+          fi
+          KEY_OK=false
           if [ -n "$SSH_PRIVATE_KEY" ]; then
-            echo "🔑 Mode Clé SSH ED25519 détecté (Modèle Moderne)..."
+            echo "🔑 Test Clé SSH ED25519..."
             mkdir -p ~/.ssh
             echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_ed25519
             chmod 600 ~/.ssh/id_ed25519
-            ssh-keyscan -4 -H "$SSH_HOST" >> ~/.ssh/known_hosts
+            ssh-keyscan -4 -H "$SSH_HOST" >> ~/.ssh/known_hosts 2>/dev/null || true
+            if ssh -4 -i ~/.ssh/id_ed25519 -o BatchMode=yes -o StrictHostKeyChecking=accept-new -o ConnectTimeout=10 "$SSH_USER@$SSH_HOST" "true" 2>/dev/null; then
+              KEY_OK=true
+            else
+              echo "⚠️ Clé SSH refusée, bascule automatique sur SSHPASS..."
+            fi
+          fi
+          if [ "$KEY_OK" = "true" ]; then
+            echo "🔑 Mode Clé SSH ED25519 détecté (Modèle Moderne)..."
 
-            echo "🧹 Nettoyage préventif des résidus SSR..."
-            ssh -4 -i ~/.ssh/id_ed25519 -o ConnectTimeout=15 "$SSH_USER@$SSH_HOST" "cd $TARGET_PATH && rm -rf app.js tmp/ server/ package.json package-lock.json" || true
+            ssh -4 -i ~/.ssh/id_ed25519 -o StrictHostKeyChecking=accept-new "$SSH_USER@$SSH_HOST" "mkdir -p '$TARGET_PATH'"
 
             echo "🚀 Déploiement via RSYNC par clé SSH vers $TARGET_PATH/..."
             rsync -avz --delete \
@@ -49,7 +79,8 @@ jobs:
               --exclude='.infomaniak*' \
               --exclude='pb*' \
               --exclude='.env*' \
-              -e "ssh -4 -i ~/.ssh/id_ed25519 -o ConnectTimeout=15" \
+              --exclude='.DS_Store' \
+              -e "ssh -4 -i ~/.ssh/id_ed25519 -o StrictHostKeyChecking=accept-new" \
               dist/ "$SSH_USER@$SSH_HOST:$TARGET_PATH/"
             echo "🏆 Déploiement par clé SSH réussi !"
           else
@@ -57,8 +88,7 @@ jobs:
             sudo apt-get install -y sshpass rsync
             export SSHPASS=$SSH_PASSWORD
 
-            echo "🧹 Nettoyage préventif des résidus SSR..."
-            sshpass -e ssh -4 -o StrictHostKeyChecking=accept-new -o ConnectTimeout=15 "$SSH_USER@$SSH_HOST" "cd $TARGET_PATH && rm -rf app.js tmp/ server/ package.json package-lock.json" || true
+            sshpass -e ssh -4 -o StrictHostKeyChecking=accept-new "$SSH_USER@$SSH_HOST" "mkdir -p '$TARGET_PATH'"
 
             echo "🚀 Déploiement via RSYNC sécurisé vers $TARGET_PATH/..."
             sshpass -e rsync -rlvz --delete \
@@ -66,11 +96,11 @@ jobs:
               --exclude='.infomaniak*' \
               --exclude='pb*' \
               --exclude='.env*' \
-              -e "ssh -4 -o StrictHostKeyChecking=accept-new -o ConnectTimeout=15" \
+              --exclude='.DS_Store' \
+              -e "ssh -4 -o StrictHostKeyChecking=accept-new" \
               dist/ "$SSH_USER@$SSH_HOST:$TARGET_PATH/"
             echo "✅ Déploiement sécurisé réussi !"
           fi
-
 
       - name: 🚨 Notify Kuroko of failure
         if: failure()
